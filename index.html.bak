@@ -1,0 +1,190 @@
+   <!DOCTYPE html>
+  <html lang="zh-CN">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+      <title>e键换脸---最好用的在线换脸工具</title>
+  
+      <!-- Bootstrap -->
+      <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/scroll_style.css" media="screen" type="text/css" />   
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript">
+      // 应用的JavaScript代码
+      </script>
+      <script type="text/javascript" src="js/init.js"> </script>
+      <script type="text/javascript" src="js/lufylegend-1.10.0.js"> </script>
+      <script src="js/tracking-min.js"></script>
+      <script src="js/data/face-min.js"></script>
+      <script src="js/data/eye-min.js"></script>
+      <script src="js/data/mouth-min.js"></script>
+      
+    </head>
+    <body>
+    <!-- ui部分-->
+        <!--导航条 -->
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid" >
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"  data-toggle="popover" data-trigger="focus" data-content="我们是BetaGo小组!"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> e键换脸 测试版 </a>
+      </div>
+     
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav" role="tablist">
+          <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab">  一键换脸  <span class="sr-only">(current)</span></a></li>
+          <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab">  五官拼接  </a></li>
+          <li role="presentation"><a href="#special_effects" aria-controls="special_effects" role="tab" data-toggle="tab">  特效添加  </a></li>
+          <li role="presentation"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab">  图片美化  </a></li>
+          <li role="presentation"><a href="#save_and_share" aria-controls="save_and_share" role="tab" data-toggle="tab">  保存与分享  </a></li>
+        </ul>
+        <!-- Tab panes -->
+       
+          
+          
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal" rel="popover" data-content="请先上传一张您需要处理的图片"  data-placement="bottom" data-trigger="focus" > 
+           <span class="glyphicon glyphicon-folder-open" aria-hidden="true" ></span> 上传图片  </a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+             用户登录 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" onClick="clearCanvas()">账号登录</a></li>
+              <li><a href="#">第三方授权登录</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">注销登录</a></li>
+            </ul>
+          </li>
+          <li><a href="#" onClick="requestFullScreen()" class="dropdown-toggle" >
+          <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>全屏模式 </a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  
+    
+  
+     
+    <!--  模块功能在此写 -->
+    <div class="tab-content"  style="width:1800px"   >
+      <!--模块1 -->
+      <div role="tabpanel" class="tab-pane active" id="face_change">
+      
+      <!-- 滚动条(换脸)-->
+      <div id="convo" data-from="Sonu Joshi" class="chat-thread" >  
+      <li><p> 点击选择要换的脸</p> </li>
+      <li><button style=" width:150px; height:105px"><img src="photo/button.png" onClick="addface()" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+      <li><button><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
+  </div>
+  
+     
+      </div>
+      <!--模块2 -->
+      <div role="tabpanel" class="tab-pane" id="features_combination">
+        <!-- 滚动条(五官拼接)-->
+      <div id="convo2" data-from="Sonu Joshi" class="chat-thread" >  
+      <li><p> 请选择眼睛</p> </li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1.png',1)" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2.png',1)" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+  </div>
+  
+      </div>
+      <!--模块3 -->
+      <div role="tabpanel" class="tab-pane" id="special_effects">模块3</div>
+      <!--模块4 -->
+      <div role="tabpanel" class="tab-pane" id="photo_beautify">模块4</div>
+      <!--模块5 --> 
+      <div role="tabpanel" class="tab-pane" id="save_and_share">模块5</div>
+    </div>   
+    
+     <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default" onClick="doBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>撤销</button>
+      <button type="button" class="btn btn-default" onClick="doFront()"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>重做</button>
+      <button type="button" class="btn btn-default" onClick="firstCanvas()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>原图</button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>对比</button>
+	  <p id="xycoordinates"  class="text-muted" >坐标值:</p>
+      </div>   
+       <script src="js/canvas.js"  type="text/javascript" ></script>
+	   <div>
+       <canvas id="myCanvas"  class="center-block"   width="1500px" height="800px" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()">
+       抱歉，您的浏览器貌似不支持画布功能。</canvas>    
+       </div>
+    
+    <!-- ui部分 over-->
+    
+  <!-- 图片选择框-->
+   
+   <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel" rel="popover" data-content="请先上传一张照片">请选择一张图片</h4>
+        </div>
+        <div class="modal-body">
+         <!-- 图片input--> 
+        <input type="file" id="fileElem" accept="image/*"  onchange="handleFiles(this)"  >
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 图片选择框  over-->
+    
+   <!-- 图片上传部分-->
+  <div id="fileList" style="width:200px;height:200px;"></div>
+  <script src="js/preshow_photo.js"  charset="gb2312">></script>
+      
+   <!-- 五官拼接按钮 -->
+       <script src="js/wuguanpinjie.js" charset="gb2312"> </script>
+   <!-- 读取面部信息-->
+  
+ 
+   <script src="js/face++.js"  charset="gb2312">></script>
+
+  <button id="testt" onClick="addtest()"> 显示眼睛坐标 </button>
+   <img id="img1" src="photo/preshow.png"> 
+  
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"> </script> -->             
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+      
+    </body>
+  </html>

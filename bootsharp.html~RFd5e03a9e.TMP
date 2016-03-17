@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="facepp/facepp-sdk.min.js"></script>
+    <script type="text/javascript">
+    // 应用的JavaScript代码
+    </script>
+    
+  </head>
+  <body>
+    <h1>在线一键换脸</h1>
+    
+   <!-- 图片上传部分-->
+ <input type="file" id="fileElem" multiple accept="image/*"  onchange="handleFiles(this)">
+<div id="fileList" style="width:200px;height:200px;"></div>
+<script>
+	window.URL = window.URL || window.webkitURL;
+	var fileElem = document.getElementById("fileElem"),
+	    fileList = document.getElementById("fileList");
+	function handleFiles(obj) {
+		var files = obj.files,
+			img = new Image();
+		if(window.URL){
+			//File API
+			  alert(files[0].name + "," + files[0].size + " bytes");
+		      img.src = window.URL.createObjectURL(files[0]); //创建一个object URL，并不是你的本地路径
+		      img.width = 200;
+		      img.onload = function(e) {
+				// alert(img.src);
+		        // window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+		      }
+		      fileList.appendChild(img);
+			  
+		}else if(window.FileReader){
+			//opera不支持createObjectURL/revokeObjectURL方法。我们用FileReader对象来处理
+			var reader = new FileReader();
+			reader.readAsDataURL(files[0]);
+			reader.onload = function(e){
+				alert(files[0].name + "," +e.total + " bytes");
+				img.src = this.result;
+				img.width = 200;
+				fileList.appendChild(img);
+			}
+		}else{
+			//ie
+			obj.select();
+			obj.blur();
+			var nfile = document.selection.createRange().text;
+			document.selection.empty();
+			img.src = nfile;
+			img.width = 200;
+			img.onload=function(){
+		      alert(nfile+","+img.fileSize + " bytes");
+		    }
+			fileList.appendChild(img);
+			//fileList.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='image',src='"+nfile+"')";
+		}
+	}
+</script>
+     <!-- 图片上传部分 over-->
+    
+    
+ <!-- 读取面部信息-->
+
+
+<pre id="response" > <font size="+1">Loading...</font></pre>
+<script>
+var api = new FacePP('abc3b4dd8808310720f3a521311f0bf0', 'vyvK77UjUxGdksdyojX0cWgGmM64PaLq');
+api.request('detection/detect', {
+    url: 'http://b.hiphotos.baidu.com/zhidao/pic/item/3c6d55fbb2fb43167cdd6aa821a4462308f7d325.jpg'
+}, function(err, result) {
+    if (err) {
+        $('#response').text('载入失败');
+        return;
+    }
+     document.getElementById('response').innerHTML = JSON.stringify(result, null, 2);
+	
+});
+ </script>    
+ <!-- 读取面部信息  over-->  
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
