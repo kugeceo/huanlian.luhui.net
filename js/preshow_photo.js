@@ -17,7 +17,7 @@ window.URL = window.URL || window.webkitURL;
 		   //   img.width = 200;
 		      img.onload = function(e) {
 				// alert(img.src);
-		         window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+		       //  window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
 		      }
 		  //    fileList.appendChild(img);
 			 
