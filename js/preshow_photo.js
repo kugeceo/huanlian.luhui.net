@@ -13,16 +13,16 @@ window.URL = window.URL || window.webkitURL;
 		if(window.URL){
 			//File API
 			//  alert(files[0].name + "," + files[0].size + " bytes");
-		      img.src = window.URL.createObjectURL(files[0]); //´´½¨Ò»¸öobject URL£¬²¢²»ÊÇÄãµÄ±¾µØÂ·¾¶
+		      img.src = window.URL.createObjectURL(files[0]); //åˆ›å»ºä¸€ä¸ªobject URLï¼Œå¹¶ä¸æ˜¯ä½ çš„æœ¬åœ°è·¯å¾„
 		   //   img.width = 200;
 		      img.onload = function(e) {
 				// alert(img.src);
-		         window.URL.revokeObjectURL(this.src); //Í¼Æ¬¼ÓÔØºó£¬ÊÍ·Åobject URL
+		         window.URL.revokeObjectURL(this.src); //å›¾ç‰‡åŠ è½½åï¼Œé‡Šæ”¾object URL
 		      }
 		  //    fileList.appendChild(img);
 			 
 		}else if(window.FileReader){
-			//opera²»Ö§³ÖcreateObjectURL/revokeObjectURL·½·¨¡£ÎÒÃÇÓÃFileReader¶ÔÏóÀ´´¦Àí
+			//operaä¸æ”¯æŒcreateObjectURL/revokeObjectURLæ–¹æ³•ã€‚æˆ‘ä»¬ç”¨FileReaderå¯¹è±¡æ¥å¤„ç†
 			var reader = new FileReader();
 			reader.readAsDataURL(files[0]);
 			reader.onload = function(e){
@@ -53,7 +53,7 @@ window.URL = window.URL || window.webkitURL;
 	  //  var fileBinary = files[0].getAsBinary();
 	//	getFaceInfo("http://isnowfy.qiniudn.com/people.png");
 	
-        img.onload = function () //È·±£Í¼Æ¬ÒÑ¾­¼ÓÔØÍê±Ï  
+        img.onload = function () //ç¡®ä¿å›¾ç‰‡å·²ç»åŠ è½½å®Œæ¯•  
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
@@ -79,7 +79,7 @@ window.URL = window.URL || window.webkitURL;
 		  }
 		  document.getElementById("img1").src=img.src; 
 		  geteye();
-		  $("#img1").hide();
+		 // $("#img1").hide();
 		  canvasState[0]=cxt.getImageData(0,0,1500,750);
 		  curState[0]=canvasState[0];
 		  userState[0]=0;
