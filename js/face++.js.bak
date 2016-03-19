@@ -27,7 +27,7 @@ function  getFaceInfo(urlstr){
         // TODO use result
 	   $("#loading").hide();
 	   $("#closebutton").show();
-	   document.getElementById("pleasewait").innerHTML="<p class='text-success'>&nbsp;&nbsp;&nbsp;&nbsp;图片上传成功！</p>";
+	   document.getElementById("pleasewait").innerHTML="<p class='text-succes'>&nbsp;&nbsp;&nbsp;&nbsp;图片上传成功！</p>";
 	   var json= JSON.stringify(result, null, 2);
 	   getwuguan(json); //获取五官信息
 	   //生成脸部列表

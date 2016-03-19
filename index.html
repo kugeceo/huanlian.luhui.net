@@ -26,7 +26,13 @@
       <script src="js/data/face-min.js"></script>
       <script src="js/data/eye-min.js"></script>
       <script src="js/data/mouth-min.js"></script>
+	  <script src="js/bmob-min.js"></script>
+	  <script src="js/face++.js"  charset="gb2312">></script>
+	  <script src="js/facepp-sdk.min.js"> </script>
+	  <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	  <script src="js/wuguanpinjie.js" > </script>
       
+
     </head>
     <body>
     <!-- ui部分-->
@@ -49,6 +55,7 @@
         <ul class="nav navbar-nav" role="tablist">
           <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab">  一键换脸  <span class="sr-only">(current)</span></a></li>
           <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab">  五官拼接  </a></li>
+		  <li role="presentation"><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab">  面相分析  </a></li>
           <li role="presentation"><a href="#special_effects" aria-controls="special_effects" role="tab" data-toggle="tab">  特效添加  </a></li>
           <li role="presentation"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab">  图片美化  </a></li>
           <li role="presentation"><a href="#save_and_share" aria-controls="save_and_share" role="tab" data-toggle="tab">  保存与分享  </a></li>
@@ -58,7 +65,7 @@
           
           
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal" rel="popover" data-content="请先上传一张您需要处理的图片"  data-placement="bottom" data-trigger="focus" > 
+          <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal" rel="popover" data-content="请先上传一张您需要处理的图片"  data-placement="bottom" data-trigger="focus" onClick="beforeHandle()" > 
            <span class="glyphicon glyphicon-folder-open" aria-hidden="true" ></span> 上传图片  </a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -108,8 +115,8 @@
         <!-- 滚动条(五官拼接)-->
       <div id="convo2" data-from="Sonu Joshi" class="chat-thread" >  
       <li><p> 请选择眼睛</p> </li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1.png',1)" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2.png',1)" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:70px"></button></li><li><p></p></li>
       <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
@@ -121,19 +128,29 @@
   </div>
   
       </div>
+       <div role="tabpanel" class="tab-pane" id="face_attribute">面相分析</div>
       <!--模块3 -->
-      <div role="tabpanel" class="tab-pane" id="special_effects">模块3</div>
+
+      <div role="tabpanel" class="tab-pane" id="special_effects">特效添加</div>
       <!--模块4 -->
-      <div role="tabpanel" class="tab-pane" id="photo_beautify">模块4</div>
+      <div role="tabpanel" class="tab-pane" id="photo_beautify">图片美化</div>
       <!--模块5 --> 
-      <div role="tabpanel" class="tab-pane" id="save_and_share">模块5</div>
+      <div role="tabpanel" class="tab-pane" id="save_and_share">保存与分享</div>
     </div>   
     
      <div class="btn-group" role="group" aria-label="...">
       <button type="button" class="btn btn-default" onClick="doBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>撤销</button>
       <button type="button" class="btn btn-default" onClick="doFront()"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>重做</button>
       <button type="button" class="btn btn-default" onClick="firstCanvas()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>原图</button>
-      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>对比</button>
+	   <div class="btn-group">
+           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-record" aria-hidden="true"></span>脸部选定<span class="caret"></span>
+             </button>
+            <ul class="dropdown-menu" id="manyface">
+			<p>&nbsp&nbsp请先上传图片</p>
+            <!-- 切换脸部按钮，由js动态控制 -->
+           </ul>
+       </div>
 	  <p id="xycoordinates"  class="text-muted" >坐标值:</p>
       </div>   
        <script src="js/canvas.js"  type="text/javascript" ></script>
@@ -159,8 +176,14 @@
          <!-- 图片input--> 
         <input type="file" id="fileElem" accept="image/*"  onchange="handleFiles(this)"  >
         </div>
+		<p id="pleasewait"> </p>
+  <div class="progress" id="loading"> 
+  <div  class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    <span class="sr-only">waiting</span>
+  </div>
+  </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="closebutton">关闭</button>
         </div>
       </div>
     </div>
@@ -171,20 +194,19 @@
   <div id="fileList" style="width:200px;height:200px;"></div>
   <script src="js/preshow_photo.js"  charset="gb2312">></script>
       
-   <!-- 五官拼接按钮 -->
-       <script src="js/wuguanpinjie.js" charset="gb2312"> </script>
+  
+   
    <!-- 读取面部信息-->
   
  
-   <script src="js/face++.js"  charset="gb2312">></script>
+   
 
-  <button id="testt" onClick="addtest()"> 显示眼睛坐标 </button>
-   <img id="img1" src="photo/preshow.png"> 
+ <!-- <button id="testt" onClick="addtest()"> 显示眼睛坐标 </button>  -->
+ <!-- <img id="img1" src="photo/preshow.png"> -->
   
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"> </script> -->             
       <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-      
+    
     </body>
   </html>

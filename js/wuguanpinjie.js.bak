@@ -11,7 +11,7 @@ function addeye(srcstr){
 	
 	   beforeDo(1);
        ctx.save(); 
-	   var scalesize=(facewidth[curFace]*0.3)/img.width;
+	   var scalesize=(facewidth[curFace]*0.33)/img.width;
 	   ctx.scale(scalesize,scalesize);
        ctx.drawImage(img,(lefteyeX[curFace])/scalesize-img.width*0.5,(lefteyeY[curFace])/scalesize-img.height*0.5);
 	   img.src=srcstr+"_right.png";  //ты╪стьсряш

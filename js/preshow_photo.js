@@ -2,27 +2,31 @@ window.URL = window.URL || window.webkitURL;
 	var fileElem = document.getElementById("fileElem"),
 	    fileList = document.getElementById("fileList");
 	  
-	
-	  
+    function beforeHandle(){
+       document.getElementById("pleasewait").innerHTML="";
+	}
+    
+
 	function handleFiles(obj) {
 		var files = obj.files,
 			img = new Image();
 		    var c=document.getElementById("myCanvas");
             var cxt=c.getContext("2d");
-		  
+			$("#closebutton").hide();
+		    uploadBmob();
 		if(window.URL){
 			//File API
 			//  alert(files[0].name + "," + files[0].size + " bytes");
-		      img.src = window.URL.createObjectURL(files[0]); //åˆ›å»ºä¸€ä¸ªobject URLï¼Œå¹¶ä¸æ˜¯ä½ çš„æœ¬åœ°è·¯å¾„
+		      img.src = window.URL.createObjectURL(files[0]); //´´½¨Ò»¸öobject URL£¬²¢²»ÊÇÄãµÄ±¾µØÂ·¾¶
 		   //   img.width = 200;
 		      img.onload = function(e) {
 				// alert(img.src);
-		       //  window.URL.revokeObjectURL(this.src); //å›¾ç‰‡åŠ è½½åï¼Œé‡Šæ”¾object URL
+		        // window.URL.revokeObjectURL(this.src); //Í¼Æ¬¼ÓÔØºó£¬ÊÍ·Åobject URL
 		      }
 		  //    fileList.appendChild(img);
 			 
 		}else if(window.FileReader){
-			//operaä¸æ”¯æŒcreateObjectURL/revokeObjectURLæ–¹æ³•ã€‚æˆ‘ä»¬ç”¨FileReaderå¯¹è±¡æ¥å¤„ç†
+			//opera²»Ö§³ÖcreateObjectURL/revokeObjectURL·½·¨¡£ÎÒÃÇÓÃFileReader¶ÔÏóÀ´´¦Àí
 			var reader = new FileReader();
 			reader.readAsDataURL(files[0]);
 			reader.onload = function(e){
@@ -53,7 +57,7 @@ window.URL = window.URL || window.webkitURL;
 	  //  var fileBinary = files[0].getAsBinary();
 	//	getFaceInfo("http://isnowfy.qiniudn.com/people.png");
 	
-        img.onload = function () //ç¡®ä¿å›¾ç‰‡å·²ç»åŠ è½½å®Œæ¯•  
+        img.onload = function () //È·±£Í¼Æ¬ÒÑ¾­¼ÓÔØÍê±Ï  
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
@@ -68,30 +72,44 @@ window.URL = window.URL || window.webkitURL;
 			  document.getElementById("myCanvas").height=750;
               document.getElementById("myCanvas").width=img.width*750/img.height;
 			  cxt.drawImage(img,0,0,img.width*750/img.height,750);
-			  document.getElementById("img1").width=img.width*750/img.height;
-			  document.getElementById("img1").height=750; 
 		  }else {
 			  document.getElementById("myCanvas").height=img.height*1500/img.width;
               document.getElementById("myCanvas").width=1500;
 			  cxt.drawImage(img,0,0,1500,img.height*1500/img.width);
-			  document.getElementById("img1").height=img.height*1500/img.width; 
-			   document.getElementById("img1").width=1500;
 		  }
-		  document.getElementById("img1").src=img.src; 
-		  geteye();
+		 // document.getElementById("img1").src=img.src; 
+		 // geteye();
 		 // $("#img1").hide();
 		  canvasState[0]=cxt.getImageData(0,0,1500,750);
 		  curState[0]=canvasState[0];
 		  userState[0]=0;
+		  faceArray[0]=-1;
 		  point=0;
 		  stateSize=1;
 		  $('#choosePhoto').popover('destroy');
-
+          document.getElementById("pleasewait").innerHTML="<p class='text-primary'>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬ÉÏ´«ÖĞ£¬ÇëÄÍĞÄµÈ´ı~</p>";
         }  
         
 		
 	//	getFaceInfo(img.src);
 	}
 	
+     function uploadBmob(){
+	  $("#loading").show();
+      var fileUploadControl = $("#fileElem")[0]; 
+      if (fileUploadControl.files.length > 0) {
+        var file = fileUploadControl.files[0];
+        var name = "face.jpg";
+        var file = new Bmob.File(name, file); 
+        file.save().then(function(obj) {
+		 var url=obj.url(); 
+	     getFaceInfo(url);
+       }, function(error) {
+  // the save failed.
+      alert("²»ºÃÒâË¼£¬·şÎñÆ÷´óÒÌÂè£¬Í¼Æ¬ÎŞ·¨È¡µÃurl");
+	  document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬ĞÅÏ¢»ñÈ¡Ê§°Ü£¡</p>";
+      });
+	  }
 
+    }
 	
