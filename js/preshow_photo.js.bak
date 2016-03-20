@@ -17,16 +17,16 @@ window.URL = window.URL || window.webkitURL;
 		if(window.URL){
 			//File API
 			//  alert(files[0].name + "," + files[0].size + " bytes");
-		      img.src = window.URL.createObjectURL(files[0]); //´´½¨Ò»¸öobject URL£¬²¢²»ÊÇÄãµÄ±¾µØÂ·¾¶
+		      img.src = window.URL.createObjectURL(files[0]); //åˆ›å»ºä¸€ä¸ªobject URLï¼Œå¹¶ä¸æ˜¯ä½ çš„æœ¬åœ°è·¯å¾„
 		   //   img.width = 200;
 		      img.onload = function(e) {
 				// alert(img.src);
-		        // window.URL.revokeObjectURL(this.src); //Í¼Æ¬¼ÓÔØºó£¬ÊÍ·Åobject URL
+		        // window.URL.revokeObjectURL(this.src); //å›¾ç‰‡åŠ è½½åï¼Œé‡Šæ”¾object URL
 		      }
 		  //    fileList.appendChild(img);
 			 
 		}else if(window.FileReader){
-			//opera²»Ö§³ÖcreateObjectURL/revokeObjectURL·½·¨¡£ÎÒÃÇÓÃFileReader¶ÔÏóÀ´´¦Àí
+			//operaä¸æ”¯æŒcreateObjectURL/revokeObjectURLæ–¹æ³•ã€‚æˆ‘ä»¬ç”¨FileReaderå¯¹è±¡æ¥å¤„ç†
 			var reader = new FileReader();
 			reader.readAsDataURL(files[0]);
 			reader.onload = function(e){
@@ -57,7 +57,7 @@ window.URL = window.URL || window.webkitURL;
 	  //  var fileBinary = files[0].getAsBinary();
 	//	getFaceInfo("http://isnowfy.qiniudn.com/people.png");
 	
-        img.onload = function () //È·±£Í¼Æ¬ÒÑ¾­¼ÓÔØÍê±Ï  
+        img.onload = function () //ç¡®ä¿å›¾ç‰‡å·²ç»åŠ è½½å®Œæ¯•  
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
@@ -87,9 +87,8 @@ window.URL = window.URL || window.webkitURL;
 		  point=0;
 		  stateSize=1;
 		  curFace=0;
-		  noseID=-1,eyeID=-1,mouthID=-1;
 		  $('#choosePhoto').popover('destroy');
-          document.getElementById("pleasewait").innerHTML="<p class='text-primary'>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬ÉÏ´«ÖĞ£¬ÇëÄÍĞÄµÈ´ı~</p>";
+          document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;å›¾ç‰‡ä¸Šä¼ ä¸­ï¼Œè¯·è€å¿ƒç­‰å¾…~</p>";
         }  
         
 		
@@ -108,8 +107,8 @@ window.URL = window.URL || window.webkitURL;
 	     getFaceInfo(url);
        }, function(error) {
   // the save failed.
-      alert("²»ºÃÒâË¼£¬·şÎñÆ÷´óÒÌÂè£¬Í¼Æ¬ÎŞ·¨È¡µÃurl");
-	  document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬ĞÅÏ¢»ñÈ¡Ê§°Ü£¡</p>";
+      alert("ä¸å¥½æ„æ€ï¼ŒæœåŠ¡å™¨å¤§å§¨å¦ˆï¼Œå›¾ç‰‡æ— æ³•å–å¾—url");
+	  document.getElementById("pleasewait").innerHTML="<p class='text-danger' >&nbsp;&nbsp;&nbsp;&nbsp;å›¾ç‰‡ä¿¡æ¯è·å–å¤±è´¥ï¼</p>";
       });
 	  }
 

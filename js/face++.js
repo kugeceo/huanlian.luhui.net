@@ -21,31 +21,31 @@ function  getFaceInfo(urlstr){
      if (err) {
       // TODO handle error
 	   alert("face++ error!");
-	   document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬ĞÅÏ¢»ñÈ¡Ê§°Ü£¡</p>";
+	   document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;å›¾ç‰‡ä¿¡æ¯è·å–å¤±è´¥ï¼</p>";
 	         return;  
       }
         // TODO use result
 	   $("#loading").hide();
 	   $("#closebutton").show();
-	   document.getElementById("pleasewait").innerHTML="<p class='text-success'>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬ÉÏ´«³É¹¦£¡</p>";
+	   document.getElementById("pleasewait").innerHTML="<p class='text-success' >&nbsp;&nbsp;&nbsp;&nbsp;å›¾ç‰‡ä¸Šä¼ æˆåŠŸï¼</p>";
 	   var json= JSON.stringify(result, null, 2);
-	   getwuguan(json); //»ñÈ¡Îå¹ÙĞÅÏ¢
-	   //Éú³ÉÁ³²¿ÁĞ±í
+	   getwuguan(json); //è·å–äº”å®˜ä¿¡æ¯
+	   //ç”Ÿæˆè„¸éƒ¨åˆ—è¡¨
 	   var manyface="";  
 	   if(facenum<=0)
-		   manyface+="&nbsp&nbspÃ»ÓĞ¼ì²âµ½Á³²¿";
+		   manyface+="&nbsp&nbspæ²¡æœ‰æ£€æµ‹åˆ°è„¸éƒ¨";
 	   for(var i=0;i<facenum;i++){
           manyface+="<li><a href='#' style='height=30;width=30;' "+"onClick='curFace="+i+"' >  <canvas id='face"+i+"'  ></a></li>";
 	   }
 	   document.getElementById("manyface").innerHTML=manyface;
-       for(var i=0;i<facenum;i++){    //¶ÔÓÚÃ¿ÕÅÁ³£¬´ÓÔ­»­²¼ÖĞÌáÈ¡ÏñËØ£¬¿½±´ÖÁ°´Å¥ÉÏ
+       for(var i=0;i<facenum;i++){    //å¯¹äºæ¯å¼ è„¸ï¼Œä»åŸç”»å¸ƒä¸­æå–åƒç´ ï¼Œæ‹·è´è‡³æŒ‰é’®ä¸Š
           var c=document.getElementById("myCanvas");
           var ctx=c.getContext("2d");
 		  var imgData=ctx.getImageData(facecenterX[i]-160,facecenterY[i]-80,320,160);
 		  c=document.getElementById("face"+i);
 		  ctx=c.getContext("2d");
 		  ctx.putImageData(imgData,0,0);
-		  ctx.fillStyle="blue";     //±êÉÏÊ®×Ö±ê¼Ç
+		  ctx.fillStyle="blue";     //æ ‡ä¸Šåå­—æ ‡è®°
           ctx.fillRect(154,79,12,2);
 		  ctx.fillRect(159,74,2,12);
 	   }
@@ -53,7 +53,7 @@ function  getFaceInfo(urlstr){
 }
 
 function getwuguan(json){
-   var obj = eval ("(" + json + ")");   //½âÎöjson
+   var obj = eval ("(" + json + ")");   //è§£æjson
    facenum=obj.face.length;
    var H=document.getElementById("myCanvas").height*0.01;
    var W=document.getElementById("myCanvas").width*0.01;

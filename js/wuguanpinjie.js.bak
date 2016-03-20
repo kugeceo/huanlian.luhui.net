@@ -1,26 +1,38 @@
 
-//beforeDo²ÎÊı: ÓÃ»§µÄ²Ù×÷ÀàĞÍ -1:±ä³ÉÔ­Í¼  0:Î´Ê¹ÓÃ 1:»»ÁËÑÛ¾¦ 2:»»ÁË×ì°Í 3:»»ÁË±Ç×Ó
+//beforeDoå‚æ•°: ç”¨æˆ·çš„æ“ä½œç±»å‹ -1:å˜æˆåŸå›¾  0:æœªä½¿ç”¨ 1:æ¢äº†çœ¼ç› 2:æ¢äº†å˜´å·´ 3:æ¢äº†é¼»å­
 function addeye(srcstr){  
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
 	var img = new Image();
-	img.src=srcstr+"_left.png";  //ÏÈ¼ÓÔØ×óÑÛ
-	img.onload = function () //È·±£Í¼Æ¬ÒÑ¾­¼ÓÔØÍê±Ï  
+	img.src=srcstr+"_left.png";  //å…ˆåŠ è½½å·¦çœ¼
+	var eyeaverX=(lefteyeX[curFace]+righteyeX[curFace])*0.5;
+		 var eyeaverY=(lefteyeY[curFace]+righteyeY[curFace])*0.5;
+         var mouthaverX=(rightmouthX[curFace]+leftmouthX[curFace])*0.5;
+	     var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
+		 var angel=Math.atan((mouthaverX-eyeaverX)/(eyeaverY-mouthaverY));
+	img.onload = function () //ç¡®ä¿å›¾ç‰‡å·²ç»åŠ è½½å®Œæ¯•  
     {   
-	
 	   beforeDo(1);
        ctx.save(); 
+	   ctx.translate(lefteyeX[curFace],lefteyeY[curFace]);
+	   ctx.rotate(angel);
+	   ctx.translate(-lefteyeX[curFace],-lefteyeY[curFace]);
 	   var scalesize=(facewidth[curFace]*0.3)/img.width;
 	   ctx.scale(scalesize,scalesize);
        ctx.drawImage(img,(lefteyeX[curFace])/scalesize-img.width*0.5,(lefteyeY[curFace])/scalesize-img.height*0.5);
-	   img.src=srcstr+"_right.png";  //ÔÙ¼ÓÔØÓÒÑÛ
-	   img.onload = function () //È·±£Í¼Æ¬ÒÑ¾­¼ÓÔØÍê±Ï  
+	   ctx.restore();
+	   img.src=srcstr+"_right.png";  //å†åŠ è½½å³çœ¼
+	   img.onload = function () //ç¡®ä¿å›¾ç‰‡å·²ç»åŠ è½½å®Œæ¯•  
 		{
+			 ctx.save();
+			 ctx.translate(righteyeX[curFace],righteyeY[curFace]);
+		     ctx.rotate(angel);
+		     ctx.translate(-righteyeX[curFace],-righteyeY[curFace]);
+			 ctx.scale(scalesize,scalesize);
              ctx.drawImage(img,(righteyeX[curFace])/scalesize-img.width*0.5,(righteyeY[curFace])/scalesize-img.height*0.5);
 	         ctx.restore();
              afterDo();
 		}
-		 
      }  
  }
  
@@ -37,7 +49,7 @@ function addeye(srcstr){
 		 var angel=Math.atan((rightmouthY[curFace]-leftmouthY[curFace])/(rightmouthX[curFace]-leftmouthX[curFace]));
 		 ctx.translate((leftmouthX[curFace]+rightmouthX[curFace])*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
 		 ctx.rotate(angel);
-		  ctx.translate(-(leftmouthX[curFace]+rightmouthX[curFace])*0.5,-(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
+		 ctx.translate(-(leftmouthX[curFace]+rightmouthX[curFace])*0.5,-(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
          ctx.scale(scalesize,scalesize);	 
 		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesize-img.width*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5/scalesize-img.height*0.5);
 		 ctx.restore();
