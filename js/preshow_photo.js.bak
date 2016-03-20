@@ -86,6 +86,8 @@ window.URL = window.URL || window.webkitURL;
 		  faceArray[0]=-1;
 		  point=0;
 		  stateSize=1;
+		  curFace=0;
+		  noseID=-1,eyeID=-1,mouthID=-1;
 		  $('#choosePhoto').popover('destroy');
           document.getElementById("pleasewait").innerHTML="<p class='text-primary'>&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请耐心等待~</p>";
         }  
@@ -107,7 +109,7 @@ window.URL = window.URL || window.webkitURL;
        }, function(error) {
   // the save failed.
       alert("不好意思，服务器大姨妈，图片无法取得url");
-	  document.getElementById("pleasewait").innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;图片信息获取失败！";
+	  document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;图片信息获取失败！</p>";
       });
 	  }
 

@@ -1,6 +1,6 @@
 var canvasState=new Array();  //保存画布的状态
 var curState=new Array();  //当前显示的状态（用于撤销和还原）
-var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴
+var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子
 var faceArray=new Array();  //被处理的脸的下标
 var point=0;   //状态数组指针
 var stateSize=1;  //总状态数
@@ -13,7 +13,7 @@ function beforeDo(usersta){  //修图操作前先执行  传参：用户做了�
     var ctx=c.getContext("2d");	
 	canvasState[point]=canvasState[point-1];  
 	faceArray[point]=curFace;
-	if(userState[point-1]==usersta&&faceArray[point]==faceArray[point-1]){  //如果用户刚才做过这个操作,或者前后处理了同一张脸
+	if(userState[point-1]==usersta&&faceArray[point]==faceArray[point-1]){  //如果用户刚才做过这个操作,并且前后处理了同一张脸
        ctx.putImageData(canvasState[point],0,0);  //先恢复图片状态，去除之前的同脸同类特效
 	}else{
        canvasState[point]=ctx.getImageData(0,0,1500,750);  //否则画布状态保存为当前画布显示的图像

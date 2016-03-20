@@ -86,6 +86,8 @@ window.URL = window.URL || window.webkitURL;
 		  faceArray[0]=-1;
 		  point=0;
 		  stateSize=1;
+		  curFace=0;
+		  
 		  $('#choosePhoto').popover('destroy');
           document.getElementById("pleasewait").innerHTML="<p class='text-primary'>&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请耐心等待~</p>";
         }  

@@ -61,4 +61,6 @@ var s_height=document.getElementById("convo2").style.height=winHeight*0.9+'px'
       } else if (de.webkitRequestFullScreen) {
           de.webkitRequestFullScreen();
      }
- }
+  }
+
+  

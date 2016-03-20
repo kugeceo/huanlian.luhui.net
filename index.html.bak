@@ -20,17 +20,12 @@
       <script type="text/javascript">
       // 应用的JavaScript代码
       </script>
-      <script type="text/javascript" src="js/init.js"> </script>
-      <script type="text/javascript" src="js/lufylegend-1.10.0.js"> </script>
-      <script src="js/tracking-min.js"></script>
-      <script src="js/data/face-min.js"></script>
-      <script src="js/data/eye-min.js"></script>
-      <script src="js/data/mouth-min.js"></script>
+      <script type="text/javascript" src="js/init.js" charset="gb2312"> </script>
 	  <script src="js/bmob-min.js"></script>
-	  <script src="js/face++.js"  charset="gb2312">></script>
+	  <script src="js/face++.js"  charset="UTF-8"></script>
 	  <script src="js/facepp-sdk.min.js"> </script>
 	  <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-	  <script src="js/wuguanpinjie.js" > </script>
+	  <script src="js/wuguanpinjie.js" charset="gb2312" > </script>
       
 
     </head>
@@ -117,14 +112,11 @@
       <li><p> 请选择眼睛</p> </li>
       <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:70px"></button></li><li><p></p></li>
       <li><button style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button style=" width:150px; height:75px"><img src="photo/eye1_button.png" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><p> 请选择嘴巴</p> </li>
+      <li><button style=" width:150px; height:75px"><img src="photo/mouth1.png" onClick="addmouth('photo/mouth1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button style=" width:150px; height:75px"><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+	  <li><p> 请选择鼻子</p> </li>
+      <li><button style=" width:150px; height:75px"><img src="photo/nose1.png" onClick="addnose('photo/nose1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
   </div>
   
       </div>
@@ -153,7 +145,7 @@
        </div>
 	  <p id="xycoordinates"  class="text-muted" >坐标值:</p>
       </div>   
-       <script src="js/canvas.js"  type="text/javascript" ></script>
+       <script src="js/canvas.js"  type="text/javascript"  charset="gb2312"></script>
 	   <div>
        <canvas id="myCanvas"  class="center-block"   width="1500px" height="800px" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()">
        抱歉，您的浏览器貌似不支持画布功能。</canvas>    
@@ -183,7 +175,7 @@
   </div>
   </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="closebutton">关闭</button>
         </div>
       </div>
     </div>
