@@ -31,7 +31,7 @@
     <body>
     <!-- ui部分-->
         <!--导航条 -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
     <div class="container-fluid" >
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -47,20 +47,21 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav" role="tablist">
+		  <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal"  onClick="beforeHandle()" > 
+           打开图片  </a></li>
           <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab">  一键换脸  <span class="sr-only">(current)</span></a></li>
           <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab">  五官拼接  </a></li>
-		  <li role="presentation"><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab">  面相分析  </a></li>
-          <li role="presentation"><a href="#special_effects" aria-controls="special_effects" role="tab" data-toggle="tab">  特效添加  </a></li>
-          <li role="presentation"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab">  图片美化  </a></li>
-          <li role="presentation"><a href="#save_and_share" aria-controls="save_and_share" role="tab" data-toggle="tab">  保存与分享  </a></li>
+		  <li role="presentation" class="disabled"><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" >  面相分析  </a></li>
+          <li role="presentation" class="disabled"><a href="#special_effects" aria-controls="special_effects" role="tab" data-toggle="tab">  特效添加  </a></li>
+          <li role="presentation" class="disabled"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab">  图片美化  </a></li>
+          <li role="presentation" class="disabled"><a href="#save_and_share" aria-controls="save_and_share" role="tab" data-toggle="tab">  保存与分享  </a></li>
         </ul>
         <!-- Tab panes -->
        
           
           
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal" rel="popover" data-content="请先上传一张您需要处理的图片"  data-placement="bottom" data-trigger="focus" onClick="beforeHandle()" > 
-           <span class="glyphicon glyphicon-folder-open" aria-hidden="true" ></span> 上传图片  </a></li>
+          
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -101,7 +102,7 @@
       <li><button style=" width:150px; height:105px"><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
       <li><button style=" width:150px; height:105px"><img src="photo/button.png" style=" width:135px; height:100px"></button></li><li><p></p></li>
       </div>
-  
+
      
       </div>
       <!--模块2 -->
@@ -135,18 +136,18 @@
       <button type="button" class="btn btn-default" onClick="firstCanvas()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>原图</button>
 	   <div class="btn-group">
            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-record" aria-hidden="true"></span>脸部选定<span class="caret"></span>
+            <span class="glyphicon glyphicon-record" aria-hidden="true"></span>脸部切换<span class="caret"></span>
              </button>
             <ul class="dropdown-menu" id="manyface">
 			<p>&nbsp&nbsp请先上传图片</p>
             <!-- 切换脸部按钮，由js动态控制 -->
            </ul>
        </div>
-	  <p id="xycoordinates"  class="text-muted" >坐标值:</p>
+	  <p id="xycoordinates"   >坐标值:</p>
       </div>   
        
 	   <div>
-       <canvas id="myCanvas"  class="center-block"   width="1500px" height="800px" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()">
+       <canvas id="myCanvas"  class="center-block"    onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()">
        抱歉，您的浏览器貌似不支持画布功能。</canvas>    
        </div>
     
@@ -161,7 +162,7 @@
         
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" rel="popover" data-content="请先上传一张照片">请选择一张图片</h4>
+          <h4 class="modal-title" id="myModalLabel" rel="popover" data-content="请先上传一张照片"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" ></span> 请选择一张图片</h4>
         </div>
         <div class="modal-body">
          <!-- 图片input--> 
@@ -174,7 +175,7 @@
   </div>
   </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" id="closebutton">关闭</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="closebutton">确认</button>
         </div>
       </div>
     </div>

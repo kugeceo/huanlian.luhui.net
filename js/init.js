@@ -7,7 +7,7 @@ $('#choosePhoto').popover('show');
 Bmob.initialize("baef162ac09a8f23038da90b54918b66", "6a801014064680e32899ee4e75b7e624");
 
 $("#loading").hide();
-
+$('#myModal').modal('show');
 if (window.innerWidth)
 var winWidth = window.innerWidth;
 else if ((document.body) && (document.body.clientWidth))

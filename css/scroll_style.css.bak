@@ -2,8 +2,9 @@
 body {
   padding: 0;
   margin: 0;
-  background: -moz-linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%);
-  background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192c46 50%, #22254c 75%, #22254c 100%);
+
+  background: -moz-linear-gradient(-45deg, #e7f1f9 0, #e7f1f9 25%, #cce3f7 50%, #cce1f4 75%, #cce1f4 100%);
+  background: -webkit-linear-gradient(-45deg, #e7f1f9 0, #e7f1f9 25%, #cce3f7 50%, #cce1f4 75%, #cce1f4 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -14,12 +15,12 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: 12px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(2, 22, 39, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(2, 22, 39, 0.6);
 }
 
 .chat-thread {
