@@ -1,4 +1,5 @@
 var facenum;
+var faceID=new Array();
 var facecenterX=new Array();
 var facecenterY=new Array();
 var facewidth=new Array();
@@ -20,7 +21,7 @@ function  getFaceInfo(urlstr){
     }, function(err, result) {
      if (err) {
       // TODO handle error
-	   alert("face++ error!");
+	   alert("人脸云端识别出错，请重试！");
 	   document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;图片信息获取失败！</p>";
 	         return;  
       }
@@ -58,6 +59,7 @@ function getwuguan(json){
    var H=document.getElementById("myCanvas").height*0.01;
    var W=document.getElementById("myCanvas").width*0.01;
    for(var i=0;i<facenum;i++){
+	   faceID[i]=obj.face[i].face_id;
 	   facecenterX[i]=obj.face[i].position.center.x*W;
 	   facecenterY[i]=obj.face[i].position.center.y*H;
 	   facewidth[i]=obj.face[i].position.width*W;

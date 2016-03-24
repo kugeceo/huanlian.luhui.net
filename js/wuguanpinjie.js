@@ -1,5 +1,5 @@
 
-//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子
+//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 5:换了脸
 function addeye(srcstr){  
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
@@ -98,3 +98,4 @@ var leftmouthY=new Array();
 var rightmouthX=new Array();
 var rightmouthY=new Array();
 */
+

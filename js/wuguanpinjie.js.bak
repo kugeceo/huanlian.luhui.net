@@ -74,7 +74,7 @@ function addeye(srcstr){
 		 var angel=Math.atan((mouthaverX-eyeaverX)/(eyeaverY-mouthaverY));
 		 ctx.translate(noseX[curFace],noseY[curFace]);
 		 ctx.rotate(angel);
-		  ctx.translate(-noseX[curFace],-noseY[curFace]);
+		 ctx.translate(-noseX[curFace],-noseY[curFace]);
          ctx.scale(scalesize,scalesize);	 
 		 ctx.drawImage(img,noseX[curFace]/scalesize-img.width*0.5,noseY[curFace]/scalesize-img.height*0.5);
 		 ctx.restore();
@@ -98,3 +98,4 @@ var leftmouthY=new Array();
 var rightmouthX=new Array();
 var rightmouthY=new Array();
 */
+

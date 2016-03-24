@@ -8,6 +8,18 @@ Bmob.initialize("baef162ac09a8f23038da90b54918b66", "6a801014064680e32899ee4e75b
 
 $("#loading").hide();
 $('#myModal').modal('show');
+for(var i=1;i<30;i++){    //隐藏组件
+   var eyestr="#eyebutton";
+   eyestr+=i;
+   $(eyestr).hide();
+   var mouthstr="#mouthbutton";
+   mouthstr+=i;
+   $(mouthstr).hide();
+   var nosestr="#nosebutton";
+   nosestr+=i;
+   $(nosestr).hide();
+}
+
 if (window.innerWidth)
 var winWidth = window.innerWidth;
 else if ((document.body) && (document.body.clientWidth))

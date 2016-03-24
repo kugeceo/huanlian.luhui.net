@@ -61,6 +61,8 @@ window.URL = window.URL || window.webkitURL;
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
+		  cxt.shadowBlur=20;
+          cxt.shadowColor="black";
 		  if(img.width<1500&&img.height<750){
 			  document.getElementById("myCanvas").height=img.height;
               document.getElementById("myCanvas").width=img.width;
@@ -88,7 +90,7 @@ window.URL = window.URL || window.webkitURL;
 		  stateSize=1;
 		  curFace=0;
 		  $('#choosePhoto').popover('destroy');
-          document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请耐心等待~</p>";
+          document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请勿关闭窗口~</p>";
         }  
         
 		
