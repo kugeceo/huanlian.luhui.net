@@ -74,6 +74,7 @@ function getwuguan(json){
        leftmouthY[i]=obj.face[i].position.mouth_left.y*H;
        rightmouthX[i]=obj.face[i].position.mouth_right.x*W;
 	   rightmouthY[i]=obj.face[i].position.mouth_right.y*H;
+	   facecenterY[i]+=faceheight[i]*0.05;
    }
  
   // obj.face[0].position.eye_left.x
