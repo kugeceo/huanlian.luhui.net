@@ -1,0 +1,5 @@
+function saveCanvas(){
+    var oCanvas = document.getElementById("myCanvas");
+    Canvas2Image.saveAsPNG(oCanvas);  // 这将会提示用户保存PNG图片
+
+}

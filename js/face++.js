@@ -56,6 +56,8 @@ function  getFaceInfo(urlstr){
 function getwuguan(json){
    var obj = eval ("(" + json + ")");   //解析json
    facenum=obj.face.length;
+   if(facenum>1)     //检测到多张脸，弹出提示
+   $('#lianbuqiehuan').popover('show');
    var H=document.getElementById("myCanvas").height*0.01;
    var W=document.getElementById("myCanvas").width*0.01;
    for(var i=0;i<facenum;i++){
@@ -76,7 +78,8 @@ function getwuguan(json){
 	   rightmouthY[i]=obj.face[i].position.mouth_right.y*H;
 	   facecenterY[i]+=faceheight[i]*0.05;
    }
- 
   // obj.face[0].position.eye_left.x
 }
+
+   
 

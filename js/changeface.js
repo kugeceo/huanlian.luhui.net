@@ -47,53 +47,54 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
 	   var H=document.getElementById("myCanvas").height*0.01;
        var W=document.getElementById("myCanvas").width*0.01;
 	   
+	   var addW=0;   //容许脸部稍微扩展一点
 	   //解析点集，存到数组里
-       leftcontourX[0]=obj.result[0].landmark.contour_left1.x*W;
+       leftcontourX[0]=obj.result[0].landmark.contour_left1.x*W-addW;
 	   leftcontourY[0]=obj.result[0].landmark.contour_left1.y*H;
-	   leftcontourX[1]=obj.result[0].landmark.contour_left2.x*W;
+	   leftcontourX[1]=obj.result[0].landmark.contour_left2.x*W-addW;
 	   leftcontourY[1]=obj.result[0].landmark.contour_left2.y*H;
-	   leftcontourX[2]=obj.result[0].landmark.contour_left3.x*W;
+	   leftcontourX[2]=obj.result[0].landmark.contour_left3.x*W-addW;
 	   leftcontourY[2]=obj.result[0].landmark.contour_left3.y*H;
-	   leftcontourX[3]=obj.result[0].landmark.contour_left4.x*W;
+	   leftcontourX[3]=obj.result[0].landmark.contour_left4.x*W-addW;
 	   leftcontourY[3]=obj.result[0].landmark.contour_left4.y*H;
-	   leftcontourX[4]=obj.result[0].landmark.contour_left5.x*W;
+	   leftcontourX[4]=obj.result[0].landmark.contour_left5.x*W-addW;
 	   leftcontourY[4]=obj.result[0].landmark.contour_left5.y*H;
-	   leftcontourX[5]=obj.result[0].landmark.contour_left6.x*W;
+	   leftcontourX[5]=obj.result[0].landmark.contour_left6.x*W-addW;
 	   leftcontourY[5]=obj.result[0].landmark.contour_left6.y*H;
-	   leftcontourX[6]=obj.result[0].landmark.contour_left7.x*W;
+	   leftcontourX[6]=obj.result[0].landmark.contour_left7.x*W-addW;
 	   leftcontourY[6]=obj.result[0].landmark.contour_left7.y*H;
-	   leftcontourX[7]=obj.result[0].landmark.contour_left8.x*W;
+	   leftcontourX[7]=obj.result[0].landmark.contour_left8.x*W-addW;
 	   leftcontourY[7]=obj.result[0].landmark.contour_left8.y*H;
-	   leftcontourX[8]=obj.result[0].landmark.contour_left9.x*W;
+	   leftcontourX[8]=obj.result[0].landmark.contour_left9.x*W-addW;
 	   leftcontourY[8]=obj.result[0].landmark.contour_left9.y*H;
-	   leftcontourX[9]=obj.result[0].landmark.contour_chin.x*W;
+	   leftcontourX[9]=obj.result[0].landmark.contour_chin.x*W-addW;
 	   leftcontourY[9]=obj.result[0].landmark.contour_chin.y*H;
 	
-	   rightcontourX[0]=obj.result[0].landmark.contour_right1.x*W;
+	   rightcontourX[0]=obj.result[0].landmark.contour_right1.x*W+addW;
 	   rightcontourY[0]=obj.result[0].landmark.contour_right1.y*H;
-	   rightcontourX[1]=obj.result[0].landmark.contour_right2.x*W;
+	   rightcontourX[1]=obj.result[0].landmark.contour_right2.x*W+addW;
 	   rightcontourY[1]=obj.result[0].landmark.contour_right2.y*H;
-	   rightcontourX[2]=obj.result[0].landmark.contour_right3.x*W;
+	   rightcontourX[2]=obj.result[0].landmark.contour_right3.x*W+addW;
 	   rightcontourY[2]=obj.result[0].landmark.contour_right3.y*H;
-	   rightcontourX[3]=obj.result[0].landmark.contour_right4.x*W;
+	   rightcontourX[3]=obj.result[0].landmark.contour_right4.x*W+addW;
 	   rightcontourY[3]=obj.result[0].landmark.contour_right4.y*H;
-	   rightcontourX[4]=obj.result[0].landmark.contour_right5.x*W;
+	   rightcontourX[4]=obj.result[0].landmark.contour_right5.x*W+addW;
 	   rightcontourY[4]=obj.result[0].landmark.contour_right5.y*H;
-	   rightcontourX[5]=obj.result[0].landmark.contour_right6.x*W;
+	   rightcontourX[5]=obj.result[0].landmark.contour_right6.x*W+addW;
 	   rightcontourY[5]=obj.result[0].landmark.contour_right6.y*H;
-	   rightcontourX[6]=obj.result[0].landmark.contour_right7.x*W;
+	   rightcontourX[6]=obj.result[0].landmark.contour_right7.x*W+addW;
 	   rightcontourY[6]=obj.result[0].landmark.contour_right7.y*H;
-	   rightcontourX[7]=obj.result[0].landmark.contour_right8.x*W;
+	   rightcontourX[7]=obj.result[0].landmark.contour_right8.x*W+addW;
 	   rightcontourY[7]=obj.result[0].landmark.contour_right8.y*H;
-	   rightcontourX[8]=obj.result[0].landmark.contour_right9.x*W;
+	   rightcontourX[8]=obj.result[0].landmark.contour_right9.x*W+addW;
 	   rightcontourY[8]=obj.result[0].landmark.contour_right9.y*H;
-	   rightcontourX[9]=obj.result[0].landmark.contour_chin.x*W;
+	   rightcontourX[9]=obj.result[0].landmark.contour_chin.x*W+addW;
 	   rightcontourY[9]=obj.result[0].landmark.contour_chin.y*H;
          
 		 //放置脸部的部分
          var c=document.getElementById("myCanvas");
          var ctx=c.getContext("2d");	
-		 var scalesizeX=(facewidth[curFace]*1.1)/img.width;  // 设置脸的宽度放大倍数  
+		 var scalesizeX=Math.sqrt((leftcontourX[0]-rightcontourX[0])*(leftcontourX[0]-rightcontourX[0])+(leftcontourY[0]-rightcontourY[0])*(leftcontourY[0]-rightcontourY[0]))*1.2/img.height;    //(facewidth[curFace]*1.1)/img.width;  // 设置脸的宽度放大倍数  
 		 var scalesizeY=(faceheight[curFace]*1.25)/img.height;   //  设置脸的长度放大倍数
          getFaceAroundData(img,scalesizeX); //获取轮廓周围的像素
          beforeDo(5);
@@ -103,7 +104,7 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
          var mouthaverX=(rightmouthX[curFace]+leftmouthX[curFace])*0.5;
 	     var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
 		 var angel=Math.atan((mouthaverX-eyeaverX)/(eyeaverY-mouthaverY));
-		 angel*=0.9;
+		 angel*=0.6;
 		 ctx.translate(facecenterX[curFace],facecenterY[curFace]);
 		 ctx.rotate(angel);
 		 ctx.translate(-facecenterX[curFace],-facecenterY[curFace]);

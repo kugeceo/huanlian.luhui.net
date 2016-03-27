@@ -25,7 +25,7 @@ function  showmouthMenu(){
 }
 
 var nosebuttonFlag=false;
-function  showmouthMenu(){
+function  shownoseMenu(){
 	  nosebuttonFlag=!nosebuttonFlag;
 	  for(var i=1;i<30;i++){
 		var nosestr="#nosebutton";
