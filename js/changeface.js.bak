@@ -15,6 +15,8 @@ var leftmouthY=new Array();
 var rightmouthX=new Array();
 var rightmouthY=new Array();
 */
+var beforecurFace=-1;  //保存上一次操作的脸部编号   
+
 var leftcontourX=new Array();
 var leftcontourY=new Array();
 var rightcontourX=new Array();
@@ -33,6 +35,10 @@ var rightIgnoreFlag=new Array();
 var leftbj,rightbj;   //img的左侧坐标和右侧坐标
 function getcontour(img)   //解析当前脸，返回左右部轮廓
 {
+   if(beforecurFace==curFace){   //如果还是处理同一张脸，直接用上次的关键点
+	    putFaceOnCanvas(img);
+        return ;
+   }
    var api = new FacePP('abc3b4dd8808310720f3a521311f0bf0', 'vyvK77UjUxGdksdyojX0cWgGmM64PaLq');
    api.request('detection/landmark', {
        face_id: faceID[curFace]
@@ -46,7 +52,7 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
 	   var obj = eval ("(" + json + ")");   //解析json
 	   var H=document.getElementById("myCanvas").height*0.01;
        var W=document.getElementById("myCanvas").width*0.01;
-	   
+	   beforecurFace=curFace;
 	   var addW=0;   //容许脸部稍微扩展一点
 	   //解析点集，存到数组里
        leftcontourX[0]=obj.result[0].landmark.contour_left1.x*W-addW;
@@ -91,7 +97,11 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
 	   rightcontourX[9]=obj.result[0].landmark.contour_chin.x*W+addW;
 	   rightcontourY[9]=obj.result[0].landmark.contour_chin.y*H;
          
-		 //放置脸部的部分
+	   putFaceOnCanvas(img);
+  });
+}
+function putFaceOnCanvas(img){
+      //放置脸部的部分
          var c=document.getElementById("myCanvas");
          var ctx=c.getContext("2d");	
 		 var scalesizeX=Math.sqrt((leftcontourX[0]-rightcontourX[0])*(leftcontourX[0]-rightcontourX[0])+(leftcontourY[0]-rightcontourY[0])*(leftcontourY[0]-rightcontourY[0]))*1.2/img.height;    //(facewidth[curFace]*1.1)/img.width;  // 设置脸的宽度放大倍数  
@@ -104,7 +114,7 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
          var mouthaverX=(rightmouthX[curFace]+leftmouthX[curFace])*0.5;
 	     var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
 		 var angel=Math.atan((mouthaverX-eyeaverX)/(eyeaverY-mouthaverY));
-		 angel*=0.5;
+		 angel*=0.6;
 		 ctx.translate(facecenterX[curFace],facecenterY[curFace]);
 		 ctx.rotate(angel);
 		 ctx.translate(-facecenterX[curFace],-facecenterY[curFace]);
@@ -113,8 +123,9 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
 		 ctx.restore();
 		 putFaceAroundData(img);  //像素覆盖
 		 afterDo();
-  });
+		 guoduover();
 }
+
 
 function getFaceAroundData(img,scalesizeX){   //img 为图片  scalesizeX为横向拉伸比例
 	 var c=document.getElementById("myCanvas"); 
@@ -211,6 +222,7 @@ function putFaceAroundData(img){
 }
 
 function addface(srcstr){
+	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
 	var img = new Image();

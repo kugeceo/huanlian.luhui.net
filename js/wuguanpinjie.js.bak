@@ -1,6 +1,7 @@
 
-//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子
+//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 5:换了脸
 function addeye(srcstr){  
+	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
 	var img = new Image();
@@ -37,6 +38,7 @@ function addeye(srcstr){
  }
  
  function addmouth(srcstr){
+	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
 	var img = new Image();
@@ -54,10 +56,12 @@ function addeye(srcstr){
 		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesize-img.width*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5/scalesize-img.height*0.5);
 		 ctx.restore();
 		 afterDo();
+		 guoduover();
     }
  }
 
  function addnose(srcstr){
+	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
 	var img = new Image();
@@ -79,6 +83,7 @@ function addeye(srcstr){
 		 ctx.drawImage(img,noseX[curFace]/scalesize-img.width*0.5,noseY[curFace]/scalesize-img.height*0.5);
 		 ctx.restore();
 		 afterDo();
+		 guoduover();
     }
  }
 /*

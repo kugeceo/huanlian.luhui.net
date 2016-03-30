@@ -15,8 +15,10 @@ for(var i=1;i<30;i++){    //隐藏组件
    var mouthstr="#mouthbutton";
    mouthstr+=i;
    $(mouthstr).hide();
+   var nosestr="#nosebutton";
+   nosestr+=i;
+   $(nosestr).hide();
 }
-
 if (window.innerWidth)
 var winWidth = window.innerWidth;
 else if ((document.body) && (document.body.clientWidth))
@@ -58,6 +60,13 @@ winWidth = document.documentElement.clientWidth;
 }
 var s_height=document.getElementById("convo").style.height=winHeight*0.9+'px'
 var s_height=document.getElementById("convo2").style.height=winHeight*0.9+'px'
+
+var c = document.getElementById('fCanvas'),
+ctx = c.getContext('2d'),
+cw = c.width = window.innerWidth*0.98;
+ch = c.height = window.innerHeight*0.98;
+x=(cw *0.52);
+y=(ch *0.4);
 }
 
 

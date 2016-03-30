@@ -5,10 +5,10 @@ var faceArray=new Array();  //被处理的脸的下标
 var point=0;   //状态数组指针
 var stateSize=1;  //总状态数
 var curFace=0;  //当前被锁定的脸号
-var eyeID,noseID,mouthID;
 //point 和stateSize最少为1，初始状态不能改变
 
 function beforeDo(usersta){  //修图操作前先执行  传参：用户做了哪个操作   
+	guodu();
 	point++;
 	var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
@@ -23,6 +23,7 @@ function beforeDo(usersta){  //修图操作前先执行  传参：用户做了�
 }
 
 function afterDo(){   //每次修图后执行，保存新图状态
+	guoduover();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
 	curState[point]=ctx.getImageData(0,0,1500,750); 

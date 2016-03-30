@@ -61,8 +61,6 @@ window.URL = window.URL || window.webkitURL;
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
-		  cxt.shadowBlur=20;
-          cxt.shadowColor="black";
 		  if(img.width<1500&&img.height<750){
 			  document.getElementById("myCanvas").height=img.height;
               document.getElementById("myCanvas").width=img.width;
