@@ -58,13 +58,13 @@ if (document.documentElement && document.documentElement.clientHeight && documen
 winHeight = document.documentElement.clientHeight;
 winWidth = document.documentElement.clientWidth;
 }
-var s_height=document.getElementById("convo").style.height=winHeight*0.9+'px'
-var s_height=document.getElementById("convo2").style.height=winHeight*0.9+'px'
+document.getElementById("convo").style.height=winHeight*0.9+'px'
+document.getElementById("convo2").style.height=winHeight*0.9+'px'
 
 var c = document.getElementById('fCanvas'),
 ctx = c.getContext('2d'),
-cw = c.width = window.innerWidth*0.98;
-ch = c.height = window.innerHeight*0.98;
+cw = c.width = window.innerWidth;
+ch = c.height = window.innerHeight;
 circle.x=(cw *0.52);
 circle.y=(ch *0.4);
 }

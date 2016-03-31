@@ -41,7 +41,7 @@ function guodu(){   //每次操作的过度效果
 }
 
 function guoduover(){   //结束过度效果  任何操作可能结束的最后位置都要加
-	 setTimeout("$('#fCanvas').hide();",150);
+	 setTimeout("$('#fCanvas').hide();",200);
 }
 
 

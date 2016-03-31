@@ -1,8 +1,16 @@
 /* super inefficient right now, could be improved */
 var c = document.getElementById('fCanvas'),
     ctx = c.getContext('2d'),
-    cw = c.width = window.innerWidth*0.98;
-	ch = c.height = window.innerHeight*0.98;
+    cw = c.width = window.innerWidth;
+	ch = c.height = window.innerHeight;
+	 var imgDataback=ctx.createImageData(cw,ch);  //半透明阴影
+      for (var i=0;i<imgDataback.data.length;i+=4)
+     {
+        imgDataback.data[i+0]=20;
+        imgDataback.data[i+1]=20;
+        imgDataback.data[i+2]=20;
+        imgDataback.data[i+3]=70;
+     }
     rand = function(a,b){return ~~((Math.random()*(b-a+1))+a);},
     dToR = function(degrees){
         return degrees * (Math.PI / 180);
@@ -124,6 +132,7 @@ var c = document.getElementById('fCanvas'),
       ctx.globalCompositeOperation = 'lighter';		
     }
     loop = function(){
+      ctx.putImageData(imgDataback,0,0);
       clear();
       updateCircle();
       renderCircle();
@@ -155,4 +164,4 @@ gradient2.addColorStop(1, 'hsla('+circle.hue+', 100%, 50%, 0)');
 /* Loop It, Loop It Good */
 setInterval(loop, 16);
 
-$("#fCanvas").hide();
+$("#fCanvas").hide()
