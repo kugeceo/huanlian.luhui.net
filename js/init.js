@@ -1,3 +1,4 @@
+////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function(){   //页面加载完毕触发事件
 $(function () {
   $('[data-toggle="popover"]').popover();
@@ -7,7 +8,8 @@ $('#choosePhoto').popover('show');
 Bmob.initialize("baef162ac09a8f23038da90b54918b66", "6a801014064680e32899ee4e75b7e624");
 
 $("#loading").hide();
-$('#myModal').modal('show');
+setTimeout(" $('#preloading').fadeOut(300); ",1000);
+setTimeout("$('#myModal').modal('show');",1500);
 for(var i=1;i<30;i++){    //隐藏组件
    var eyestr="#eyebutton";
    eyestr+=i;
@@ -40,7 +42,7 @@ var s_height=document.getElementById("convo2").style.height=winHeight*0.9+'px'
 var s_width=document.getElementById("convo2").style.width;
 
 }); 
-
+///////////////////////////////////////////////////////////////////////////////////
 
 window.onresize = function(){   //改变浏览器大小触发事件
 if (window.innerWidth)
