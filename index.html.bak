@@ -15,18 +15,7 @@
         <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-      <!--预加载图片资源-->
-	  <link rel="prefetch" href="face1.png" /> 
-	  <link rel="prefetch" href="face2.png" />
-	  <link rel="prefetch" href="face3.png" />
-	  <link rel="prefetch" href="face4.png" /> 
-	  <link rel="prefetch" href="eye1_left.png" /> 
-	  <link rel="prefetch" href="eye1_right.png" /> 
-	  <link rel="prefetch" href="eye2_left.png" /> 
-	  <link rel="prefetch" href="eye2_right.png" /> 
-	  <link rel="prefetch" href="mouth1.png" /> 
-	  <link rel="prefetch" href="mouth2.png" /> 
-	  <link rel="prefetch" href="nose1.png" /> 
+      
 
       <!-- 加载js-->
       <script type="text/javascript" src="js/jquery.js" ></script>
@@ -216,7 +205,19 @@
 			</div>
 		</div>
 	</div>
-
+<!--预加载图片资源-->
+	  <link rel="prefetch" href="photo/face1.png" /> 
+	  <link rel="prefetch" href="photo/face1.png" /> 
+	  <link rel="prefetch" href="photo/face2.png" />
+	  <link rel="prefetch" href="photo/face3.png" />
+	  <link rel="prefetch" href="photo/face4.png" /> 
+	  <link rel="prefetch" href="photo/eye1_left.png" /> 
+	  <link rel="prefetch" href="photo/eye1_right.png" /> 
+	  <link rel="prefetch" href="photo/eye2_left.png" /> 
+	  <link rel="prefetch" href="photo/eye2_right.png" /> 
+	  <link rel="prefetch" href="photo/mouth1.png" /> 
+	  <link rel="prefetch" href="photo/mouth2.png" /> 
+	  <link rel="prefetch" href="photo/nose1.png" /> 
 
     <!-- ui部分-->
         <!--导航条 -->
