@@ -24,7 +24,9 @@
 	  <link rel="prefetch" href="eye1_right.png" /> 
 	  <link rel="prefetch" href="eye2_left.png" /> 
 	  <link rel="prefetch" href="eye2_right.png" /> 
-	  <link rel="prefetch" href="face4.png" /> 
+	  <link rel="prefetch" href="mouth1.png" /> 
+	  <link rel="prefetch" href="mouth2.png" /> 
+	  <link rel="prefetch" href="nose1.png" /> 
 
       <!-- 加载js-->
       <script type="text/javascript" src="js/jquery.js" ></script>
