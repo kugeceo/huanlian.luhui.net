@@ -63,6 +63,11 @@ window.URL = window.URL || window.webkitURL;
 	      var bili=img.width/img.height;
 		  clearCanvas();
 		  var  limitW=window.screen.width*0.8,limitH=window.screen.height*0.7;
+		  if(window.screen.height<750)
+		  	 limitH*=0.8;
+		  else if(window.screen.height<920)
+		  	 limitH*=0.9;
+	      var limitbili=limitW/limitH
 		  if(img.width<limitW&&img.height<limitH){
 			  document.getElementById("myCanvas").height=img.height;
               document.getElementById("myCanvas").width=img.width;
@@ -70,7 +75,7 @@ window.URL = window.URL || window.webkitURL;
 			 // addphoto(img.src);
 			 
 		  }
-		  else if(bili<2){
+		  else if(bili<limitbili){
 			  document.getElementById("myCanvas").height=limitH;
               document.getElementById("myCanvas").width=img.width*limitH/img.height;
 			  cxt.drawImage(img,0,0,img.width*limitH/img.height,limitH);
