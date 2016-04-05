@@ -1,4 +1,4 @@
-var facenum;
+var facenum=0;
 var faceID=new Array();
 var facecenterX=new Array();
 var facecenterY=new Array();

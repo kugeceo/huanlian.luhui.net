@@ -18,6 +18,7 @@
      
 
       <!-- 加载js-->
+	  
       <script type="text/javascript" src="js/jquery.js" ></script>
       <script src="js/assembly.js" type="text/javascript" ></script>
       <script type="text/javascript" src="js/init.js"> </script>
@@ -185,6 +186,7 @@
     <body>
     
 	<!-- 页面预加载 -->
+	<!--
     <div id="preloading">
 		<div id="preloading-center">
 			<div id="preloading-center-absolute-one">
@@ -205,8 +207,14 @@
 			</div>
 		</div>
 	</div>
-
+    -->
       <!--预加载图片资源-->
+	  <link rel="prefetch" href="photo/face_button1.png" /> 
+	  <link rel="prefetch" href="photo/face_button2.png" /> 
+	  <link rel="prefetch" href="photo/face_button3.png" /> 
+	  <link rel="prefetch" href="photo/face_button4.png" /> 
+	  <link rel="prefetch" href="photo/eye1_button.png" /> 
+	  <link rel="prefetch" href="photo/eye2_button.png" /> 
 	  <link rel="prefetch" href="photo/face1.png" /> 
 	  <link rel="prefetch" href="photo/face1.png" /> 
 	  <link rel="prefetch" href="photo/face2.png" />

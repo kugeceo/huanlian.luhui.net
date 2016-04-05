@@ -1,6 +1,10 @@
 
 //beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 5:换了脸
 function addeye(srcstr){  
+	if(facenum==0){
+         alert("未发现人脸，请更换图片~");
+     	 return ;
+    }
 	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
@@ -39,6 +43,10 @@ function addeye(srcstr){
  }
  
  function addmouth(srcstr){
+	if(facenum==0){
+         alert("未发现人脸，请更换图片~");
+     	 return ;
+    }
 	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	
@@ -62,6 +70,10 @@ function addeye(srcstr){
  }
 
  function addnose(srcstr){
+	if(facenum==0){
+         alert("未发现人脸，请更换图片~");
+     	 return ;
+    }
 	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	

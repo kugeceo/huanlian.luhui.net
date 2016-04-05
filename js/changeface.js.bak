@@ -46,6 +46,7 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
      if (err) {
       // TODO handle error
 	     alert("解析人脸关键点出错!");
+		 guoduover();
 	     return;  
       }
 	   var json= JSON.stringify(result, null, 2);
@@ -222,6 +223,10 @@ function putFaceAroundData(img){
 }
 
 function addface(srcstr){
+    if(facenum==0){
+         alert("未发现人脸，请更换图片");
+     	 return ;
+    }
 	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	

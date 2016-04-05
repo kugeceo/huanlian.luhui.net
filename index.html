@@ -18,6 +18,7 @@
      
 
       <!-- 加载js-->
+	  
       <script type="text/javascript" src="js/jquery.js" ></script>
       <script src="js/assembly.js" type="text/javascript" ></script>
       <script type="text/javascript" src="js/init.js"> </script>
@@ -185,6 +186,7 @@
     <body>
     
 	<!-- 页面预加载 -->
+	
     <div id="preloading">
 		<div id="preloading-center">
 			<div id="preloading-center-absolute-one">
@@ -205,8 +207,9 @@
 			</div>
 		</div>
 	</div>
-
+    
       <!--预加载图片资源-->
+	  <!--
 	  <link rel="prefetch" href="photo/face_button1.png" /> 
 	  <link rel="prefetch" href="photo/face_button2.png" /> 
 	  <link rel="prefetch" href="photo/face_button3.png" /> 
@@ -225,8 +228,8 @@
 	  <link rel="prefetch" href="photo/mouth1.png" /> 
 	  <link rel="prefetch" href="photo/mouth2.png" /> 
 	  <link rel="prefetch" href="photo/nose1.png" /> 
-
-
+      -->
+ 
     <!-- ui部分-->
         <!--导航条 -->
     <nav class="navbar  navbar-default">
@@ -277,7 +280,7 @@
     </div><!-- /.container-fluid -->
   </nav>
     
-  
+  <div id="fatherdiv">
      
     <!--  模块功能在此写 -->
     <div class="tab-content"  style="width:1800px"   >
@@ -313,9 +316,9 @@
       <li><button id="mouthbutton2" style=" width:150px; height:75px"><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
 	  <li><button style="width:150px; height:30px" onClick="shownoseMenu()"> 请选择鼻子 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button> </li>
       <li><button id="nosebutton1" style=" width:150px; height:75px"><img src="photo/nose1.png" onClick="addnose('photo/nose1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-  </div>
-  
       </div>
+  
+     </div>
        <div role="tabpanel" class="tab-pane" id="face_attribute">面相分析</div>
       <!--模块4 -->
       <div role="tabpanel" class="tab-pane" id="photo_beautify">图片美化</div>
@@ -337,13 +340,15 @@
 	  <p id="xycoordinates"   >坐标值:</p>
       </div>   
        
-	   <div>
+	
        <canvas id="myCanvas"  class="center-block"    onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()" width=0 height=0 >
        抱歉，您的浏览器貌似不支持画布功能。</canvas>   
 	   
 	   <canvas id="fCanvas" class="center-block"    style="position: absolute; top: 0px; left: 0px; z-index: 1"  >
        抱歉，您的浏览器貌似不支持画布功能。</canvas>   
-    
+
+ </div>   <!--fatherdiv-->
+
     <!-- ui部分 over-->
     
   <!-- 图片选择框-->
@@ -407,6 +412,7 @@
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"> </script> -->             
       <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--该js放html末尾-->
     <script src="js/waitingshow.js"></script>
     </body>
   </html>

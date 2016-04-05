@@ -9,7 +9,7 @@ var c = document.getElementById('fCanvas'),
         imgDataback.data[i+0]=20;
         imgDataback.data[i+1]=20;
         imgDataback.data[i+2]=20;
-        imgDataback.data[i+3]=60;
+        imgDataback.data[i+3]=70;
      }
     rand = function(a,b){return ~~((Math.random()*(b-a+1))+a);},
     dToR = function(degrees){
@@ -162,6 +162,6 @@ gradient2.addColorStop(.1, 'hsla('+circle.hue+', 100%, 100%, .7)');
 gradient2.addColorStop(1, 'hsla('+circle.hue+', 100%, 50%, 0)');
 
 /* Loop It, Loop It Good */
-setInterval(loop, 16);
+//setInterval(loop, 16);
 
 $("#fCanvas").hide()

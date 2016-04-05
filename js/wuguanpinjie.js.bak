@@ -33,6 +33,7 @@ function addeye(srcstr){
              ctx.drawImage(img,(righteyeX[curFace])/scalesize-img.width*0.5,(righteyeY[curFace])/scalesize-img.height*0.5);
 	         ctx.restore();
              afterDo();
+			 guoduover();
 		}
      }  
  }

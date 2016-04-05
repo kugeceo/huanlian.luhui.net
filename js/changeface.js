@@ -223,6 +223,10 @@ function putFaceAroundData(img){
 }
 
 function addface(srcstr){
+    if(facenum==0){
+         alert("未发现人脸，请更换图片~");
+     	 return ;
+    }
 	guodu();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");	

@@ -44,7 +44,6 @@ function guoduover(){   //结束过度效果  任何操作可能结束的最后�
 	 setTimeout("$('#fCanvas').hide();",200);
 }
 
-
 /*
 var imgData,curXPoint;
 function drawplay() {

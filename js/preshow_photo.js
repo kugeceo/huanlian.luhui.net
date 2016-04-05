@@ -13,6 +13,7 @@ window.URL = window.URL || window.webkitURL;
 		    var c=document.getElementById("myCanvas");
             var cxt=c.getContext("2d");
 			$("#closebutton").hide();
+			facenum=0;
 		    uploadBmob();
 		if(window.URL){
 			//File API
@@ -61,7 +62,8 @@ window.URL = window.URL || window.webkitURL;
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
-		  if(img.width<1500&&img.height<750){
+		  var  limitW=window.screen.width*0.8,limitH=window.screen.height*0.7;
+		  if(img.width<limitW&&img.height<limitH){
 			  document.getElementById("myCanvas").height=img.height;
               document.getElementById("myCanvas").width=img.width;
 			  cxt.drawImage(img,0,0);
@@ -69,18 +71,18 @@ window.URL = window.URL || window.webkitURL;
 			 
 		  }
 		  else if(bili<2){
-			  document.getElementById("myCanvas").height=750;
-              document.getElementById("myCanvas").width=img.width*750/img.height;
-			  cxt.drawImage(img,0,0,img.width*750/img.height,750);
+			  document.getElementById("myCanvas").height=limitH;
+              document.getElementById("myCanvas").width=img.width*limitH/img.height;
+			  cxt.drawImage(img,0,0,img.width*limitH/img.height,limitH);
 		  }else {
-			  document.getElementById("myCanvas").height=img.height*1500/img.width;
-              document.getElementById("myCanvas").width=1500;
-			  cxt.drawImage(img,0,0,1500,img.height*1500/img.width);
+			  document.getElementById("myCanvas").height=img.height*limitW/img.width;
+              document.getElementById("myCanvas").width=limitW;
+			  cxt.drawImage(img,0,0,limitW,img.height*limitW/img.width);
 		  }
 		 // document.getElementById("img1").src=img.src; 
 		 // geteye();
 		 // $("#img1").hide();
-		  canvasState[0]=cxt.getImageData(0,0,1500,750);
+		  canvasState[0]=cxt.getImageData(0,0,limitW,limitH);
 		  curState[0]=canvasState[0];
 		  userState[0]=0;
 		  faceArray[0]=-1;
