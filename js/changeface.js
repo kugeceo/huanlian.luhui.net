@@ -138,8 +138,8 @@ function getFaceAroundData(img,scalesizeX){   //img 为图片  scalesizeX为横�
 	 endPoint=leftcontourY[9]+faceheight[curFace]*0.3;
 	 if(endPoint>=ctx.height)endPoint=ctx.height-1;
 	 endPoint= Math.ceil(endPoint);
-	 leftbj=facecenterX[curFace]-img.width*0.5*scalesizeX;    //左边界
-	 rightbj=facecenterX[curFace]+img.width*0.5*scalesizeX;    //右边界
+	 leftbj=facecenterX[curFace]-img.width*0.8*scalesizeX;    //左边界
+	 rightbj=facecenterX[curFace]+img.width*0.8*scalesizeX;    //右边界
 	 //--------------左侧裁剪前的像素提取
 	 for(var i=beginPoint;i<Math.ceil(leftcontourY[0]);i++){
 		   if(leftcontourX[0]<=leftbj){          //如果左边界在左轮廓的右边，无需裁剪
