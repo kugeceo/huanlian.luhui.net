@@ -81,5 +81,4 @@ function getwuguan(json){
   // obj.face[0].position.eye_left.x
 }
 
-   
 

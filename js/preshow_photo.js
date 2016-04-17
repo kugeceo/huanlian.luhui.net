@@ -8,8 +8,8 @@ window.URL = window.URL || window.webkitURL;
     
 
 	function handleFiles(obj) {
-		var files = obj.files,
-			img = new Image();
+		var files = obj.files;
+		var img = new Image();
 		    var c=document.getElementById("myCanvas");
             var cxt=c.getContext("2d");
 			$("#closebutton").hide();
@@ -109,7 +109,7 @@ window.URL = window.URL || window.webkitURL;
       if (fileUploadControl.files.length > 0) {
         var file = fileUploadControl.files[0];
         var name = "face.jpg";
-        var file = new Bmob.File(name, file); 
+        var file = new Bmob.File2(name, file); 
         file.save().then(function(obj) {
 		 var url=obj.url(); 
 	     getFaceInfo(url);

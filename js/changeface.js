@@ -97,10 +97,11 @@ function getcontour(img)   //解析当前脸，返回左右部轮廓
 	   rightcontourY[8]=obj.result[0].landmark.contour_right9.y*H;
 	   rightcontourX[9]=obj.result[0].landmark.contour_chin.x*W+addW;
 	   rightcontourY[9]=obj.result[0].landmark.contour_chin.y*H;
-         
+      
 	   putFaceOnCanvas(img);
   });
 }
+
 function putFaceOnCanvas(img){
       //放置脸部的部分
          var c=document.getElementById("myCanvas");
@@ -237,3 +238,4 @@ function addface(srcstr){
 		 getcontour(img);  //先获取脸部轮廓
     }
 }
+
