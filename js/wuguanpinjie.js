@@ -1,5 +1,5 @@
 
-//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 5:换了脸
+//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了头部 5:换了脸
 function addeye(srcstr){  
 	if(facenum==0){
          alert("未发现人脸，请更换图片~");
@@ -58,14 +58,14 @@ function addeye(srcstr){
          ctx.save();
          var eyeaverY=(lefteyeY[curFace]+righteyeY[curFace])*0.5;
          var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
-         var scalesizeX=(facewidth[curFace]*0.7)/img.width;
+         var scalesizeX=(facewidth[curFace]*0.85)/img.width;
          var scalesizeY=Math.abs(eyeaverY-mouthaverY)*1.2/img.height;
 		 var angel=Math.atan((rightmouthY[curFace]-leftmouthY[curFace])/(rightmouthX[curFace]-leftmouthX[curFace]));
 		 ctx.translate((leftmouthX[curFace]+rightmouthX[curFace])*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
 		 ctx.rotate(angel);
 		 ctx.translate(-(leftmouthX[curFace]+rightmouthX[curFace])*0.5,-(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
          ctx.scale(scalesizeX,scalesizeY);	 
-		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesizeX-img.width*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5/scalesizeY-img.height*0.7);
+		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesizeX-img.width*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5/scalesizeY-img.height*0.6);
 		 ctx.restore();
 		 afterDo();
 		 guoduover();
@@ -102,6 +102,39 @@ function addeye(srcstr){
 		 guoduover();
     }
  }
+
+
+ function addhat(srcstr){
+	if(facenum==0){
+         alert("未发现人脸，请更换图片~");
+     	 return ;
+    }
+	guodu();
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");	
+	var img = new Image();
+	img.src=srcstr;
+	img.onload = function ()
+	{
+         beforeDo(4);
+         ctx.save();
+         var eyeaverY=(lefteyeY[curFace]+righteyeY[curFace])*0.5;
+         var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
+         var scalesizeX=(facewidth[curFace]*2.2)/img.width;
+         var scalesizeY=Math.abs(eyeaverY-mouthaverY)*3.2/img.height;
+		 var angel=Math.atan((rightmouthY[curFace]-leftmouthY[curFace])/(rightmouthX[curFace]-leftmouthX[curFace]));
+		 ctx.translate((leftmouthX[curFace]+rightmouthX[curFace])*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
+		 ctx.rotate(angel);
+		 ctx.translate(-(leftmouthX[curFace]+rightmouthX[curFace])*0.5,-(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
+         ctx.scale(scalesizeX,scalesizeY);	 
+         var len_eye_nose=Math.abs(eyeaverY-mouthaverY)*2/scalesizeY;
+		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesizeX-img.width*0.5,eyeaverY/scalesizeY-len_eye_nose);
+		 ctx.restore();
+		 afterDo();
+		 guoduover();
+    }
+ }
+
 /*
 var facenum;
 var facecenterX=new Array();

@@ -22,6 +22,9 @@ for(var i=1;i<30;i++){    //隐藏组件
    var nosestr="#nosebutton";
    nosestr+=i;
    $(nosestr).hide();
+   var hatstr="#hatbutton";
+   hatstr+=i;
+   $(hatstr).hide();
 }
 if (window.innerWidth)
 var winWidth = window.innerWidth;

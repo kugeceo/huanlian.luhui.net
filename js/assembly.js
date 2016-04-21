@@ -36,6 +36,19 @@ function  shownoseMenu(){
 	  }  
 }
 
+var hatbuttonFlag=false;
+function  showhatMenu(){
+	  hatbuttonFlag=!hatbuttonFlag;
+	  for(var i=1;i<30;i++){
+		var hatstr="#hatbutton";
+        hatstr+=i;
+		if(hatbuttonFlag)
+        $(hatstr).fadeIn(300);
+		else
+        $(hatstr).fadeOut(150);
+	  }  
+}
+
 function guodu(){   //每次操作的过度效果
 	$("#fCanvas").show();
 }
