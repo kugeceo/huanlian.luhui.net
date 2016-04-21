@@ -293,15 +293,54 @@ function pregetoldcontour(img)   //获取原图详细点集
 
 ////开始进行坐标的变换
   //对图片进行选择放大，同时对坐标也进行旋转放大
+  //先旋转，再放大
+       var c=document.getElementById("NewfaceCanvas");
+       var ctx=c.getContext("2d");	
 	   var scalesizeX=Math.sqrt((leftcontourX[0]-rightcontourX[0])*(leftcontourX[0]-rightcontourX[0])+(leftcontourY[0]-rightcontourY[0])*(leftcontourY[0]-rightcontourY[0]));   
        scalesizeX/=Math.sqrt((NewleftcontourX[1]-NewrightcontourX[1])*(NewleftcontourX[1]-NewrightcontourX[1])+(NewleftcontourY[1]-NewrightcontourY[1])*(NewleftcontourY[1]-NewrightcontourY[1]));  
 	   var scalesizeY=(faceheight[curFace])/Newfaceheight[0]; 
 	   scalesizeX*=0.9;scalesizeY*=0.9;
        ctx.save();
-       ctx.scale(scalesizeX,scalesizeY); 
+       //对素材图进行旋转
+       var eyeaverX=(lefteyeX[curFace]+righteyeX[curFace])*0.5;
+	   var eyeaverY=(lefteyeY[curFace]+righteyeY[curFace])*0.5;
+       var mouthaverX=(rightmouthX[curFace]+leftmouthX[curFace])*0.5;
+	   var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
+	   var NeweyeaverX=(NewlefteyeX[0]+NewrighteyeX[0])*0.5;
+	   var NeweyeaverY=(NewlefteyeY[0]+NewrighteyeY[0])*0.5;
+       var NewmouthaverX=(NewrightmouthX[0]+NewleftmouthX[0])*0.5;
+	   var NewmouthaverY=(NewrightmouthY[0]+NewleftmouthY[0])*0.5;
+       var angel=Math.atan((mouthaverX-eyeaverX)/(eyeaverY-mouthaverY));
+       angel-=Math.atan((NewmouthaverX-NeweyeaverX)/(NeweyeaverY-NewmouthaverY));
+      // angel*=0.8;
+       ctx.translate(NewfacecenterX[0],NewfacecenterY[0]);
+       ctx.rotate(angel);
+       ctx.translate(-NewfacecenterX[0],-NewfacecenterY[0]);
+       //对素材图进行缩放
+       ctx.scale(scalesizeX,scalesizeY);  
 	   ctx.drawImage(img,0,0);
 	   ctx.restore();
-      
+       
+       //对坐标进行旋转
+       for(var i=0;i<=10;i++){
+           var len=Dis(NewleftcontourX[i],NewleftcontourY[i],NewfacecenterX[0],NewfacecenterY[0]);
+           var curAngel=Math.acos((NewleftcontourX[i]-NewfacecenterX[0])/len);
+         //  curAngel+=angel;
+           NewleftcontourX[i]=NewfacecenterX[0]+len*Math.cos(curAngel);
+           curAngel=Math.asin((NewleftcontourY[i]-NewfacecenterY[0])/len);
+        //   curAngel+=angel;
+           NewleftcontourY[i]=NewfacecenterY[0]+len*Math.sin(curAngel);
+            
+           len=Dis(NewrightcontourX[i],NewrightcontourY[i],NewfacecenterX[0],NewfacecenterY[0]);
+           curAngel=Math.acos((NewrightcontourX[i]-NewfacecenterX[0])/len);
+        //   curAngel+=angel;
+           NewrightcontourX[i]=NewfacecenterX[0]+len*Math.cos(curAngel);
+           curAngel=Math.asin((NewrightcontourY[i]-NewfacecenterY[0])/len);
+        //   curAngel+=angel;
+           NewrightcontourY[i]=NewfacecenterY[0]+len*Math.sin(curAngel);
+           
+       }
+       //对坐标进行缩放
        for(var i=0;i<=10;i++){
        	 NewleftcontourX[i]*=scalesizeX;
        	 NewleftcontourY[i]*=scalesizeY;
@@ -357,7 +396,7 @@ function putNewFaceOnCanvas(img){
 	     var Top=facecenterY[curFace]-faceheight[curFace]*0.5,Left=facecenterX[curFace]-facewidth[curFace]*0.45;
 	     Top=Math.ceil(Top*1.05); Left=Math.ceil(Left);
 
-	     for(var i=0;i<Newlinenum;i++){
+	     for(var i=0;i<Newlinenum-5;i++){
 	     	ctx.putImageData(Newimgline[i],Left+Newbeginpoint[i],Top+i);
 	     }
 	

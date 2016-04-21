@@ -56,13 +56,16 @@ function addeye(srcstr){
 	{
          beforeDo(2);
          ctx.save();
-         var scalesize=(facewidth[curFace]*0.5)/img.width;
+         var eyeaverY=(lefteyeY[curFace]+righteyeY[curFace])*0.5;
+         var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
+         var scalesizeX=(facewidth[curFace]*0.7)/img.width;
+         var scalesizeY=Math.abs(eyeaverY-mouthaverY)*1.2/img.height;
 		 var angel=Math.atan((rightmouthY[curFace]-leftmouthY[curFace])/(rightmouthX[curFace]-leftmouthX[curFace]));
 		 ctx.translate((leftmouthX[curFace]+rightmouthX[curFace])*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
 		 ctx.rotate(angel);
 		 ctx.translate(-(leftmouthX[curFace]+rightmouthX[curFace])*0.5,-(leftmouthY[curFace]+rightmouthY[curFace])*0.5);
-         ctx.scale(scalesize,scalesize);	 
-		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesize-img.width*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5/scalesize-img.height*0.5);
+         ctx.scale(scalesizeX,scalesizeY);	 
+		 ctx.drawImage(img,(leftmouthX[curFace]+rightmouthX[curFace])*0.5/scalesizeX-img.width*0.5,(leftmouthY[curFace]+rightmouthY[curFace])*0.5/scalesizeY-img.height*0.7);
 		 ctx.restore();
 		 afterDo();
 		 guoduover();

@@ -35,7 +35,7 @@
       <script src="http://www.webhek.com/wordpress/wp-content/uploads/js/canvas2image/base64.js"></script>
       <script src="http://www.webhek.com/wordpress/wp-content/uploads/js/canvas2image/canvas2image.js"></script>
       <script src="js/prefixfree.min.js"></script>
-
+      <script src="js/math.js"></script>
 	  <!--设置预加载动画风格-->
       <style>
 	#preloading{
@@ -298,14 +298,22 @@
       <div role="tabpanel" class="tab-pane" id="features_combination">
         <!-- 滚动条(五官拼接)-->
       <div id="convo2" data-from="Sonu Joshi" class="chat-thread" >  
-      <li><button style="width:150px; height:30px" onClick="showeyeMenu()"> 眼部选择  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button> </li> <li><p></p></li>
+      <li> <img  style="width:150px; height:60px" onClick="showeyeMenu()" src="photo/chooseEyes.jpg" class="img-rounded"/>   </li> <li><p></p></li>
       <li><button id="eyebutton1" style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:70px"></button></li><li><p></p></li>
       <li><button id="eyebutton2" style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><button style="width:150px; height:30px" onClick="showmouthMenu()"> 嘴部选择 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button> </li> <li><p></p></li>
+      <li><button id="eyebutton3" style=" width:150px; height:75px"><img src="photo/eye3_button.png" onClick="addeye('photo/eye3')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="eyebutton4" style=" width:150px; height:75px"><img src="photo/eye4_button.png" onClick="addeye('photo/eye4')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><img  style="width:150px; height:60px" onClick="showmouthMenu()" src="photo/chooseMouth.jpg" class="img-rounded"/> </li> <li><p></p></li>
       <li><button id="mouthbutton1" style=" width:150px; height:75px"><img src="photo/mouth1.png" onClick="addmouth('photo/mouth1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       <li><button id="mouthbutton2" style=" width:150px; height:75px"><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-	  <li><button style="width:150px; height:30px" onClick="shownoseMenu()"> 鼻部选择 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></button> </li>
+      <li><button id="mouthbutton3" style=" width:150px; height:75px"><img src="photo/mouth3.png" onClick="addmouth('photo/mouth3.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <!--
+	  <li><img  style="width:150px; height:60px" onClick="shownoseMenu()" src="photo/chooseNose.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       <li><button id="nosebutton1" style=" width:150px; height:75px"><img src="photo/nose1.png" onClick="addnose('photo/nose1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      -->
+      <li><img  style="width:150px; height:60px" onClick="" src="photo/chooseHair.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+      <li><img  style="width:150px; height:60px" onClick="" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+      <li><img  style="width:150px; height:60px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       </div>
   
      </div>
