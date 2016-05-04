@@ -116,7 +116,7 @@ function putFaceOnCanvas(img){
          var mouthaverX=(rightmouthX[curFace]+leftmouthX[curFace])*0.5;
 	     var mouthaverY=(rightmouthY[curFace]+leftmouthY[curFace])*0.5;
 		 var angel=Math.atan((mouthaverX-eyeaverX)/(eyeaverY-mouthaverY));
-		 angel*=0.6;
+		 angel*=0.8;
 		 ctx.translate(facecenterX[curFace],facecenterY[curFace]);
 		 ctx.rotate(angel);
 		 ctx.translate(-facecenterX[curFace],-facecenterY[curFace]);

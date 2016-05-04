@@ -14,10 +14,22 @@ var leftmouthX=new Array();
 var leftmouthY=new Array();
 var rightmouthX=new Array();
 var rightmouthY=new Array();
+var age_value=new Array();
+var age_range=new Array();
+var gender_value=new Array();
+var gender_confidence=new Array();
+var glass_value=new Array();
+var glass_confidence=new Array();
+var race_value=new Array();
+var race_confidence=new Array();
+var smiling_value=new Array();
+var pitch_angle=new Array();
+
 function  getFaceInfo(urlstr){
  var api = new FacePP('abc3b4dd8808310720f3a521311f0bf0', 'vyvK77UjUxGdksdyojX0cWgGmM64PaLq');
  api.request('detection/detect', {
-      url:urlstr
+      url:urlstr,
+      attribute:"glass,pose,gender,age,race,smiling"
     }, function(err, result) {
      if (err) {
       // TODO handle error
@@ -25,7 +37,7 @@ function  getFaceInfo(urlstr){
 	   document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;图片信息获取失败！</p>";
 	         return;  
       }
-        // TODO use result
+        // TODO 2.use result
 	   $("#loading").hide();
 	   $("#closebutton").show();
 	   var json= JSON.stringify(result, null, 2);
@@ -49,6 +61,7 @@ function  getFaceInfo(urlstr){
           ctx.fillRect(154,79,12,2);
 		  ctx.fillRect(159,74,2,12);
 	   }
+	   show_analysedFace();  // 面相分析初始脸 
 	   document.getElementById("pleasewait").innerHTML="<p class='text-success' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传成功！</p>";
   });
 }
@@ -76,9 +89,19 @@ function getwuguan(json){
        leftmouthY[i]=obj.face[i].position.mouth_left.y*H;
        rightmouthX[i]=obj.face[i].position.mouth_right.x*W;
 	   rightmouthY[i]=obj.face[i].position.mouth_right.y*H;
+	   age_value[i]=obj.face[i].attribute.age.value;
+	   age_range[i]=obj.face[i].attribute.age.range;
+	   gender_value[i]=obj.face[i].attribute.gender.value;
+	   gender_confidence[i]=obj.face[i].attribute.gender.confidence;
+	   glass_value[i]=obj.face[i].attribute.glass.value;
+	   glass_confidence[i]=obj.face[i].attribute.glass.confidence;
+	   race_value[i]=obj.face[i].attribute.race.value;
+	   race_confidence[i]=obj.face[i].attribute.race.confidence;
+       smiling_value[i]=obj.face[i].attribute.smiling.value;
+       pitch_angle[i]=obj.face[i].attribute.pose.pitch_angle;
+
 	   facecenterY[i]+=faceheight[i]*0.05;
    }
   // obj.face[0].position.eye_left.x
 }
-
 

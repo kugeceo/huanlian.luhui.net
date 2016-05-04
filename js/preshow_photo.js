@@ -57,7 +57,8 @@ window.URL = window.URL || window.webkitURL;
 	//	}
 	  //  var fileBinary = files[0].getAsBinary();
 	//	getFaceInfo("http://isnowfy.qiniudn.com/people.png");
-	
+
+	    analysedImage=img;    //面相分析需要原图
         img.onload = function () //确保图片已经加载完毕  
         { 
 	      var bili=img.width/img.height;
@@ -73,7 +74,6 @@ window.URL = window.URL || window.webkitURL;
               document.getElementById("myCanvas").width=img.width;
 			  cxt.drawImage(img,0,0);
 			 // addphoto(img.src);
-			 
 		  }
 		  else if(bili<limitbili){
 			  document.getElementById("myCanvas").height=limitH;
@@ -84,6 +84,7 @@ window.URL = window.URL || window.webkitURL;
               document.getElementById("myCanvas").width=limitW;
 			  cxt.drawImage(img,0,0,limitW,img.height*limitW/img.width);
 		  }
+		  
 		 // document.getElementById("img1").src=img.src; 
 		 // geteye();
 		 // $("#img1").hide();
@@ -94,6 +95,7 @@ window.URL = window.URL || window.webkitURL;
 		  point=0;
 		  stateSize=1;
 		  curFace=0;
+		  analysedFace=0;
 		  beforecurFace=-1; 
 		  $('#choosePhoto').popover('destroy');
           document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请勿关闭窗口~</p>";

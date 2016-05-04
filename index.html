@@ -36,6 +36,9 @@
       <script src="http://www.webhek.com/wordpress/wp-content/uploads/js/canvas2image/canvas2image.js"></script>
       <script src="js/prefixfree.min.js"></script>
       <script src="js/math.js"></script>
+      <script src="js/fabric.js"></script>
+      <script src="js/control.js"></script>
+      <script src="js/face_attribute.js"></script>
 	  <!--设置预加载动画风格-->
       <style>
 	#preloading{
@@ -247,14 +250,14 @@
       </div>
      
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="7s-example-navbar-collapse-1">
         <ul class="nav navbar-nav" role="tablist">
 		  <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal"  onClick="beforeHandle()" > 
            打开图片  </a></li>
-          <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab" >  一键换脸  <span class="sr-only">(current)</span></a></li>
-          <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab">  趣味贴图  </a></li>
-		  <li role="presentation" class="disabled"><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" >  面相分析  </a></li>
-          <li role="presentation" class="disabled"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab">  图片美化  </a></li>
+          <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab" onClick="face_change_control()" >  一键换脸  <span class="sr-only">(current)</span></a></li>
+          <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab" onClick="features_combination_control()">  趣味贴图  </a></li>
+		  <li role="presentation" ><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()" >  面相分析  </a></li>
+          <li role="presentation" class="disabled"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图片美化  </a></li>
           <li role="presentation" ><a href="#" data-toggle="modal" data-target="#save_and_share" >  保存与分享  </a></li>
         </ul>
         <!-- Tab panes -->
@@ -316,15 +319,48 @@
       <li><button id="hatbutton1" style=" width:150px; height:75px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       <li><img  style="width:150px; height:60px" onClick="" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       <li><img  style="width:150px; height:60px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+
       </div>
   
-     </div>
-       <div role="tabpanel" class="tab-pane" id="face_attribute">面相分析</div>
+     </div>      
+      <div role="tabpanel" class="tab-pane" id="face_attribute" >
+       <div id="face_attribute_div" >
+
+       <div>
+       	<canvas id="face_attribute_canvas" class="center-block" >
+       	</canvas>
+       </div>
+       <p></p>
+
+       <div class="center-block" style="width:290px; ">
+       <div class="btn-group btn-group-lg" role="group"  > 
+       <button type="button" class="btn btn-primary" onClick="change_analysedFace()">切换脸部</button>
+       <button type="button" class="btn btn-success">开始分析！</button>
+       </div>
+       </div>
+       <p></p>
+
+       <div class="center-block" style="width:800px; " id="face_attribute_tip">
+       <div class="panel panel-default" >
+         <div class="panel-heading">
+             <h3 class="panel-title">提示</h3>
+         </div>
+        <div class="panel-body">
+         <p> 1、尽量上传清晰的正面彩色照片，做鬼脸（包括嘟嘴，咪眼等等）会影响检测结果</p>
+         <p> 2、只能分析原图中的脸部面相</p>
+         <p> 3、检测只对照片不对人，同一个人的不同照片可能会检测出不同的结果，为了得到最接近真实的结果，可以多检测几次 </p>
+         <p> 4、检测算法依据主要有从海量数据中提取的亚洲人基本审美观，黄金分割比例等等，仍将不断调整完善</p>
+        </div>
+       </div>
+       </div>
+
+       </div>
+      </div>
       <!--模块4 -->
       <div role="tabpanel" class="tab-pane" id="photo_beautify">图片美化</div>
     </div>   
     
-     <div class="btn-group" role="group" aria-label="..." >
+     <div class="btn-group" role="group" aria-label="..." id="control_button_group">
       <button type="button" class="btn btn-default" onClick="doBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>撤销</button>
       <button type="button" class="btn btn-default" onClick="doFront()"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>重做</button>
       <button type="button" class="btn btn-default" onClick="firstCanvas()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>原图</button> 
@@ -353,6 +389,7 @@
 
        <canvas id="NewfaceCanvas"   width=5000 height=5000 >
        抱歉，您的浏览器貌似不支持画布功能。</canvas>   
+
 
  </div>   <!--fatherdiv-->
 
