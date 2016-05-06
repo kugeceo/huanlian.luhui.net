@@ -84,7 +84,7 @@ window.URL = window.URL || window.webkitURL;
               document.getElementById("myCanvas").width=limitW;
 			  cxt.drawImage(img,0,0,limitW,img.height*limitW/img.width);
 		  }
-		  
+	
 		 // document.getElementById("img1").src=img.src; 
 		 // geteye();
 		 // $("#img1").hide();
@@ -99,6 +99,7 @@ window.URL = window.URL || window.webkitURL;
 		  beforecurFace=-1; 
 		  $('#choosePhoto').popover('destroy');
           document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请勿关闭窗口~</p>";
+          $('#face_attribute_text').fadeOut();
         }  
         
 		

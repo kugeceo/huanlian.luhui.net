@@ -233,7 +233,8 @@
 	  <link rel="prefetch" href="photo/mouth2.png" /> 
 	  <link rel="prefetch" href="photo/nose1.png" /> 
       -->
- 
+
+
     <!-- ui部分-->
         <!--导航条 -->
     <nav class="navbar  navbar-default">
@@ -248,7 +249,7 @@
         </button>
         <a class="navbar-brand" href="#"  data-toggle="popover" data-trigger="focus" data-content="我们是BetaGo小组!"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> e键换脸 测试版 </a>
       </div>
-     
+
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav" role="tablist">
@@ -256,7 +257,7 @@
            打开图片  </a></li>
           <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab" onClick="face_change_control()" >  一键换脸  <span class="sr-only">(current)</span></a></li>
           <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab" onClick="features_combination_control()">  趣味贴图  </a></li>
-		  <li role="presentation" ><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()" >  面相分析  </a></li>
+		  <li role="presentation" ><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()" >  颜值测试  </a></li>
           <li role="presentation" class="disabled"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图片美化  </a></li>
           <li role="presentation" ><a href="#" data-toggle="modal" data-target="#save_and_share" >  保存与分享  </a></li>
         </ul>
@@ -335,12 +336,30 @@
        <div class="center-block" style="width:290px; ">
        <div class="btn-group btn-group-lg" role="group"  > 
        <button type="button" class="btn btn-primary" onClick="change_analysedFace()">切换脸部</button>
-       <button type="button" class="btn btn-success">开始分析！</button>
+       <button type="button" class="btn btn-success" onClick="begin_analysedFace()">开始测试！</button>
        </div>
        </div>
-       <p></p>
+       <p><br/></p>
 
-       <div class="center-block" style="width:800px; " id="face_attribute_tip">
+       <div class="center-block" style="width:800px;" id="face_attribute_text">
+        <div class="panel panel-primary">
+          <div class="panel-heading">测试结果如下</div>
+          <div class="panel-body">
+            <ul class="list-group" >
+               <li class="list-group-item" id="appearance_text"></li>
+               <li class="list-group-item" id="age_text"></li>
+               <li class="list-group-item" id="gender_text"></li>
+               <li class="list-group-item" id="glass_text"></li>
+               <li class="list-group-item" id="race_text"></li>
+               <li class="list-group-item" id="smiling_text"></li>
+               <li class="list-group-item" id="character_text"></li>
+            </ul>
+
+          </div>
+        </div>
+       </div>
+
+       <div class="center-block" style="width:700px; " id="face_attribute_tip">
        <div class="panel panel-default" >
          <div class="panel-heading">
              <h3 class="panel-title">提示</h3>
@@ -389,6 +408,7 @@
 
        <canvas id="NewfaceCanvas"   width=5000 height=5000 >
        抱歉，您的浏览器貌似不支持画布功能。</canvas>   
+
 
 
  </div>   <!--fatherdiv-->

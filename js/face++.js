@@ -61,6 +61,7 @@ function  getFaceInfo(urlstr){
           ctx.fillRect(154,79,12,2);
 		  ctx.fillRect(159,74,2,12);
 	   }
+	   get_analysedFace();  //面相分析先提取原图的脸部图片
 	   show_analysedFace();  // 面相分析初始脸 
 	   document.getElementById("pleasewait").innerHTML="<p class='text-success' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传成功！</p>";
   });
@@ -98,9 +99,24 @@ function getwuguan(json){
 	   race_value[i]=obj.face[i].attribute.race.value;
 	   race_confidence[i]=obj.face[i].attribute.race.confidence;
        smiling_value[i]=obj.face[i].attribute.smiling.value;
-       pitch_angle[i]=obj.face[i].attribute.pose.pitch_angle;
+       pitch_angle[i]=obj.face[i].attribute.pose.pitch_angle.value;
 
 	   facecenterY[i]+=faceheight[i]*0.05;
+	   if(gender_value[i]=="Male") gender_value[i]="男";
+	   else gender_value[i]="女";
+	   if(glass_value[i]=="Normal") glass_value[i]="普通眼睛";
+	   else if(glass_value[i]=="Dark") glass_value[i]="墨镜";
+	   else glass_value[i]="无";
+	   if(race_value[i]=="Asian") race_value[i]="亚洲脸";
+	   else if(race_value[i]=="White") race_value[i]="白种人脸";
+	   else race_value[i]="黑种人脸";
+	   if(smiling_value[i]<10)smiling_value[i]="生无可恋";
+	   else if(smiling_value[i]<40)smiling_value[i]="微笑";
+	   else if(smiling_value[i]<60)smiling_value[i]="猥琐的笑容";
+	   else if(smiling_value[i]<80)smiling_value[i]="憨笑";
+	   else if(smiling_value[i]<90)smiling_value[i]="大笑";
+	   else smiling_value[i]="发疯般地狂笑";
+
    }
   // obj.face[0].position.eye_left.x
 }

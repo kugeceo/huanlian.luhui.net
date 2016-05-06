@@ -10,6 +10,7 @@ Bmob.initialize("baef162ac09a8f23038da90b54918b66", "6a801014064680e32899ee4e75b
 $("#loading").hide();   //先隐藏loading画布
 $("#NewfaceCanvas").hide();
 $("#uploadmyface").hide();
+$('#face_attribute_text').fadeOut();//隐藏面相分析文本
 
 setTimeout(" $('#preloading').fadeOut(300); ",1000);  //设置多久消去预加载动画
 setTimeout("$('#myModal').modal('show');",1500);    //设置什么时候弹出模态框
