@@ -167,7 +167,10 @@ function get_character(){
     tab_child[8]="明事理，诚实，勤动脑，勤劳";
     tab_child[9]="乐于助人，开朗、活泼。";
     tab_child[10]="善于交往，能与人和睦相处。";
-    if(age_value[analysedFace]<12){
+    if(age_value[analysedFace]<7){
+        return "你是个天真活泼的小朋友，啥都不懂";
+    }
+    else if(age_value[analysedFace]<18){
     	return tab_child[Math.ceil(facewidth[analysedFace])*Math.ceil(faceheight[analysedFace])*17%tab_child_num];
     }else{
         return tab_man[Math.ceil(facewidth[analysedFace])*Math.ceil(faceheight[analysedFace])*17%tab_man_num]

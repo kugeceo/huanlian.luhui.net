@@ -116,7 +116,15 @@ function getwuguan(json){
 	   else if(smiling_value[i]<80)smiling_value[i]="憨笑";
 	   else if(smiling_value[i]<90)smiling_value[i]="大笑";
 	   else smiling_value[i]="发疯般地狂笑";
-
+       gender_confidence[i]*=100;
+       gender_confidence[i]=Math.ceil(gender_confidence[i]);
+       gender_confidence[i]/=100;
+       glass_confidence[i]*=100;
+       glass_confidence[i]=Math.ceil(glass_confidence[i]);
+       glass_confidence[i]/=100;
+       race_confidence[i]*=100;
+       race_confidence[i]=Math.ceil(race_confidence[i]);
+       race_confidence[i]/=100;
    }
   // obj.face[0].position.eye_left.x
 }
