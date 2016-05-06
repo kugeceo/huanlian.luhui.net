@@ -104,7 +104,7 @@ function getwuguan(json){
 	   facecenterY[i]+=faceheight[i]*0.05;
 	   if(gender_value[i]=="Male") gender_value[i]="男";
 	   else gender_value[i]="女";
-	   if(glass_value[i]=="Normal") glass_value[i]="普通眼睛";
+	   if(glass_value[i]=="Normal") glass_value[i]="普通眼镜";
 	   else if(glass_value[i]=="Dark") glass_value[i]="墨镜";
 	   else glass_value[i]="无";
 	   if(race_value[i]=="Asian") race_value[i]="亚洲脸";
