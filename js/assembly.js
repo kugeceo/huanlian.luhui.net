@@ -4,8 +4,19 @@ function  showeyeMenu(){
 	  for(var i=1;i<30;i++){
 		var eyestr="#eyebutton";
         eyestr+=i;
-		if(eyebuttonFlag)
-        $(eyestr).fadeIn(300);
+        var mouthstr="#mouthbutton";
+        mouthstr+=i;
+        var nosestr="#nosebutton";
+        nosestr+=i;
+        var hatstr="#hatbutton";
+        hatstr+=i;
+		if(eyebuttonFlag){
+           $(eyestr).fadeIn(300);
+           $(mouthstr).fadeOut(0);
+           $(nosestr).fadeOut(0);
+           $(hatstr).fadeOut(0);
+           mouthbuttonFlag=nosebuttonFlag=hatbuttonFlag=false;
+		}
 		else
         $(eyestr).fadeOut(150);
 	  }  
@@ -15,10 +26,21 @@ var mouthbuttonFlag=false;
 function  showmouthMenu(){
 	  mouthbuttonFlag=!mouthbuttonFlag;
 	  for(var i=1;i<30;i++){
-		var mouthstr="#mouthbutton";
+		var eyestr="#eyebutton";
+        eyestr+=i;
+        var mouthstr="#mouthbutton";
         mouthstr+=i;
-		if(mouthbuttonFlag)
-        $(mouthstr).fadeIn(300);
+        var nosestr="#nosebutton";
+        nosestr+=i;
+        var hatstr="#hatbutton";
+        hatstr+=i;
+		if(mouthbuttonFlag){
+            $(eyestr).fadeOut(0);
+            $(mouthstr).fadeIn(300);
+			$(nosestr).fadeOut(0);
+            $(hatstr).fadeOut(0);
+            eyebuttonFlag=nosebuttonFlag=hatbuttonFlag=false;
+		}
 		else
         $(mouthstr).fadeOut(150);
 	  }  
@@ -27,10 +49,21 @@ var nosebuttonFlag=false;
 function  shownoseMenu(){
 	  nosebuttonFlag=!nosebuttonFlag;
 	  for(var i=1;i<30;i++){
-		var nosestr="#nosebutton";
+		var eyestr="#eyebutton";
+        eyestr+=i;
+        var mouthstr="#mouthbutton";
+        mouthstr+=i;
+        var nosestr="#nosebutton";
         nosestr+=i;
-		if(nosebuttonFlag)
-        $(nosestr).fadeIn(300);
+        var hatstr="#hatbutton";
+        hatstr+=i;
+		if(nosebuttonFlag){
+            $(eyestr).fadeOut(0);
+            $(mouthstr).fadeOut(0);
+			$(nosestr).fadeIn(300);
+            $(hatstr).fadeOut(0);
+            eyebuttonFlag=mouthbuttonFlag=hatbuttonFlag=false;
+		}
 		else
         $(nosestr).fadeOut(150);
 	  }  
@@ -40,21 +73,73 @@ var hatbuttonFlag=false;
 function  showhatMenu(){
 	  hatbuttonFlag=!hatbuttonFlag;
 	  for(var i=1;i<30;i++){
-		var hatstr="#hatbutton";
+		var eyestr="#eyebutton";
+        eyestr+=i;
+        var mouthstr="#mouthbutton";
+        mouthstr+=i;
+        var nosestr="#nosebutton";
+        nosestr+=i;
+        var hatstr="#hatbutton";
         hatstr+=i;
-		if(hatbuttonFlag)
-        $(hatstr).fadeIn(300);
+		if(hatbuttonFlag){
+            $(eyestr).fadeOut(0);
+            $(mouthstr).fadeOut(0);
+			$(nosestr).fadeOut(0);
+            $(hatstr).fadeIn(300);
+            eyebuttonFlag=nosebuttonFlag=nosebuttonFlag=false;
+		}
 		else
         $(hatstr).fadeOut(150);
 	  }  
 }
+
+//////////////////////////////////////////////////////////////////////////
+
+var lvjingFlag=false;
+function  showlvjingMenu(){
+	  lvjingFlag=!lvjingFlag;
+	  for(var i=1;i<30;i++){
+		var lvjingstr="#lvjingbutton";
+        lvjingstr+=i;
+        var colorstr="#colorbutton";
+        colorstr+=i;
+		if(lvjingFlag){
+            $(lvjingstr).fadeIn(300);
+            $(colorstr).fadeOut(0);
+            colorFlag=false;
+		}
+		else
+        $(lvjingstr).fadeOut(150);
+	  }  
+}
+
+var colorFlag=false;
+function  showcolorMenu(){
+	  colorFlag=!colorFlag;
+	  for(var i=1;i<30;i++){
+	  	var lvjingstr="#lvjingbutton";
+        lvjingstr+=i;
+		var colorstr="#colorbutton";
+        colorstr+=i;
+		if(colorFlag){
+			$(lvjingstr).fadeOut(0);
+            $(colorstr).fadeIn(300);
+            lvjingFlag=false;
+		}
+		else
+        $(colorstr).fadeOut(150);
+	  }  
+}
+
+
+//////////////////////////////////////////////////////////////////////////
 
 function guodu(){   //每次操作的过度效果
 	$("#fCanvas").show();
 }
 
 function guoduover(){   //结束过度效果  任何操作可能结束的最后位置都要加
-	 setTimeout("$('#fCanvas').hide();",200);
+	 setTimeout("$('#fCanvas').hide();",300);
 }
 
 /*

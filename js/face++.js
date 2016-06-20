@@ -33,7 +33,7 @@ function  getFaceInfo(urlstr){
     }, function(err, result) {
      if (err) {
       // TODO handle error
-	   alert("人脸云端识别出错，请重试！");
+	   alert("Face++人脸云端识别出错，请重试！");
 	   document.getElementById("pleasewait").innerHTML="<p class='text-danger'>&nbsp;&nbsp;&nbsp;&nbsp;图片信息获取失败！</p>";
 	         return;  
       }

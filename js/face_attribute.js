@@ -37,6 +37,7 @@ function begin_analysedFace(){
 		alert("未发现脸部，请更换图片~");
 		return ;
 	}
+    guodu();
     $('#face_attribute_text').fadeIn();
     document.getElementById("appearance_text").innerHTML="颜值："+get_appearance()+"分&nbsp&nbsp&nbsp&nbsp(满分为10分)";
     document.getElementById("age_text").innerHTML="年龄："+Math.max(0,Math.ceil(age_value[analysedFace]-age_range[analysedFace]/2.5))+" ~ "+Math.ceil(age_value[analysedFace]+age_range[analysedFace]/2.5);
@@ -45,6 +46,7 @@ function begin_analysedFace(){
     document.getElementById("race_text").innerHTML="人种："+race_value[analysedFace]+"&nbsp&nbsp&nbsp&nbsp(置信度："+race_confidence[analysedFace]+")";
     document.getElementById("smiling_text").innerHTML="表情："+smiling_value[analysedFace];
     document.getElementById("character_text").innerHTML="性格分析："+get_character();
+    guoduover();
 }
 
 function get_appearance(){

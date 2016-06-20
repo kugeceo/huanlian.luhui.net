@@ -27,6 +27,13 @@ for(var i=1;i<30;i++){    //隐藏组件
    var hatstr="#hatbutton";
    hatstr+=i;
    $(hatstr).hide();
+   var lvjingstr="#lvjingbutton";
+   lvjingstr+=i;
+   $(lvjingstr).hide();
+   var colorstr="#colorbutton";
+   colorstr+=i;
+   $(colorstr).hide();
+   
 }
 if (window.innerWidth)
 var winWidth = window.innerWidth;
@@ -47,6 +54,8 @@ var s_height=document.getElementById("convo").style.height=winHeight*0.9+'px'
 var s_width=document.getElementById("convo").style.width;
 var s_height=document.getElementById("convo2").style.height=winHeight*0.9+'px'
 var s_width=document.getElementById("convo2").style.width;
+var s_height=document.getElementById("convo3").style.height=winHeight*0.9+'px'
+var s_width=document.getElementById("convo3").style.width;
   
 document.getElementById("fatherdiv").style.width=window.screen.width+'px';    //固定画布父亲div，防止画布被挤压
 
@@ -80,6 +89,7 @@ winWidth = document.documentElement.clientWidth;
 }
 document.getElementById("convo").style.height=winHeight*0.9+'px'
 document.getElementById("convo2").style.height=winHeight*0.9+'px'
+document.getElementById("convo3").style.height=winHeight*0.9+'px'
 
 var c = document.getElementById('fCanvas'),
 ctx = c.getContext('2d'),

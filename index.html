@@ -39,6 +39,8 @@
       <script src="js/fabric.js"></script>
       <script src="js/control.js"></script>
       <script src="js/face_attribute.js"></script>
+      <script src="js/beauty.js"></script>
+
 	  <!--设置预加载动画风格-->
       <style>
 	#preloading{
@@ -258,7 +260,7 @@
           <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab" onClick="face_change_control()" >  一键换脸  <span class="sr-only">(current)</span></a></li>
           <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab" onClick="features_combination_control()">  趣味贴图  </a></li>
 		  <li role="presentation" ><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()" >  颜值测试  </a></li>
-          <li role="presentation" class="disabled"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图片美化  </a></li>
+          <li role="presentation" ><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图片美化  </a></li>
           <li role="presentation" ><a href="#" data-toggle="modal" data-target="#save_and_share" >  保存与分享  </a></li>
         </ul>
         <!-- Tab panes -->
@@ -318,6 +320,7 @@
       -->
       <li><img  style="width:150px; height:60px" onClick="showhatMenu()" src="photo/chooseHat.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       <li><button id="hatbutton1" style=" width:150px; height:75px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button id="hatbutton2" style=" width:150px; height:75px"><img src="photo/hat2.png" onClick="addhat('photo/hat2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       <li><img  style="width:150px; height:60px" onClick="" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       <li><img  style="width:150px; height:60px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
 
@@ -346,7 +349,7 @@
           <div class="panel-heading">测试结果如下</div>
           <div class="panel-body">
             <ul class="list-group" >
-               <li class="list-group-item" id="appearance_text"></li>
+               <p class="text-danger"><li class="list-group-item" id="appearance_text"></li></p>
                <li class="list-group-item" id="age_text"></li>
                <li class="list-group-item" id="gender_text"></li>
                <li class="list-group-item" id="glass_text"></li>
@@ -375,8 +378,33 @@
 
        </div>
       </div>
+
       <!--模块4 -->
-      <div role="tabpanel" class="tab-pane" id="photo_beautify">图片美化</div>
+      <div role="tabpanel" class="tab-pane" id="photo_beautify">
+      <!-- 滚动条(图片美化)-->
+      <div id="convo3" data-from="Sonu Joshi" class="chat-thread" >  
+      <li> <img  style="width:150px; height:60px" onClick="showlvjingMenu()" src="photo/lvjing.png" class="img-rounded"/>   </li> <li><p></p></li>
+      <li><button id="lvjingbutton1" style=" width:150px; height:75px"><img src="photo/lvjing_button1.png" onClick="lvjing_fanse()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="lvjingbutton2" style=" width:150px; height:75px"><img src="photo/lvjing_button2.png" onClick="lvjing_huise()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="lvjingbutton3" style=" width:150px; height:75px"><img src="photo/lvjing_button3.png" onClick="lvjing_mohu()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="lvjingbutton4" style=" width:150px; height:75px"><img src="photo/lvjing_button4.png" onClick="lvjing_fudiao()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="lvjingbutton5" style=" width:150px; height:75px"><img src="photo/lvjing_button5.png" onClick="lvjing_heibai()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="lvjingbutton6" style=" width:150px; height:75px"><img src="photo/lvjing_button6.png" onClick="lvjing_msk()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="lvjingbutton7" style=" width:150px; height:75px"><img src="photo/lvjing_button7.png" onClick="lvjing_qinshi()" style=" width:135px; height:70px"></button></li><li><p></p></li>
+     
+      <li> <img  style="width:150px; height:60px" onClick="showcolorMenu()" src="photo/colorbutton.png" class="img-rounded"/>   </li> <li><p></p></li>
+      <li id="colorbutton1"><p class="text-muted"><h3>亮度调节</h3></p></li><li><p></p></li>
+      <li id="colorbutton2"> <button  style=" width:60px; height:40px" onClick="color_bright_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" onClick="color_bright_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+      <li id="colorbutton3"><p class="text-muted"><h3>透明度调节</h3></p></li><li><p></p></li>
+      <li id="colorbutton4"> <button  style=" width:60px; height:40px" onClick="color_alpha_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" onClick="color_alpha_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+      <li id="colorbutton5"><p class="text-muted"><h3>对比度调节</h3></p></li><li><p></p></li>
+      <li id="colorbutton6"> <button  style=" width:60px; height:40px" onClick="color_contrast_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" onClick="color_contrast_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+
+      </div>
+
+      </div>
+
+
     </div>   
     
      <div class="btn-group" role="group" aria-label="..." id="control_button_group">

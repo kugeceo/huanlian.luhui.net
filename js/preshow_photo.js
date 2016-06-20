@@ -118,7 +118,7 @@ window.URL = window.URL || window.webkitURL;
 	     getFaceInfo(url);
        }, function(error) {
   // the save failed.
-      alert("不好意思，服务器大姨妈，图片无法取得url");
+      alert("bmob维护中，图片无法取得url");
 	  document.getElementById("pleasewait").innerHTML="<p class='text-danger' >&nbsp;&nbsp;&nbsp;&nbsp;图片信息获取失败！</p>";
       });
 	  }
