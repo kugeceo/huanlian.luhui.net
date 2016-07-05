@@ -103,7 +103,6 @@ function addeye(srcstr){
     }
  }
 
-
  function addhat(srcstr){
 	if(facenum==0){
          alert("未发现人脸，请更换图片~");
@@ -134,6 +133,34 @@ function addeye(srcstr){
 		 guoduover();
     }
  }
+ 
+ function addsubtitle(x,y){  //在x，y位置添加字幕
+ 	 beforeDo(4);
+     var fontSize=document.getElementById("fontSize").value;
+     var fontstyle=document.getElementById("fontstyle").value;
+     var fontfamily=document.getElementById("fontfamily").value;
+     var fontweight=document.getElementById("fontweight").value;
+     var fontcolor=document.getElementById("fontcolor").value;
+     var subtitleValue=document.getElementById("subtitleValue").value;
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var str=fontstyle;
+     str+=" "+"normal";
+     str+=" "+fontweight;
+     str+=" "+fontSize+"px";
+     str+=" "+fontfamily;
+     ctx.font=str;
+     var isfill=document.getElementById("fontfill").value;
+     if(isfill=="yes"){
+        ctx.fillStyle=fontcolor;
+        ctx.fillText(subtitleValue,x,y);
+     }else{
+        ctx.strokeStyle=fontcolor;
+        ctx.strokeText(subtitleValue,x,y);
+     }
+     beforeSubtitleImage=ctx.getImageData(0,0,1500,750);   //更新临时画布状态
+     afterDo();
+ } 
 
  function addpendant(srcstr){
     var c=document.getElementById("myCanvas");
@@ -148,6 +175,8 @@ function addeye(srcstr){
     canvas.add(img).setActiveObject(img);
     });
  }
+
+
 
 /*
 var facenum;

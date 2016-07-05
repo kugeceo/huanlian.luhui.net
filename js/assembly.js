@@ -15,7 +15,8 @@ function  showeyeMenu(){
            $(mouthstr).fadeOut(0);
            $(nosestr).fadeOut(0);
            $(hatstr).fadeOut(0);
-           mouthbuttonFlag=nosebuttonFlag=hatbuttonFlag=false;
+            $(addSubtitle).fadeOut(0);
+           mouthbuttonFlag=nosebuttonFlag=hatbuttonFlag=SubtitleFlag=false;
 		}
 		else
         $(eyestr).fadeOut(150);
@@ -39,7 +40,8 @@ function  showmouthMenu(){
             $(mouthstr).fadeIn(300);
 			$(nosestr).fadeOut(0);
             $(hatstr).fadeOut(0);
-            eyebuttonFlag=nosebuttonFlag=hatbuttonFlag=false;
+            $(addSubtitle).fadeOut(0);
+            eyebuttonFlag=nosebuttonFlag=hatbuttonFlag=SubtitleFlag=false;
 		}
 		else
         $(mouthstr).fadeOut(150);
@@ -62,7 +64,8 @@ function  shownoseMenu(){
             $(mouthstr).fadeOut(0);
 			$(nosestr).fadeIn(300);
             $(hatstr).fadeOut(0);
-            eyebuttonFlag=mouthbuttonFlag=hatbuttonFlag=false;
+            $(addSubtitle).fadeOut(0);
+            eyebuttonFlag=mouthbuttonFlag=hatbuttonFlag=SubtitleFlag=false;
 		}
 		else
         $(nosestr).fadeOut(150);
@@ -86,12 +89,43 @@ function  showhatMenu(){
             $(mouthstr).fadeOut(0);
 			$(nosestr).fadeOut(0);
             $(hatstr).fadeIn(300);
-            eyebuttonFlag=nosebuttonFlag=nosebuttonFlag=false;
+            $(addSubtitle).fadeOut(0);
+            eyebuttonFlag=nosebuttonFlag=mouthbuttonFlag=SubtitleFlag=false;
 		}
 		else
         $(hatstr).fadeOut(150);
 	  }  
 }
+
+var SubtitleFlag=false;
+function  showSubtitle(){
+      SubtitleFlag=!SubtitleFlag;
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      for(var i=1;i<30;i++){
+        var eyestr="#eyebutton";
+        eyestr+=i;
+        var mouthstr="#mouthbutton";
+        mouthstr+=i;
+        var nosestr="#nosebutton";
+        nosestr+=i;
+        var hatstr="#hatbutton";
+        hatstr+=i;
+        if(SubtitleFlag){
+            $(eyestr).fadeOut(0);
+            $(mouthstr).fadeOut(0);
+            $(nosestr).fadeOut(0);
+            $(hatstr).fadeOut(0);
+            eyebuttonFlag=nosebuttonFlag=nosebuttonFlag=hatbuttonFlag=false;
+        }
+      }  
+      if(SubtitleFlag)
+        $(addSubtitle).fadeIn(300);
+      else
+        $(addSubtitle).fadeOut(150);
+}
+
+
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -106,7 +140,7 @@ function  showlvjingMenu(){
 		if(lvjingFlag){
             $(lvjingstr).fadeIn(300);
             $(colorstr).fadeOut(0);
-            colorFlag=false;
+            colorFlag=qudiFlag=false;
 		}
 		else
         $(lvjingstr).fadeOut(150);
@@ -124,13 +158,17 @@ function  showcolorMenu(){
 		if(colorFlag){
 			$(lvjingstr).fadeOut(0);
             $(colorstr).fadeIn(300);
-            lvjingFlag=false;
+            lvjingFlag=qudiFlag=false;
 		}
 		else
         $(colorstr).fadeOut(150);
 	  }  
 }
 
+var qudiFlag=false;
+function showqudiMenu(){
+    
+}
 
 //////////////////////////////////////////////////////////////////////////
 

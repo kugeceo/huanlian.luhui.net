@@ -63,7 +63,7 @@ window.URL = window.URL || window.webkitURL;
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
-		  var  limitW=window.screen.width*0.8,limitH=window.screen.height*0.7;
+		  var  limitW=window.screen.width*0.75,limitH=window.screen.height*0.65;
 		  if(window.screen.height<750)
 		  	 limitH*=0.8;
 		  else if(window.screen.height<920)
@@ -84,7 +84,7 @@ window.URL = window.URL || window.webkitURL;
               document.getElementById("myCanvas").width=limitW;
 			  cxt.drawImage(img,0,0,limitW,img.height*limitW/img.width);
 		  }
-	
+	     
 		 // document.getElementById("img1").src=img.src; 
 		 // geteye();
 		 // $("#img1").hide();

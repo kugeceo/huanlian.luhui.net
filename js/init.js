@@ -35,6 +35,7 @@ for(var i=1;i<30;i++){    //隐藏组件
    $(colorstr).hide();
    
 }
+$(addSubtitle).hide();
 if (window.innerWidth)
 var winWidth = window.innerWidth;
 else if ((document.body) && (document.body.clientWidth))
@@ -50,20 +51,31 @@ if (document.documentElement && document.documentElement.clientHeight && documen
 winHeight = document.documentElement.clientHeight;
 winWidth = document.documentElement.clientWidth;
 }
-var s_height=document.getElementById("convo").style.height=winHeight*0.9+'px'
+var s_height=document.getElementById("convo").style.height=winHeight*0.85+'px'
 var s_width=document.getElementById("convo").style.width;
-var s_height=document.getElementById("convo2").style.height=winHeight*0.9+'px'
+var s_height=document.getElementById("convo2").style.height=winHeight*0.85+'px'
 var s_width=document.getElementById("convo2").style.width;
-var s_height=document.getElementById("convo3").style.height=winHeight*0.9+'px'
+var s_height=document.getElementById("convo3").style.height=winHeight*0.85+'px'
 var s_width=document.getElementById("convo3").style.width;
+
+document.getElementById("maindiv").style.width=winWidth*0.95+'px'
   
-document.getElementById("fatherdiv").style.width=window.screen.width+'px';    //固定画布父亲div，防止画布被挤压
+document.getElementById("fatherdiv").style.width=window.screen.width*0.95+'px';    //固定画布父亲div，防止画布被挤压
 
 var facelist="";    //换脸滚动条的系统预提提供脸部列表
 for(var i=1;i<=8;i++){
-       facelist+="<li><button style='width:150px; height:105px'><img src='photo/face_button"+i+".png' onClick=\"addface('photo/face"+i+".png')\" style=' width:135px; height:100px'></button></li><li><p></p></li>";
+       facelist+="<li><button  style='width:150px; height:105px'><img src='photo/face_button"+i+".png' onClick=\"addface('photo/face"+i+".png')\" style=' width:135px; height:100px'></button></li><li><p></p></li>";
 }
 document.getElementById("supportedface").innerHTML=facelist;
+
+var fontSizelist=""; //字体大小列表
+for(var i=16;i<=94;){
+       fontSizelist+="<option value='"+i+"'>"+i+"</option>";
+       if(i<20)i+=2;
+       else if(i<40)i+=4;
+       else i+=8;
+}
+document.getElementById("fontSize").innerHTML=fontSizelist;
 
 document.getElementById("face_attribute_canvas").width=analysedcanvasW;
 document.getElementById("face_attribute_canvas").height=analysedcanvasH;
@@ -87,9 +99,9 @@ if (document.documentElement && document.documentElement.clientHeight && documen
 winHeight = document.documentElement.clientHeight;
 winWidth = document.documentElement.clientWidth;
 }
-document.getElementById("convo").style.height=winHeight*0.9+'px'
-document.getElementById("convo2").style.height=winHeight*0.9+'px'
-document.getElementById("convo3").style.height=winHeight*0.9+'px'
+document.getElementById("convo").style.height=winHeight*0.85+'px'
+document.getElementById("convo2").style.height=winHeight*0.85+'px'
+document.getElementById("convo3").style.height=winHeight*0.85+'px'
 
 var c = document.getElementById('fCanvas'),
 ctx = c.getContext('2d'),

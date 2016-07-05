@@ -290,7 +290,7 @@
   <div id="fatherdiv">
      
     <!--  模块功能在此写 -->
-    <div class="tab-content"  style="width:1800px"   >
+    <div class="tab-content"   id="maindiv" >
       <!--模块1 -->
       <div role="tabpanel" class="tab-pane active" id="face_change">
       
@@ -321,14 +321,55 @@
       <li><img  style="width:150px; height:60px" onClick="showhatMenu()" src="photo/chooseHat.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       <li><button id="hatbutton1" style=" width:150px; height:75px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       <li><button id="hatbutton2" style=" width:150px; height:75px"><img src="photo/hat2.png" onClick="addhat('photo/hat2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><img  style="width:150px; height:60px" onClick="" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+      
+      <li><img  style="width:150px; height:60px" onClick="showSubtitle()" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+
+      <form id="addSubtitle">
+      字号&nbsp
+      <select id="fontSize">
+      </select><p></p>
+      字体&nbsp
+      <select id="fontfamily">
+       <option value="微软雅黑">微软雅黑</option>
+       <option value="宋体">宋体</option>
+       <option value="黑体">黑体</option>
+       <option value="楷体">楷体</option>
+       <option value="仿宋">仿宋</option>
+       <option value="幼圆">幼圆</option>
+       <option value="隶书">隶书</option>
+      </select><p></p>
+      样式&nbsp
+      <select id="fontstyle">
+       <option value="normal">正常</option>
+       <option value="italic">斜体</option>
+      </select><p></p>
+      字体粗细&nbsp
+      <select id="fontweight">
+       <option value="100">细体</option>
+       <option value="200">正常</option>
+       <option value="500">加粗</option>
+       <option value="900">很粗</option>
+      </select><p></p>
+      字体颜色&nbsp
+      <input type="color" id="fontcolor"/>
+      <p></p>
+      字体填充&nbsp
+      <select id="fontfill">
+       <option value="yes">填充</option>
+       <option value="no">空心</option>
+      </select><p></p>
+      文本内容<p></p>
+      <input  class="form-control" id="subtitleValue" value="请输入内容" />
+      <p></p>
+      </form>
+
       <li><img  style="width:150px; height:60px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
 
       </div>
   
      </div>      
       <div role="tabpanel" class="tab-pane" id="face_attribute" >
-       <div id="face_attribute_div" >
+       <div id="face_attribute_div"  >
 
        <div>
        	<canvas id="face_attribute_canvas" class="center-block" >

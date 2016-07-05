@@ -1,6 +1,6 @@
 var canvasState=new Array();  //保存画布的状态
 var curState=new Array();  //当前显示的状态（用于撤销和还原）
-var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 11:滤镜效果 12:色彩操作 13:透明度操作 14:对比度操作
+var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:添加字幕 11:滤镜效果 12:色彩操作 13:透明度操作 14:对比度操作
 var faceArray=new Array();  //被处理的脸的下标
 var point=0;   //状态数组指针
 var stateSize=1;  //总状态数
@@ -13,9 +13,8 @@ function beforeDo(usersta){  //修图操作前先执行  传参：用户做了�
     var ctx=c.getContext("2d");	
 	canvasState[point]=canvasState[point-1];  
 	faceArray[point]=curFace;
-	if(userState[point-1]==usersta&&(faceArray[point]==faceArray[point-1]||usersta==11)){  //如果用户刚才做过这个操作,并且前后处理了同一张脸(或者滤镜操作)(不能是色彩操作)
+	if(userState[point-1]==usersta&&(faceArray[point]==faceArray[point-1]||usersta==11)&&usersta!=4){  //如果用户刚才做过这个操作,并且前后处理了同一张脸(或者滤镜操作)(不能是色彩操作)
        ctx.putImageData(canvasState[point],0,0);  //先恢复图片状态，去除之前的同脸同类特效
-
 	}else{
        canvasState[point]=ctx.getImageData(0,0,1500,750);  //否则画布状态保存为当前画布显示的图像
 	}
@@ -65,16 +64,65 @@ function clearCanvas(){  //清除画布内容
 	 cxt.clearRect(0,0,1500,750);
 }
 
+var subtitleX=new Array(),subtitleY=new Array();
+var subtitleP=0;
+
+function updateSubtitle(x,y){
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var fontSize=document.getElementById("fontSize").value;
+     var fontstyle=document.getElementById("fontstyle").value;
+     var fontfamily=document.getElementById("fontfamily").value;
+     var fontweight=document.getElementById("fontweight").value;
+     var fontcolor=document.getElementById("fontcolor").value;
+     var subtitleValue=document.getElementById("subtitleValue").value;
+     var str=fontstyle;
+     str+=" "+"normal";
+     str+=" "+fontweight;
+     str+=" "+fontSize+"px";
+     str+=" "+fontfamily;
+     ctx.font=str;
+     var isfill=document.getElementById("fontfill").value;
+     subtitleX[subtitleP]=x,subtitleY[subtitleP]=y;
+     if(subtitleX[subtitleP]!=subtitleX[!subtitleP]||subtitleY[subtitleP]!=subtitleY[!subtitleP]){  //如果移动了鼠标，擦除
+        ctx.putImageData(curState[point],0,0);
+     }
+    
+     subtitleP=!subtitleP;
+     if(isfill=="yes"){
+        ctx.fillStyle=fontcolor;
+        ctx.fillText(subtitleValue,x,y);
+     }else{
+        ctx.strokeStyle=fontcolor;
+        ctx.strokeText(subtitleValue,x,y);
+     }
+     
+}
+
 function cnvs_getCoordinates(e)  //显示鼠标坐标
 {
-var x=e.clientX-document.getElementById("myCanvas").offsetLeft;
-var y=e.clientY-document.getElementById("myCanvas").offsetTop;
-document.getElementById("xycoordinates").innerHTML=" 坐标值: (" + x + "," + y + ")";
+   var c=document.getElementById("myCanvas");
+   var rect = c.getBoundingClientRect(); 
+   var x=e.clientX - rect.left * (c.width / rect.width);
+   var y=e.clientY - rect.top * (c.height / rect.height);
+   x=Math.ceil(x),y=Math.ceil(y);
+   document.getElementById("xycoordinates").innerHTML=" 坐标值: (" + x + "," + y + ")";
+   if(SubtitleFlag)
+   updateSubtitle(x,y);//动态显示字幕位置
+   c.onclick=function(e){
+	 if(SubtitleFlag)
+	 	addsubtitle(x,y);
+   }
+   
+
 }
  
 function cnvs_clearCoordinates()  //去除鼠标坐标显示
 {
 document.getElementById("xycoordinates").innerHTML="坐标值:";
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.putImageData(curState[point],0,0);
 }
 
 /*
