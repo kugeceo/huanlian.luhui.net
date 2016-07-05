@@ -1,5 +1,5 @@
 
-//beforeDo参数: 用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了头部 5:换了脸
+//beforeDo参数: 用户的操作类型 
 function addeye(srcstr){  
 	if(facenum==0){
          alert("未发现人脸，请更换图片~");
@@ -135,7 +135,7 @@ function addeye(srcstr){
  }
  
  function addsubtitle(x,y){  //在x，y位置添加字幕
- 	 beforeDo(4);
+ 	 beforeDo(5);
      var fontSize=document.getElementById("fontSize").value;
      var fontstyle=document.getElementById("fontstyle").value;
      var fontfamily=document.getElementById("fontfamily").value;
