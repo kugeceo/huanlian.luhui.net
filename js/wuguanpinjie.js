@@ -150,6 +150,7 @@ function addeye(srcstr){
      str+=" "+fontSize+"px";
      str+=" "+fontfamily;
      ctx.font=str;
+     ctx.textBaseline = 'top';
      var isfill=document.getElementById("fontfill").value;
      if(isfill=="yes"){
         ctx.fillStyle=fontcolor;

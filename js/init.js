@@ -5,6 +5,21 @@ $(function () {
 })
 $('#choosePhoto').popover('show');
 
+
+//拖动条触发事件，修改值
+$("#yjqdRCZ").mousemove(function(){
+   $("#showrcz1").html("<h5>容差值："+document.getElementById("yjqdRCZ").value+"</h5>");
+});
+$("#tcqdRCZ").mousemove(function(){
+   $("#showrcz2").html("<h5>容差值："+document.getElementById("tcqdRCZ").value+"</h5>");
+});
+$("#xpcradius").mousemove(function(){
+   $("#showrad1").html("<h5>橡皮半径："+document.getElementById("xpcradius").value+"</h5>");
+});
+$("#penradius").mousemove(function(){
+   $("#showrad2").html("<h5>画笔半径："+document.getElementById("penradius").value+"</h5>");
+});
+
 Bmob.initialize("baef162ac09a8f23038da90b54918b66", "6a801014064680e32899ee4e75b7e624");
 
 $("#loading").hide();   //先隐藏loading画布
@@ -33,6 +48,12 @@ for(var i=1;i<30;i++){    //隐藏组件
    var colorstr="#colorbutton";
    colorstr+=i;
    $(colorstr).hide();
+   var qudistr="#qudibutton";
+   qudistr+=i;
+   $(qudistr).hide();
+   var penstr="#penbutton";
+   penstr+=i;
+   $(penstr).hide();
    
 }
 $(addSubtitle).hide();
@@ -51,11 +72,11 @@ if (document.documentElement && document.documentElement.clientHeight && documen
 winHeight = document.documentElement.clientHeight;
 winWidth = document.documentElement.clientWidth;
 }
-var s_height=document.getElementById("convo").style.height=winHeight*0.85+'px'
+var s_height=document.getElementById("convo").style.height=winHeight*0.86+'px'
 var s_width=document.getElementById("convo").style.width;
-var s_height=document.getElementById("convo2").style.height=winHeight*0.85+'px'
+var s_height=document.getElementById("convo2").style.height=winHeight*0.86+'px'
 var s_width=document.getElementById("convo2").style.width;
-var s_height=document.getElementById("convo3").style.height=winHeight*0.85+'px'
+var s_height=document.getElementById("convo3").style.height=winHeight*0.86+'px'
 var s_width=document.getElementById("convo3").style.width;
 
 document.getElementById("maindiv").style.width=winWidth*0.95+'px'
@@ -69,10 +90,9 @@ for(var i=1;i<=8;i++){
 document.getElementById("supportedface").innerHTML=facelist;
 
 var fontSizelist=""; //字体大小列表
-for(var i=16;i<=94;){
+for(var i=28;i<=94;){
        fontSizelist+="<option value='"+i+"'>"+i+"</option>";
-       if(i<20)i+=2;
-       else if(i<40)i+=4;
+       if(i<40)i+=4;
        else i+=8;
 }
 document.getElementById("fontSize").innerHTML=fontSizelist;
@@ -99,9 +119,9 @@ if (document.documentElement && document.documentElement.clientHeight && documen
 winHeight = document.documentElement.clientHeight;
 winWidth = document.documentElement.clientWidth;
 }
-document.getElementById("convo").style.height=winHeight*0.85+'px'
-document.getElementById("convo2").style.height=winHeight*0.85+'px'
-document.getElementById("convo3").style.height=winHeight*0.85+'px'
+document.getElementById("convo").style.height=winHeight*0.86+'px'
+document.getElementById("convo2").style.height=winHeight*0.86+'px'
+document.getElementById("convo3").style.height=winHeight*0.86+'px'
 
 var c = document.getElementById('fCanvas'),
 ctx = c.getContext('2d'),

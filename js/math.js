@@ -14,3 +14,6 @@ function Angle(x1,y1,x2,y2,x3,y3){
     return Math.acos(Dot(x1,y1,x2,y2,x3,y3)/Length(x1,y1,x3,y3)/Length(x2,y2,x3,y3));
 }
 
+function abs(a,b){
+	return Math.abs(a-b);
+}

@@ -63,7 +63,10 @@ window.URL = window.URL || window.webkitURL;
         { 
 	      var bili=img.width/img.height;
 		  clearCanvas();
-		  var  limitW=window.screen.width*0.75,limitH=window.screen.height*0.65;
+		  var  limitW=window.screen.width*0.8,limitH=window.screen.height*0.65;
+		  if(!IsPC()){   //手机端适当放大点
+		  	limitW*=1.5;limitH*=1.5;
+		  }
 		  if(window.screen.height<750)
 		  	 limitH*=0.8;
 		  else if(window.screen.height<920)

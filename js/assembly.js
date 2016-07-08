@@ -21,6 +21,7 @@ function  showeyeMenu(){
 		else
         $(eyestr).fadeOut(150);
 	  }  
+      mousetype=0;
 }
 
 var mouthbuttonFlag=false;
@@ -46,6 +47,7 @@ function  showmouthMenu(){
 		else
         $(mouthstr).fadeOut(150);
 	  }  
+      mousetype=0;
 }
 var nosebuttonFlag=false;
 function  shownoseMenu(){
@@ -70,6 +72,7 @@ function  shownoseMenu(){
 		else
         $(nosestr).fadeOut(150);
 	  }  
+      mousetype=0;
 }
 
 var hatbuttonFlag=false;
@@ -95,6 +98,7 @@ function  showhatMenu(){
 		else
         $(hatstr).fadeOut(150);
 	  }  
+      mousetype=0;
 }
 
 var SubtitleFlag=false;
@@ -123,6 +127,7 @@ function  showSubtitle(){
         $(addSubtitle).fadeIn(300);
       else
         $(addSubtitle).fadeOut(150);
+    mousetype=0;
 }
 
 
@@ -137,14 +142,21 @@ function  showlvjingMenu(){
         lvjingstr+=i;
         var colorstr="#colorbutton";
         colorstr+=i;
+        var qudistr="#qudibutton";
+        qudistr+=i;
+        var penstr="#penbutton";
+        penstr+=i;
 		if(lvjingFlag){
             $(lvjingstr).fadeIn(300);
             $(colorstr).fadeOut(0);
-            colorFlag=qudiFlag=false;
+            $(qudistr).fadeOut(0);
+            $(penstr).fadeOut(0);
+            colorFlag=qudiFlag=penFlag=false;
 		}
 		else
         $(lvjingstr).fadeOut(150);
 	  }  
+      mousetype=0;
 }
 
 var colorFlag=false;
@@ -153,21 +165,73 @@ function  showcolorMenu(){
 	  for(var i=1;i<30;i++){
 	  	var lvjingstr="#lvjingbutton";
         lvjingstr+=i;
-		var colorstr="#colorbutton";
+        var colorstr="#colorbutton";
         colorstr+=i;
+        var qudistr="#qudibutton";
+        qudistr+=i;
+        var penstr="#penbutton";
+        penstr+=i;
 		if(colorFlag){
 			$(lvjingstr).fadeOut(0);
             $(colorstr).fadeIn(300);
-            lvjingFlag=qudiFlag=false;
+            $(qudistr).fadeOut(0);
+            $(penstr).fadeOut(0);
+            lvjingFlag=qudiFlag=penFlag=false;
 		}
 		else
         $(colorstr).fadeOut(150);
 	  }  
+      mousetype=0;
 }
 
 var qudiFlag=false;
 function showqudiMenu(){
-    
+    qudiFlag=!qudiFlag;
+      for(var i=1;i<30;i++){
+        var lvjingstr="#lvjingbutton";
+        lvjingstr+=i;
+        var colorstr="#colorbutton";
+        colorstr+=i;
+        var qudistr="#qudibutton";
+        qudistr+=i;
+        var penstr="#penbutton";
+        penstr+=i;
+        if(qudiFlag){
+            $(lvjingstr).fadeOut(0);
+            $(colorstr).fadeOut(0);
+            $(qudistr).fadeIn(300);
+            $(penstr).fadeOut(0);
+            lvjingFlag=colorFlag=penFlag=false;
+        }
+        else
+        $(qudistr).fadeOut(150);
+      }  
+      mousetype=0;
+}
+
+var penFlag=false;
+function showpenMenu(){
+      penFlag=!penFlag;
+      for(var i=1;i<30;i++){
+        var lvjingstr="#lvjingbutton";
+        lvjingstr+=i;
+        var colorstr="#colorbutton";
+        colorstr+=i;
+        var qudistr="#qudibutton";
+        qudistr+=i;
+        var penstr="#penbutton";
+        penstr+=i;
+        if(penFlag){
+            $(lvjingstr).fadeOut(0);
+            $(colorstr).fadeOut(0);
+            $(qudistr).fadeOut(0);
+            $(penstr).fadeIn(300);
+            lvjingFlag=colorFlag=qudiFlag=false;
+        }
+        else
+        $(penstr).fadeOut(150);
+      }  
+      mousetype=0;
 }
 
 //////////////////////////////////////////////////////////////////////////

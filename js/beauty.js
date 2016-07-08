@@ -364,3 +364,40 @@ function color_contrast_sub(){
       ctx.putImageData(imgData,0,0);
       afterDo();
 }
+
+function sameColor(rcz,r1,g1,b1,r2,g2,b2){  //判断在规定容差值下，两像素是否属于同类
+    if(abs(r1,r2)<rcz&&abs(b1,b2)<rcz&&abs(g1,g2)<rcz)
+       return true;
+    else
+      return false;
+}
+
+
+
+function yijianqudi(){
+      beforeDo(15);
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      var rcz=document.getElementById("yjqdRCZ").value;  //容差值
+      rcz*=255/120;
+      if(rcz<=0)rcz=1;
+      if(rcz>255)rcz=255;
+      var imgData=ctx.getImageData(0,0,c.width,c.height);
+      var jzs=0;  //取第一行为基准色
+      var r=0,g=0,b=0;
+      for (var i=0;i<c.width*4;i+=4){
+          r+=imgData.data[i],g+=imgData.data[i+1],b+=imgData.data[i+2];
+      }
+      r/=c.width,g/=c.width,b/=c.width;
+      for (var i=0;i<imgData.data.length;i+=4)
+      {
+          if(sameColor(rcz,r,g,b,imgData.data[i],imgData.data[i+1],imgData.data[i+2]))
+          imgData.data[i+3]=0;
+      }
+     ctx.putImageData(imgData,0,0);
+     afterDo();
+}
+
+var mousetype=0;  //鼠标类型
+//0 无效果 1：填充笔 2：橡皮擦  3：马赛克笔  4：铅笔  5：荧光笔
+

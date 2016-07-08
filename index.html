@@ -41,6 +41,7 @@
       <script src="js/face_attribute.js"></script>
       <script src="js/beauty.js"></script>
 
+
 	  <!--设置预加载动画风格-->
       <style>
 	#preloading{
@@ -304,38 +305,18 @@
       <div role="tabpanel" class="tab-pane" id="features_combination">
         <!-- 滚动条(五官拼接)-->
       <div id="convo2" data-from="Sonu Joshi" class="chat-thread" >  
-      <li> <img  style="width:150px; height:60px" onClick="showeyeMenu()" src="photo/chooseEyes.jpg" class="img-rounded"/>   </li> <li><p></p></li>
-      <li><button id="eyebutton1" style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><button id="eyebutton2" style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><button id="eyebutton3" style=" width:150px; height:75px"><img src="photo/eye3_button.png" onClick="addeye('photo/eye3')" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><button id="eyebutton4" style=" width:150px; height:75px"><img src="photo/eye4_button.png" onClick="addeye('photo/eye4')" style=" width:135px; height:70px"></button></li><li><p></p></li>
-      <li><img  style="width:150px; height:60px" onClick="showmouthMenu()" src="photo/chooseMouth.jpg" class="img-rounded"/> </li> <li><p></p></li>
-      <li><button id="mouthbutton1" style=" width:150px; height:75px"><img src="photo/mouth1.png" onClick="addmouth('photo/mouth1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button id="mouthbutton2" style=" width:150px; height:75px"><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button id="mouthbutton3" style=" width:150px; height:75px"><img src="photo/mouth3.png" onClick="addmouth('photo/mouth3.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button id="mouthbutton4" style=" width:150px; height:75px"><img src="photo/mouth4.png" onClick="addmouth('photo/mouth4.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <!--
-	  <li><img  style="width:150px; height:60px" onClick="shownoseMenu()" src="photo/chooseNose.jpg" class="img-rounded"/>  </li> <li><p></p></li>
-      <li><button id="nosebutton1" style=" width:150px; height:75px"><img src="photo/nose1.png" onClick="addnose('photo/nose1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      -->
-      <li><img  style="width:150px; height:60px" onClick="showhatMenu()" src="photo/chooseHat.jpg" class="img-rounded"/>  </li> <li><p></p></li>
-      <li><button id="hatbutton1" style=" width:150px; height:75px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      <li><button id="hatbutton2" style=" width:150px; height:75px"><img src="photo/hat2.png" onClick="addhat('photo/hat2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
-      
       <li><img  style="width:150px; height:60px" onClick="showSubtitle()" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
-
       <form id="addSubtitle">
       字号&nbsp
       <select id="fontSize">
       </select><p></p>
       字体&nbsp
       <select id="fontfamily">
-       <option value="微软雅黑">微软雅黑</option>
-       <option value="宋体">宋体</option>
        <option value="黑体">黑体</option>
+       <option value="Arial">Arial</option>
+       <option value="宋体">宋体</option>
        <option value="楷体">楷体</option>
        <option value="仿宋">仿宋</option>
-       <option value="幼圆">幼圆</option>
        <option value="隶书">隶书</option>
       </select><p></p>
       样式&nbsp
@@ -345,10 +326,8 @@
       </select><p></p>
       字体粗细&nbsp
       <select id="fontweight">
-       <option value="100">细体</option>
+       <option value="900">粗体</option>
        <option value="200">正常</option>
-       <option value="500">加粗</option>
-       <option value="900">很粗</option>
       </select><p></p>
       字体颜色&nbsp
       <input type="color" id="fontcolor"/>
@@ -363,7 +342,26 @@
       <p></p>
       </form>
 
-      <li><img  style="width:150px; height:60px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+
+      <li> <img  style="width:150px; height:60px" onClick="showeyeMenu()" src="photo/chooseEyes.jpg" class="img-rounded"/>   </li> <li><p></p></li>
+      <li><button id="eyebutton1" style=" width:150px; height:75px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="eyebutton2" style=" width:150px; height:75px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="eyebutton3" style=" width:150px; height:75px"><img src="photo/eye3_button.png" onClick="addeye('photo/eye3')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><button id="eyebutton4" style=" width:150px; height:75px"><img src="photo/eye4_button.png" onClick="addeye('photo/eye4')" style=" width:135px; height:70px"></button></li><li><p></p></li>
+      <li><img  style="width:150px; height:60px" onClick="showmouthMenu()" src="photo/chooseMouth.jpg" class="img-rounded"/> </li> <li><p></p></li>
+      <li><button id="mouthbutton1" style=" width:150px; height:75px" ><img src="photo/mouth1.png" onClick="addmouth('photo/mouth1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button id="mouthbutton2" style=" width:150px; height:75px"><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button id="mouthbutton3" style=" width:150px; height:75px"><img src="photo/mouth3.png" onClick="addmouth('photo/mouth3.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button id="mouthbutton4" style=" width:150px; height:75px"><img src="photo/mouth4.png" onClick="addmouth('photo/mouth4.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <!--
+	  <li><img  style="width:150px; height:60px" onClick="shownoseMenu()" src="photo/chooseNose.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+      <li><button id="nosebutton1" style=" width:150px; height:75px"><img src="photo/nose1.png" onClick="addnose('photo/nose1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      -->
+      <li><img  style="width:150px; height:60px" onClick="showhatMenu()" src="photo/chooseHat.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+      <li><button id="hatbutton1" style=" width:150px; height:75px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      <li><button id="hatbutton2" style=" width:150px; height:75px"><img src="photo/hat2.png" onClick="addhat('photo/hat2.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
+      
+     <li><img  style="width:150px; height:60px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
 
       </div>
   
@@ -434,17 +432,34 @@
       <li><button id="lvjingbutton7" style=" width:150px; height:75px"><img src="photo/lvjing_button7.png" onClick="lvjing_qinshi()" style=" width:135px; height:70px"></button></li><li><p></p></li>
      
       <li> <img  style="width:150px; height:60px" onClick="showcolorMenu()" src="photo/colorbutton.png" class="img-rounded"/>   </li> <li><p></p></li>
-      <li id="colorbutton1"><p class="text-muted"><h3>亮度调节</h3></p></li><li><p></p></li>
-      <li id="colorbutton2"> <button  style=" width:60px; height:40px" onClick="color_bright_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" onClick="color_bright_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
-      <li id="colorbutton3"><p class="text-muted"><h3>透明度调节</h3></p></li><li><p></p></li>
-      <li id="colorbutton4"> <button  style=" width:60px; height:40px" onClick="color_alpha_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" onClick="color_alpha_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
-      <li id="colorbutton5"><p class="text-muted"><h3>对比度调节</h3></p></li><li><p></p></li>
-      <li id="colorbutton6"> <button  style=" width:60px; height:40px" onClick="color_contrast_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" onClick="color_contrast_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+      <li id="colorbutton1"><p class="text-muted"><h4>亮度调节</h4></p></li><li><p></p></li>
+      <li id="colorbutton2"> <button  style=" width:60px; height:40px" class="btn btn-default" onClick="color_bright_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-default"onClick="color_bright_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+      <li id="colorbutton3"><p class="text-muted"><h4>透明度调节</h4></p></li><li><p></p></li>
+      <li id="colorbutton4"> <button  style=" width:60px; height:40px" class="btn btn-default" onClick="color_alpha_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-default" onClick="color_alpha_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+      <li id="colorbutton5"><p class="text-muted"><h4>对比度调节</h4></p></li><li><p></p></li>
+      <li id="colorbutton6"> <button  style=" width:60px; height:40px" class="btn btn-default" onClick="color_contrast_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-default" onClick="color_contrast_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
+     
+      <li> <img  style="width:150px; height:60px" onClick="showqudiMenu()" src="photo/qudi.png" class="img-rounded"/>   </li> <li><p></p></li>
+      
+      <li id="qudibutton2"><h5 id="showrcz1">容差值：10</h5><input type="range" id="yjqdRCZ" value="10"/>  <p></p></li>
+      <li id="qudibutton3"><button style=" width:128px; height:40px" class="btn btn-default" onClick="yijianqudi()">一键去底</button></li><li><p></p></li>
+     
+      <li id="qudibutton5"><h5 id="showrcz2">容差值：10</h5><input type="range" id="tcqdRCZ" value="10"/><p></p></li>
+      <li id="qudibutton6"><button style=" width:128px; height:40px" class="btn btn-default">使用填充笔</button></li><li><p></p></li>
+     
+      <li id="qudibutton8"><h5 id="showrad1">橡皮半径：10</h5><input type="range" id="xpcradius" value="10"/><p></p></li>
+      <li id="qudibutton9"><button style=" width:128px; height:40px" class="btn btn-default">使用橡皮擦</button></li><li><p></p></li>
+
+      <li> <img  style="width:150px; height:60px" onClick="showpenMenu()" src="photo/pen.png" class="img-rounded"/>   </li> <li><p></p></li>
+      <li id="penbutton1"><h5 id="showrad2">画笔半径：10</h5><input type="range" id="penradius" value="10"/> <p></p></li>
+      <li id="penbutton2"><h5>画笔颜色: <input type="color" id="pencolor"/></h5><p></p></li>
+      <li id="penbutton3"><button style=" width:128px; height:40px" class="btn btn-default">马赛克笔</button></li><li><p></p></li>
+      <li id="penbutton4"><button style=" width:128px; height:40px" class="btn btn-default">铅笔</button></li><li><p></p></li>
+      <li id="penbutton5"><button style=" width:128px; height:40px" class="btn btn-default">荧光笔</button></li><li><p></p></li>
 
       </div>
 
       </div>
-
 
     </div>   
     

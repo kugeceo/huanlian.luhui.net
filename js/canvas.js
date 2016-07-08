@@ -1,6 +1,7 @@
 var canvasState=new Array();  //保存画布的状态
 var curState=new Array();  //当前显示的状态（用于撤销和还原）
-var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了帽子 5:添加字幕 11:滤镜效果 12:色彩操作 13:透明度操作 14:对比度操作
+var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了帽子 5:添加字幕 
+//11:滤镜效果 12:色彩操作 13:透明度操作 14:对比度操作  15:一键去底
 var faceArray=new Array();  //被处理的脸的下标
 var point=0;   //状态数组指针
 var stateSize=1;  //总状态数
@@ -82,12 +83,12 @@ function updateSubtitle(x,y){
      str+=" "+fontSize+"px";
      str+=" "+fontfamily;
      ctx.font=str;
+     ctx.textBaseline = 'top';
      var isfill=document.getElementById("fontfill").value;
      subtitleX[subtitleP]=x,subtitleY[subtitleP]=y;
      if(subtitleX[subtitleP]!=subtitleX[!subtitleP]||subtitleY[subtitleP]!=subtitleY[!subtitleP]){  //如果移动了鼠标，擦除
         ctx.putImageData(curState[point],0,0);
      }
-    
      subtitleP=!subtitleP;
      if(isfill=="yes"){
         ctx.fillStyle=fontcolor;
@@ -96,7 +97,7 @@ function updateSubtitle(x,y){
         ctx.strokeStyle=fontcolor;
         ctx.strokeText(subtitleValue,x,y);
      }
-     
+
 }
 
 function cnvs_getCoordinates(e)  //显示鼠标坐标

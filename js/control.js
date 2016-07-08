@@ -24,7 +24,7 @@ function photo_beautify_control(){
 
 function fadeOutAllButton(){
 	//先全取真，然后再执行一次关闭
-   eyebuttonFlag=mouthbuttonFlag=nosebuttonFlag=hatbuttonFlag=SubtitleFlag=lvjingFlag=colorFlag=qudiFlag=true;
+   eyebuttonFlag=mouthbuttonFlag=nosebuttonFlag=hatbuttonFlag=SubtitleFlag=lvjingFlag=colorFlag=qudiFlag=penFlag=true;
    showeyeMenu();showmouthMenu();shownoseMenu();showhatMenu();
-   showSubtitle();showlvjingMenu();showcolorMenu();showqudiMenu();    
+   showSubtitle();showlvjingMenu();showcolorMenu();showqudiMenu(); showpenMenu();   
 }
