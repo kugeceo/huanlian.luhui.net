@@ -166,7 +166,6 @@ function addeye(srcstr){
  function addpendant(srcstr){
     var c=document.getElementById("myCanvas");
     var canvas = new fabric.Canvas('myCanvas');
-
     fabric.Image.fromURL(srcstr, function(img) {
     img.scale(0.5).set({
     left: 150,

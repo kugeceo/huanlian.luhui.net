@@ -247,7 +247,6 @@ function color_bright_add(){
       imgData.data[i]=Math.max(0,imgData.data[i]+bright_size*bright_value);
       imgData.data[i+1]=Math.max(0,imgData.data[i+1]+bright_size*bright_value);
       imgData.data[i+2]=Math.max(0,imgData.data[i+2]+bright_size*bright_value);
-      imgData.data[i+3]=255;
       }
       ctx.putImageData(imgData,0,0);
       afterDo();
@@ -271,7 +270,6 @@ function color_bright_sub(){
       imgData.data[i]=Math.max(0,imgData.data[i]+bright_size*bright_value);
       imgData.data[i+1]=Math.max(0,imgData.data[i+1]+bright_size*bright_value);
       imgData.data[i+2]=Math.max(0,imgData.data[i+2]+bright_size*bright_value);
-      imgData.data[i+3]=255;
       }
       ctx.putImageData(imgData,0,0);
       afterDo();
@@ -372,8 +370,6 @@ function sameColor(rcz,r1,g1,b1,r2,g2,b2){  //判断在规定容差值下，两�
       return false;
 }
 
-
-
 function yijianqudi(){
       beforeDo(15);
       var c=document.getElementById("myCanvas");
@@ -400,4 +396,52 @@ function yijianqudi(){
 
 var mousetype=0;  //鼠标类型
 //0 无效果 1：填充笔 2：橡皮擦  3：马赛克笔  4：铅笔  5：荧光笔
+
+var tcqdRCZ,tcqdR,tcqdG,tcqdB;
+var dsa=0;
+var tcimgData;
+function BFS(x,y){
+     var c=document.getElementById("myCanvas");
+     var vis=new Array();
+     for(var i=0;i<=c.height;i++){
+       vis[i]=new Array();
+       for(var j=0;j<=c.width;j++){
+        vis[i][j]=0;
+       }
+     }
+    
+    var X=new Array(),Y=new Array(),front=0,rear=1;
+    X[0]=x,Y[0]=y;
+    while(front<rear){
+      var curX=X[front],curY=Y[front++];
+      if(curX<0||curX>=c.width||curY<0||curY>=c.height)
+        continue;
+      if(vis[curY][curX])
+        continue;
+      vis[curY][curX]=1;
+      var idx=curY*c.width+curX;idx*=4;
+      if(sameColor(tcqdRCZ,tcimgData.data[idx],tcimgData.data[idx+1],tcimgData.data[idx+2],tcqdR,tcqdG,tcqdB))
+        tcimgData.data[idx+3]=0;
+      else 
+        continue;
+      X[rear]=curX+1,Y[rear++]=curY;
+      X[rear]=curX-1,Y[rear++]=curY;
+      X[rear]=curX,Y[rear++]=curY+1;
+      X[rear]=curX,Y[rear++]=curY-1;
+    }
+}
+function tianchongqudi(x,y){
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     ctx.putImageData(curState[point],0,0);
+     beforeDo(16);
+     tcimgData=ctx.getImageData(0,0,c.width,c.height); 
+     tcqdRCZ=document.getElementById("tcqdRCZ").value;
+     tcqdRCZ++;tcqdRCZ*=2;
+     var idx=y*c.width+x;idx*=4;
+     tcqdR=tcimgData.data[idx],tcqdG=tcimgData.data[idx+1],tcqdB=tcimgData.data[idx+2];
+     BFS(x,y);
+     ctx.putImageData(tcimgData,0,0);
+     afterDo();
+}
 
