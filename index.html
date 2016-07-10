@@ -448,7 +448,7 @@
       <li id="qudibutton6"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=1;">使用填充笔</button></li><li><p></p></li>
      
       <li id="qudibutton8"><h5 id="showrad1">橡皮半径：10</h5><input type="range" id="xpcradius" value="10"/><p></p></li>
-      <li id="qudibutton9"><button style=" width:128px; height:40px" class="btn btn-default">使用橡皮擦</button></li><li><p></p></li>
+      <li id="qudibutton9"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=2;">使用橡皮擦</button></li><li><p></p></li>
 
       <li> <img  style="width:150px; height:60px" onClick="showpenMenu()" src="photo/pen.png" class="img-rounded"/>   </li> <li><p></p></li>
       <li id="penbutton1"><h5 id="showrad2">画笔半径：10</h5><input type="range" id="penradius" value="10"/> <p></p></li>
@@ -483,7 +483,7 @@
       </div>   
        
 	
-       <canvas id="myCanvas"  class="center-block"    onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()" width=0 height=0 >
+       <canvas id="myCanvas"  class="center-block"    onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()" onmouseup="cnvs_onmouseup(event)" onmousedown="cnvs_onmousedown(event)" width=0 height=0 >
        抱歉，您的浏览器貌似不支持画布功能。</canvas>   
 
 	   
