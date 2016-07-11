@@ -2,6 +2,7 @@ var canvasState=new Array();  //保存画布的状态
 var curState=new Array();  //当前显示的状态（用于撤销和还原）
 var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了帽子 5:添加字幕 
 //11:滤镜效果 12:色彩操作 13:透明度操作 14:对比度操作  15:一键去底  16:填充去底 17:橡皮擦
+//20:马赛克笔 21:彩笔  22:荧光笔
 var faceArray=new Array();  //被处理的脸的下标
 var point=0;   //状态数组指针
 var stateSize=1;  //总状态数
@@ -14,7 +15,7 @@ function beforeDo(usersta){  //修图操作前先执行  传参：用户做了�
     var ctx=c.getContext("2d");	
 	canvasState[point]=canvasState[point-1];  
 	faceArray[point]=curFace;
-	if(userState[point-1]==usersta&&(faceArray[point]==faceArray[point-1]||usersta==11)&&usersta!=5&&usersta!=16&&usersta!=17){  //如果用户刚才做过这个操作,并且前后处理了同一张脸(或者滤镜操作)(不能是色彩操作)
+	if(userState[point-1]==usersta&&(faceArray[point]==faceArray[point-1]||usersta==11)&&usersta!=5&&usersta!=16&&usersta!=17&&usersta!=20&&usersta!=21&&usersta!=22){  //如果用户刚才做过这个操作,并且前后处理了同一张脸(或者滤镜操作)(不能是色彩操作)
        ctx.putImageData(canvasState[point],0,0);  //先恢复图片状态，去除之前的同脸同类特效
 	}else{
        canvasState[point]=ctx.getImageData(0,0,1500,750);  //否则画布状态保存为当前画布显示的图像
@@ -65,100 +66,6 @@ function clearCanvas(){  //清除画布内容
 	 cxt.clearRect(0,0,1500,750);
 }
 
-var subtitleX=new Array(),subtitleY=new Array();
-var subtitleP=0;
-
-function updateSubtitle(x,y){
-     var c=document.getElementById("myCanvas");
-     var ctx=c.getContext("2d");
-     var fontSize=document.getElementById("fontSize").value;
-     var fontstyle=document.getElementById("fontstyle").value;
-     var fontfamily=document.getElementById("fontfamily").value;
-     var fontweight=document.getElementById("fontweight").value;
-     var fontcolor=document.getElementById("fontcolor").value;
-     var subtitleValue=document.getElementById("subtitleValue").value;
-     var str=fontstyle;
-     str+=" "+"normal";
-     str+=" "+fontweight;
-     str+=" "+fontSize+"px";
-     str+=" "+fontfamily;
-     ctx.font=str;
-     ctx.textBaseline = 'top';
-     var isfill=document.getElementById("fontfill").value;
-     subtitleX[subtitleP]=x,subtitleY[subtitleP]=y;
-     if(subtitleX[subtitleP]!=subtitleX[!subtitleP]||subtitleY[subtitleP]!=subtitleY[!subtitleP]){  //如果移动了鼠标，擦除
-        ctx.putImageData(curState[point],0,0);
-     }
-     subtitleP=!subtitleP;
-     if(isfill=="yes"){
-        ctx.fillStyle=fontcolor;
-        ctx.fillText(subtitleValue,x,y);
-     }else{
-        ctx.strokeStyle=fontcolor;
-        ctx.strokeText(subtitleValue,x,y);
-     }
-}
-
-var tianchongbiX=new Array(),tianchongbiY=new Array();
-var tianchongbiP=0;
-function updateTianchongbi(x,y){
-	 var c=document.getElementById("myCanvas");
-     var ctx=c.getContext("2d");
-     tianchongbiX[tianchongbiP]=x,tianchongbiY[tianchongbiP]=y;
-     if(tianchongbiX[tianchongbiP]!=tianchongbiX[!tianchongbiP]||tianchongbiY[tianchongbiP]!=tianchongbiY[!tianchongbiP]){  //如果移动了鼠标，擦除
-        ctx.putImageData(curState[point],0,0);
-     }
-     tianchongbiP=!tianchongbiP;
-     ctx.fillStyle="#ffffff";
-     ctx.fillRect(x-9,y,20,2);
-     ctx.fillRect(x,y-9,2,20);
-}
-
-var xiangpiX=new Array(),xiangpiY=new Array();
-var xiangpiP=0;
-function updateXiangpi(x,y){
-	 var c=document.getElementById("myCanvas");
-     var ctx=c.getContext("2d");
-     var imgData=ctx.getImageData(0,0,c.width,c.height); 
-     var rad=document.getElementById("xpcradius").value;
-     xiangpiX[xiangpiP]=x,xiangpiY[xiangpiP]=y;
-     if(xiangpiX[xiangpiP]!=xiangpiX[!xiangpiP]||xiangpiY[xiangpiP]!=xiangpiY[!xiangpiP]){  //如果移动了鼠标，擦除
-        if(!ispush)
-        ctx.putImageData(curState[point],0,0);
-        else
-        {   //在两园之间创建了一个矩形区域，对该区域透明化
-        	var a=rad;
-        	var x1=xiangpiX[xiangpiP],y1=xiangpiY[xiangpiP],x2=xiangpiX[!xiangpiP],y2=xiangpiY[!xiangpiP];
-        	var asin = a*Math.sin(Math.atan((y2-y1)/(x2-x1)));  
-            var acos = a*Math.cos(Math.atan((y2-y1)/(x2-x1)))  
-            var x3 = x1+asin;  
-            var y3 = y1-acos;  
-            var x4 = x1-asin;  
-            var y4 = y1+acos;  
-            var x5 = x2+asin;  
-            var y5 = y2-acos;  
-            var x6 = x2-asin;  
-            var y6 = y2+acos;  
-        	ctx.save();
-        	ctx.beginPath();
-            ctx.moveTo(x3,y3);  
-            ctx.lineTo(x5,y5);  
-            ctx.lineTo(x6,y6);  
-            ctx.lineTo(x4,y4);  
-            ctx.closePath();  
-            ctx.clip();
-            ctx.clearRect(0,0,c.width,c.height);  
-        	ctx.restore(); 
-        }
-     }
-     xiangpiP=!xiangpiP;
-     ctx.save()  
-     ctx.beginPath();
-     ctx.arc(x,y,rad,0,Math.PI*2,true); //Math.PI*2是JS计算方法，是圆
-     ctx.clip();
-     ctx.clearRect(0,0,c.width,c.height); 
-     ctx.restore();   
-}
 
 function cnvs_getCoordinates(e)  //显示鼠标坐标
 {
@@ -172,10 +79,16 @@ function cnvs_getCoordinates(e)  //显示鼠标坐标
    document.getElementById("xycoordinates").innerHTML=" 坐标值: (" + x + "," + y + ")";
    if(SubtitleFlag)
        updateSubtitle(x,y);//动态显示字幕位置
-   if(mousetype==1){  //填充笔
+   if(mousetype==1)  //填充笔
        updateTianchongbi(x,y);
-   }else if(mousetype==2)
+   else if(mousetype==2)
 	   updateXiangpi(x,y);
+   else if(mousetype==3)
+   	   updateMSKpen(x,y);
+   else if(mousetype==4)
+   	   updatecaibi(x,y);
+   else if(mousetype==5)
+   	   updateyinguangbi(x,y);
    c.onclick=function(e){
 	 if(SubtitleFlag)
 	 	addsubtitle(x,y);
@@ -187,14 +100,44 @@ function cnvs_getCoordinates(e)  //显示鼠标坐标
 
 var ispush=false;  //鼠标按下的标记
 function cnvs_onmousedown(e){//当按下鼠标时触发的事件
+   var c=document.getElementById("myCanvas");
+   var ctx=c.getContext("2d");
+   var rect = c.getBoundingClientRect(); 
+   var x=e.clientX - rect.left * (c.width / rect.width);
+   var y=e.clientY - rect.top * (c.height / rect.height);
     if(mousetype==2){
         beforeDo(17);
+        ispush=true;
+    }
+    if(mousetype==3){
+        beforeDo(20);
+        ispush=true;
+        updateMSKpen(x,y);
+    }
+    if(mousetype==4){
+        beforeDo(21);
+        ispush=true;
+    }
+    if(mousetype==5){
+        beforeDo(22);
         ispush=true;
     }
 } 
 
 function cnvs_onmouseup(e){   //当放开鼠标触发事件
     if(mousetype==2&&ispush){
+    	afterDo();
+    	ispush=false;
+    }
+    if(mousetype==3&&ispush){
+    	afterDo();
+    	ispush=false;
+    }
+    if(mousetype==4&&ispush){
+    	afterDo();
+    	ispush=false;
+    }
+    if(mousetype==5&&ispush){
     	afterDo();
     	ispush=false;
     }
@@ -208,6 +151,18 @@ function cnvs_clearCoordinates()  //去除鼠标坐标显示
     if(!ispush)  //防止鼠标移开后光标留在画布里
     ctx.putImageData(curState[point],0,0);
     if(mousetype==2&&ispush){
+    	afterDo();
+    	ispush=false;
+    }
+    if(mousetype==3&&ispush){
+    	afterDo();
+    	ispush=false;
+    }
+    if(mousetype==4&&ispush){
+    	afterDo();
+    	ispush=false;
+    }
+    if(mousetype==5&&ispush){
     	afterDo();
     	ispush=false;
     }

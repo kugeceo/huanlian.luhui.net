@@ -9,7 +9,7 @@ function lvjing_fanse(){
       imgData.data[i]=255-imgData.data[i];
       imgData.data[i+1]=255-imgData.data[i+1];
       imgData.data[i+2]=255-imgData.data[i+2];
-      imgData.data[i+3]=255;
+   //   imgData.data[i+3]=255;
       }
       ctx.putImageData(imgData,0,0);
       afterDo();
@@ -31,7 +31,7 @@ function lvjing_huise(){
       imgData.data[i]=(r * 0.272) + (g * 0.534) + (b * 0.131); 
       imgData.data[i+1]=(r * 0.349) + (g * 0.686) + (b * 0.168); 
       imgData.data[i+2]=(r * 0.393) + (g * 0.769) + (b * 0.189); 
-      imgData.data[i+3]=255;
+   //   imgData.data[i+3]=255;
       }
       ctx.putImageData(imgData,0,0);
       afterDo();
@@ -80,7 +80,7 @@ function lvjing_mohu(){
       imgData.data[idx + 0] = nr; // Red channel 
       imgData.data[idx + 1] = ng; // Green channel 
       imgData.data[idx + 2] = nb; // Blue channel 
-      imgData.data[idx + 3] = 255; // Alpha channel 
+    //  imgData.data[idx + 3] = 255; // Alpha channel 
       } 
       } 
       ctx.putImageData(imgData,0,0);
@@ -114,7 +114,7 @@ function lvjing_fudiao(){
       tempimgData.data[idx + 0] = nr; // Red channel 
       tempimgData.data[idx + 1] = ng; // Green channel 
       tempimgData.data[idx + 2] = nb; // Blue channel 
-      tempimgData.data[idx + 3] = 255; // Alpha channel 
+   //   tempimgData.data[idx + 3] = 255; // Alpha channel 
       } 
       } 
       ctx.putImageData(tempimgData,0,0);
@@ -172,7 +172,7 @@ function lvjing_msk(){
                     averR+=imgData.data[idx];
                     averG+=imgData.data[idx+1];
                     averB+=imgData.data[idx+2];
-                    averA+=imgData.data[idx+3];
+                  //  averA+=imgData.data[idx+3];
             	}
             }
             var num=len*len;
@@ -183,7 +183,7 @@ function lvjing_msk(){
                     imgData.data[idx]=averR;
                     imgData.data[idx+1]=averG;
                     imgData.data[idx+2]=averB;
-                    imgData.data[idx+3]=averA;
+                 //   imgData.data[idx+3]=averA;
             	}
             }
         } 
@@ -445,3 +445,242 @@ function tianchongqudi(x,y){
      afterDo();
 }
 
+
+//////////////////update部分
+
+var subtitleX=new Array(),subtitleY=new Array();
+var subtitleP=0;
+
+function updateSubtitle(x,y){
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var fontSize=document.getElementById("fontSize").value;
+     var fontstyle=document.getElementById("fontstyle").value;
+     var fontfamily=document.getElementById("fontfamily").value;
+     var fontweight=document.getElementById("fontweight").value;
+     var fontcolor=document.getElementById("fontcolor").value;
+     var subtitleValue=document.getElementById("subtitleValue").value;
+     var str=fontstyle;
+     str+=" "+"normal";
+     str+=" "+fontweight;
+     str+=" "+fontSize+"px";
+     str+=" "+fontfamily;
+     ctx.font=str;
+     ctx.textBaseline = 'top';
+     var isfill=document.getElementById("fontfill").value;
+     subtitleX[subtitleP]=x,subtitleY[subtitleP]=y;
+     if(subtitleX[subtitleP]!=subtitleX[!subtitleP]||subtitleY[subtitleP]!=subtitleY[!subtitleP]){  //如果移动了鼠标，擦除
+        ctx.putImageData(curState[point],0,0);
+     }
+     subtitleP=!subtitleP;
+     if(isfill=="yes"){
+        ctx.fillStyle=fontcolor;
+        ctx.fillText(subtitleValue,x,y);
+     }else{
+        ctx.strokeStyle=fontcolor;
+        ctx.strokeText(subtitleValue,x,y);
+     }
+}
+
+var tianchongbiX=new Array(),tianchongbiY=new Array();
+var tianchongbiP=0;
+function updateTianchongbi(x,y){
+   var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     tianchongbiX[tianchongbiP]=x,tianchongbiY[tianchongbiP]=y;
+     if(tianchongbiX[tianchongbiP]!=tianchongbiX[!tianchongbiP]||tianchongbiY[tianchongbiP]!=tianchongbiY[!tianchongbiP]){  //如果移动了鼠标，擦除
+        ctx.putImageData(curState[point],0,0);
+     }
+     tianchongbiP=!tianchongbiP;
+     ctx.fillStyle="#ffffff";
+     ctx.fillRect(x-9,y,20,2);
+     ctx.fillRect(x,y-9,2,20);
+}
+
+var xiangpiX=new Array(),xiangpiY=new Array();
+var xiangpiP=0;
+function updateXiangpi(x,y){
+   var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var imgData=ctx.getImageData(0,0,c.width,c.height); 
+     var rad=document.getElementById("xpcradius").value;
+     xiangpiX[xiangpiP]=x,xiangpiY[xiangpiP]=y;
+     if(xiangpiX[xiangpiP]!=xiangpiX[!xiangpiP]||xiangpiY[xiangpiP]!=xiangpiY[!xiangpiP]){  //如果移动了鼠标，擦除
+        if(!ispush)
+        ctx.putImageData(curState[point],0,0);
+        else
+        {   //在两园之间创建了一个矩形区域，对该区域透明化
+          var a=rad;
+          var x1=xiangpiX[xiangpiP],y1=xiangpiY[xiangpiP],x2=xiangpiX[!xiangpiP],y2=xiangpiY[!xiangpiP];
+          var asin = a*Math.sin(Math.atan((y2-y1)/(x2-x1)));  
+            var acos = a*Math.cos(Math.atan((y2-y1)/(x2-x1)))  
+            var x3 = x1+asin;  
+            var y3 = y1-acos;  
+            var x4 = x1-asin;  
+            var y4 = y1+acos;  
+            var x5 = x2+asin;  
+            var y5 = y2-acos;  
+            var x6 = x2-asin;  
+            var y6 = y2+acos;  
+          ctx.save();
+          ctx.beginPath();
+            ctx.moveTo(x3,y3);  
+            ctx.lineTo(x5,y5);  
+            ctx.lineTo(x6,y6);  
+            ctx.lineTo(x4,y4);  
+            ctx.closePath();  
+            ctx.clip();
+            ctx.clearRect(0,0,c.width,c.height);  
+          ctx.restore(); 
+        }
+     }
+     xiangpiP=!xiangpiP;
+     ctx.save()  
+     ctx.beginPath();
+     ctx.arc(x,y,rad,0,Math.PI*2,true); //Math.PI*2是JS计算方法，是圆
+     ctx.clip();
+     ctx.clearRect(0,0,c.width,c.height); 
+     ctx.restore();   
+}
+
+var MSKpenX=new Array(),MSKpenY=new Array();
+var MSKpenP=0;
+function updateMSKpen(x,y){
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var imgData=ctx.getImageData(0,0,c.width,c.height); 
+     var rad=document.getElementById("penradius").value;
+     xiangpiX[xiangpiP]=x,xiangpiY[xiangpiP]=y;
+     if(xiangpiX[xiangpiP]!=xiangpiX[!xiangpiP]||xiangpiY[xiangpiP]!=xiangpiY[!xiangpiP]){  //如果移动了鼠标，擦除
+        if(!ispush)
+        ctx.putImageData(curState[point],0,0);
+     }
+     if(ispush){
+        var len=Math.min(imgData.width,imgData.height)/40;  //马赛克格子大小
+            len=Math.floor(len);
+            for ( var xx = 0; xx < imgData.width; xx+=len) 
+            { 
+              for ( var yy = 0; yy < imgData.height; yy+=len) 
+              { 
+                  var averR=0,averG=0,averB=0,averA=0;
+                  for(var ix=xx;ix<xx+len;ix++){
+                    for(var iy=yy;iy<yy+len;iy++){
+                        if(Dis(ix,iy,x,y)>=rad+30)
+                          continue;
+                        var idx=(ix+iy*imgData.width)*4;
+                          averR+=imgData.data[idx];
+                          averG+=imgData.data[idx+1];
+                          averB+=imgData.data[idx+2];
+                        //  averA+=imgData.data[idx+3];
+                    }
+                  }
+                  var num=len*len;
+                  averR/=num,averG/=num,averB/=num,averA/=num;
+                   for(var ix=xx;ix<xx+len;ix++){
+                    for(var iy=yy;iy<yy+len;iy++){
+                      if(Dis(ix,iy,x,y)<rad){
+                            var idx=(ix+iy*imgData.width)*4;
+                          imgData.data[idx]=averR;
+                              imgData.data[idx+1]=averG;
+                              imgData.data[idx+2]=averB;
+                      }
+                      
+                    }
+                  }
+              } 
+            } 
+            ctx.putImageData(imgData,0,0);
+     }
+     xiangpiP=!xiangpiP;
+}
+
+
+
+var caibiX=new Array(),caibiY=new Array();
+var caibiP=0;
+function updatecaibi(x,y){
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var imgData=ctx.getImageData(0,0,c.width,c.height); 
+     var rad=document.getElementById("penradius").value;
+     var color=document.getElementById("pencolor").value;
+     caibiX[caibiP]=x,caibiY[caibiP]=y;
+     if(caibiX[caibiP]!=caibiX[!caibiP]||caibiY[caibiP]!=caibiY[!caibiP]){  //如果移动了鼠标，擦除
+        if(!ispush)
+        ctx.putImageData(curState[point],0,0);
+        else
+        {   //在两园之间创建了一个矩形区域
+            var a=rad;
+            var x1=caibiX[caibiP],y1=caibiY[caibiP],x2=caibiX[!caibiP],y2=caibiY[!caibiP];
+            var asin = a*Math.sin(Math.atan((y2-y1)/(x2-x1)));  
+            var acos = a*Math.cos(Math.atan((y2-y1)/(x2-x1)))  
+            var x3 = x1+asin;  
+            var y3 = y1-acos;  
+            var x4 = x1-asin;  
+            var y4 = y1+acos;  
+            var x5 = x2+asin;  
+            var y5 = y2-acos;  
+            var x6 = x2-asin;  
+            var y6 = y2+acos;  
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(x3,y3);  
+            ctx.lineTo(x5,y5);  
+            ctx.lineTo(x6,y6);  
+            ctx.lineTo(x4,y4);  
+            ctx.closePath();  
+            ctx.fillStyle=color;
+            ctx.fill();
+            ctx.restore(); 
+        }
+     }
+     caibiP=!caibiP;
+     ctx.save()  
+     ctx.beginPath();
+     ctx.arc(x,y,rad,0,Math.PI*2,true); //Math.PI*2是JS计算方法，是圆
+     ctx.fillStyle=color;
+     ctx.fill();
+     ctx.restore();   
+}
+
+var yinguangbiX=new Array(),yinguangbiY=new Array();
+var yinguangbiP=0;
+function updateyinguangbi(x,y){
+     var c=document.getElementById("myCanvas");
+     var ctx=c.getContext("2d");
+     var imgData=ctx.getImageData(0,0,c.width,c.height); 
+     var rad=document.getElementById("penradius").value;
+     var color=document.getElementById("pencolor").value;
+     yinguangbiX[yinguangbiP]=x,yinguangbiY[yinguangbiP]=y;
+     if(yinguangbiX[yinguangbiP]!=yinguangbiX[!yinguangbiP]||yinguangbiY[yinguangbiP]!=yinguangbiY[!yinguangbiP]){  //如果移动了鼠标，擦除
+        if(!ispush)
+        ctx.putImageData(curState[point],0,0);
+        else
+        {   //在两园之间创建了一个矩形区域
+            var x1=yinguangbiX[yinguangbiP],y1=yinguangbiY[yinguangbiP],x2=yinguangbiX[!yinguangbiP],y2=yinguangbiY[!yinguangbiP];
+            var x3 = x1;  
+            var y3 = y1-rad;  
+            var x4 = x1;  
+            var y4 = y1+rad*1.0; 
+            var x5 = x2;  
+            var y5 = y2+rad*1.0;  
+            var x6 = x2;  
+            var y6 = y2-rad;  
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(x3,y3);  
+            ctx.lineTo(x4,y4);  
+            ctx.lineTo(x5,y5);  
+            ctx.lineTo(x6,y6);  
+            ctx.closePath();  
+            ctx.fillStyle=color;
+            ctx.fill();
+            ctx.restore(); 
+        }
+     }
+     yinguangbiP=!yinguangbiP;
+     ctx.save()  
+     ctx.fillStyle=color;
+     ctx.fillRect(x-1,y-rad,2,rad*2);
+     ctx.restore();   
+}
