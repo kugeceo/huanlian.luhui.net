@@ -5,7 +5,6 @@ $(function () {
 })
 $('#choosePhoto').popover('show');
 
-
 //拖动条触发事件，修改值
 $("#yjqdRCZ").mousemove(function(){
    $("#showrcz1").html("<h5>容差值："+document.getElementById("yjqdRCZ").value+"</h5>");

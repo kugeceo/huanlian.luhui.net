@@ -443,20 +443,20 @@
       <li> <img  style="width:150px; height:60px" onClick="showqudiMenu()" src="photo/qudi.png" class="img-rounded"/>   </li> <li><p></p></li>
       
       <li id="qudibutton2"><h5 id="showrcz1">容差值：10</h5><input type="range" id="yjqdRCZ" value="10"/>  <p></p></li>
-      <li id="qudibutton3"><button style=" width:128px; height:40px" class="btn btn-default" onClick="yijianqudi()">一键去底</button></li><li><p></p></li>
+      <li id="qudibutton3"><button style=" width:128px; height:40px" class="btn btn-default" onClick="yijianqudi()"><span class="glyphicon glyphicon-adjust" aria-hidden="true">一键去底</button></li><li><p></p></li>
      
       <li id="qudibutton5"><h5 id="showrcz2">容差值：10</h5><input type="range" id="tcqdRCZ" value="10"/><p></p></li>
-      <li id="qudibutton6"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=1;">使用填充笔</button></li><li><p></p></li>
+      <li id="qudibutton6"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=1;"><span class="glyphicon glyphicon-tint" aria-hidden="true">使用填充笔</button></li><li><p></p></li>
      
       <li id="qudibutton8"><h5 id="showrad1">橡皮半径：10</h5><input type="range" id="xpcradius" value="10"/><p></p></li>
-      <li id="qudibutton9"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=2;">使用橡皮擦</button></li><li><p></p></li>
+      <li id="qudibutton9"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=2;"><span class="glyphicon glyphicon-erase" aria-hidden="true">使用橡皮擦</button></li><li><p></p></li>
 
       <li> <img  style="width:150px; height:60px" onClick="showpenMenu()" src="photo/pen.png" class="img-rounded"/>   </li> <li><p></p></li>
       <li id="penbutton1"><h5 id="showrad2">画笔半径：10</h5><input type="range" id="penradius" value="10"/> <p></p></li>
       <li id="penbutton2"><h5>画笔颜色: <input type="color" id="pencolor" value="#00ff00" /></h5><p></p></li>
-      <li id="penbutton3"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=3;">马赛克笔</button></li><li><p></p></li>
-      <li id="penbutton4"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=4;">彩笔</button></li><li><p></p></li>
-      <li id="penbutton5"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=5;">荧光笔</button></li><li><p></p></li>
+      <li id="penbutton3"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=3;"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>马赛克笔</button></li><li><p></p></li>
+      <li id="penbutton4"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=4;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>彩笔</button></li><li><p></p></li>
+      <li id="penbutton5"><button style=" width:128px; height:40px" class="btn btn-default" onClick="mousetype=5;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>荧光笔</button></li><li><p></p></li>
 
       </div>
 
@@ -539,7 +539,7 @@
         <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>保存与分享</h4>
       </div>
       <div class="modal-body">
-	  <button type="button" class="btn btn-success" onClick="saveCanvas('PNG');">保存图片至本地</button>
+	  <button type="button" class="btn btn-success" onClick="saveAsLocalImage()">保存图片至本地</button>
         ...
       </div>
       <div class="modal-footer">

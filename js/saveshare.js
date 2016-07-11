@@ -13,3 +13,12 @@ function saveCanvas(strType) {
 			return false;
 		}
 	}
+
+//只需要该函数即可，上面的代码废了
+function saveAsLocalImage () {  
+       var myCanvas = document.getElementById("myCanvas");  
+       // here is the most important part because if you dont replace you will get a DOM 18 exception.  
+       // var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream;Content-Disposition: attachment;filename=foobar.png");  
+       var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");   
+       window.location.href=image; // it will save locally 
+}  
