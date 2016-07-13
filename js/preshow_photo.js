@@ -103,6 +103,7 @@ window.URL = window.URL || window.webkitURL;
 		  $('#choosePhoto').popover('destroy');
           document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请勿关闭窗口~</p>";
           $('#face_attribute_text').fadeOut();
+          $('#openPhoto').hide();
         }  
         
 		

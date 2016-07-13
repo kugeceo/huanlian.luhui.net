@@ -78,13 +78,13 @@ var s_width=document.getElementById("convo2").style.width;
 var s_height=document.getElementById("convo3").style.height=winHeight*0.86+'px'
 var s_width=document.getElementById("convo3").style.width;
 
-document.getElementById("maindiv").style.width=winWidth*0.95+'px'
+document.getElementById("maindiv").style.width=winWidth*1+'px'
   
-document.getElementById("fatherdiv").style.width=window.screen.width*0.95+'px';    //固定画布父亲div，防止画布被挤压
+document.getElementById("fatherdiv").style.width=window.screen.width*1+'px';    //固定画布父亲div，防止画布被挤压
 
 var facelist="";    //换脸滚动条的系统预提提供脸部列表
 for(var i=1;i<=8;i++){
-       facelist+="<li><button  style='width:150px; height:105px'><img src='photo/face_button"+i+".png' onClick=\"addface('photo/face"+i+".png')\" style=' width:135px; height:100px'></button></li><li><p></p></li>";
+       facelist+="<a class='thumbnail'  style='width:150px; height:105px'><img src='photo/face_button"+i+".png' onClick=\"addface('photo/face"+i+".png')\" class='img-rounded' style='width:150px; height:95px'></a>";
 }
 document.getElementById("supportedface").innerHTML=facelist;
 

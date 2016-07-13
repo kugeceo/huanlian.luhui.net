@@ -1,4 +1,5 @@
 @import 'http://fonts.googleapis.com/css?family=Noto+Sans';
+/*
 body {
   padding: 0;
   margin: 0;
@@ -16,24 +17,26 @@ html {
   background: -webkit-linear-gradient(-45deg, #e7f1f9 0, #e7f1f9 25%, #cce3f7 50%, #cce1f4 75%, #cce1f4 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
+}*/
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 12px;
-  background-color: rgba(2, 22, 39, 0.2);
+  border-radius: 3px;
+  background-color: rgba(2, 22, 39, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 12px;
-  background-color: rgba(2, 22, 39, 0.6);
+  border-radius: 3px;
+  background-color: rgba(70, 182, 249, 0.8);
 }
 
 .chat-thread {
   margin: auto auto auto auto;
+  margin-top:0px;
+  margin-left:10px;
   padding: 0 20px 0 0;
   list-style: none;
   overflow-y: scroll;
@@ -45,9 +48,9 @@ html {
 /* Small screens */
 @media all and (max-width: 767px) {
   .chat-thread {
-    width: 160px;
- /*   height: 90%;*/
-	float:left
+    width: 175px;
+    /*   height: 90%;*/
+	  float:left
   }
 
   .chat-window {
@@ -58,10 +61,9 @@ html {
 /* Medium and large screens */
 @media all and (min-width: 768px) {
   .chat-thread {
-    width: 160px;
+    width: 175px;
   /*  height: 90%;*/
     float:left;
-    
   }
 
   .chat-window {
