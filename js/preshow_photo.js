@@ -10,11 +10,11 @@ window.URL = window.URL || window.webkitURL;
 	function handleFiles(obj) {
 		var files = obj.files;
 		var img = new Image();
-		    var c=document.getElementById("myCanvas");
-            var cxt=c.getContext("2d");
-			$("#closebutton").hide();
-			facenum=0;
-		    uploadBmob();
+	    var c=document.getElementById("myCanvas");
+        var cxt=c.getContext("2d");
+		$("#closebutton").hide();
+		facenum=0;
+		uploadBmob();
 		if(window.URL){
 			//File API
 			//  alert(files[0].name + "," + files[0].size + " bytes");
@@ -81,11 +81,13 @@ window.URL = window.URL || window.webkitURL;
 		  else if(bili<limitbili){
 			  document.getElementById("myCanvas").height=limitH;
               document.getElementById("myCanvas").width=img.width*limitH/img.height;
-			  cxt.drawImage(img,0,0,img.width*limitH/img.height,limitH);
+              img.width=img.width*limitH/img.height;
+			  cxt.drawImage(img,0,0,img.width,limitH);
 		  }else {
 			  document.getElementById("myCanvas").height=img.height*limitW/img.width;
               document.getElementById("myCanvas").width=limitW;
-			  cxt.drawImage(img,0,0,limitW,img.height*limitW/img.width);
+              img.height=img.height*limitW/img.width;
+			  cxt.drawImage(img,0,0,limitW,img.height);
 		  }
 	     
 		 // document.getElementById("img1").src=img.src; 
@@ -104,6 +106,7 @@ window.URL = window.URL || window.webkitURL;
           document.getElementById("pleasewait").innerHTML="<p class='text-primary' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传中，请勿关闭窗口~</p>";
           $('#face_attribute_text').fadeOut();
           $('#openPhoto').hide();
+          document.getElementById("filename").value='e键换脸' + (new Date()).getTime();
         }  
         
 		

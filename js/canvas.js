@@ -1,6 +1,6 @@
 var canvasState=new Array();  //保存画布的状态
 var curState=new Array();  //当前显示的状态（用于撤销和还原）
-var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了帽子 5:添加字幕 
+var userState=new Array();  //保存用户的操作类型 -1:变成原图  0:未使用 1:换了眼睛 2:换了嘴巴 3:换了鼻子 4:换了帽子 5:一键换脸 6:添加字幕 
 //11:滤镜效果 12:色彩操作 13:透明度操作 14:对比度操作  15:一键去底  16:填充去底 17:橡皮擦
 //20:马赛克笔 21:彩笔  22:荧光笔
 var faceArray=new Array();  //被处理的脸的下标
@@ -15,7 +15,7 @@ function beforeDo(usersta){  //修图操作前先执行  传参：用户做了�
     var ctx=c.getContext("2d");	
 	canvasState[point]=canvasState[point-1];  
 	faceArray[point]=curFace;
-	if(userState[point-1]==usersta&&(faceArray[point]==faceArray[point-1]||usersta==11)&&usersta!=5&&usersta!=16&&usersta!=17&&usersta!=20&&usersta!=21&&usersta!=22){  //如果用户刚才做过这个操作,并且前后处理了同一张脸(或者滤镜操作)(不能是色彩操作)
+	if(userState[point-1]==usersta&&(faceArray[point]==faceArray[point-1]||usersta==11)&&usersta!=6&&usersta!=16&&usersta!=17&&usersta!=20&&usersta!=21&&usersta!=22){  //如果用户刚才做过这个操作,并且前后处理了同一张脸(或者滤镜操作)(不能是色彩操作)
        ctx.putImageData(canvasState[point],0,0);  //先恢复图片状态，去除之前的同脸同类特效
 	}else{
        canvasState[point]=ctx.getImageData(0,0,1500,750);  //否则画布状态保存为当前画布显示的图像

@@ -10,17 +10,15 @@ body {
   background-attachment: fixed;*/
   background-image: 
   url(../photo/background.png);
-  background-repeat: repeat
-}/*
+  background-repeat: repeat;
+}
 html {
   padding: 0;
   margin: 0;
-
-  background: -moz-linear-gradient(-45deg, #e7f1f9 0, #e7f1f9 25%, #cce3f7 50%, #cce1f4 75%, #cce1f4 100%);
-  background: -webkit-linear-gradient(-45deg, #e7f1f9 0, #e7f1f9 25%, #cce3f7 50%, #cce1f4 75%, #cce1f4 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}*/
+  background-image: 
+  url(../photo/background.png);
+  background-repeat: repeat;
+}
 
 ::-webkit-scrollbar {
   width: 15px;
@@ -43,17 +41,24 @@ html {
   padding: 0 20px 0 0;
   list-style: none;
   overflow-y: scroll;
-  overflow-x: hidden;
- 
+  
+}
+.chat-thread2 {
+  margin: auto auto auto auto;
+  padding: 0 20px 0 0;
+  list-style: none;
+  overflow-y: scroll;
+  height: 400px;
 }
 
 
 /* Small screens */
 @media all and (max-width: 767px) {
   .chat-thread {
-    width: 175px;
+    width: 120px;
     /*   height: 90%;*/
-	  float:left
+	  float:left;
+    overflow-x: scroll;
   }
 
   .chat-window {
@@ -67,6 +72,7 @@ html {
     width: 175px;
   /*  height: 90%;*/
     float:left;
+    overflow-x: hidden;
   }
 
   .chat-window {
