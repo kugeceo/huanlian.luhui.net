@@ -72,6 +72,7 @@ function saveCanvasToBmob() {
 }
 
 function showPhotoList(){
+	$("#waitphotolist").show();
 	var Canvas_table = Bmob.Object.extend("Canvas_table");
     var query = new Bmob.Query(Canvas_table);
     query.equalTo("username", getCookie("username"));
@@ -94,6 +95,7 @@ function showPhotoList(){
         }
         photolist+="</table>"
         document.getElementById("showPhotoList").innerHTML=photolist;
+        $("#waitphotolist").hide();
       },
       error: function(error) {
         alert("查询失败: " + error.code + " " + error.message);
@@ -115,21 +117,15 @@ function deletephoto(i){
     var Canvas_table = Bmob.Object.extend("Canvas_table");
     var query = new Bmob.Query(Canvas_table);
     query.equalTo("objectId", curKEY[i]);
-    query.find({
-      success: function(results) {
-       // alert("共查询到 " + results.length + " 条记录");
-        // 循环处理查询到的数据
-        /*
-        for (var i = 0; i < results.length; i++) {
-          var object = results[i];
-          alert(object.id + ' - ' + object.get('playerName'));
-        }*/
-       var object=results[0];
-       Bmob.Object.destroyAll(object);
-       showPhotoList();
+    query.destroyAll({
+      success: function() {
+         showPhotoList();
       },
       error: function(error) {
-        
       }
     });
+}
+
+function clearsavestate(){
+	 document.getElementById("savestate").innerHTML= "";
 }

@@ -264,7 +264,7 @@
           <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab" onClick="features_combination_control()">  趣味贴图  </a></li>
 		  <li role="presentation" ><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()" >  颜值测试  </a></li>
           <li role="presentation" ><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图像处理  </a></li>
-          <li role="presentation" ><a href="#" data-toggle="modal" data-target="#save_and_share" >  保存与分享  </a></li>
+          <li role="presentation" ><a href="#" data-toggle="modal" data-target="#save_and_share" onclick="clearsavestate()">  保存与分享  </a></li>
         </ul>
         <!-- Tab panes -->
        
@@ -276,10 +276,10 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <div id="loginState"></div></a>
             <ul class="dropdown-menu">
-              <li id="loginbutton"><a href="#" data-toggle="modal" data-target="#login" onclick="clearLoginInfo()"><h5> 用户登录 </h5></a></li>
-              <li id="registerbutton"><a href="#" data-toggle="modal" data-target="#register" onclick="clearRegisterInfo()"><h5> 新用户注册 </h5></a></li>
-              <li id="myphotobutton" ><a href="#" data-toggle="modal" data-target="#watchphoto" onclick="" ><h5> 我的相册 </h5></a></li>
-              <li id="cancelloginbutton"><a href="#"  data-toggle="modal" data-target="#cancellogin" onclick="cancellogin()" ><h5> 注销登录 </h5></a></li>
+              <li id="loginbutton"><a href="#" data-toggle="modal" data-target="#login" onclick="clearLoginInfo()"><h5> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> &nbsp用户登录 </h5></a></li>
+              <li id="registerbutton"><a href="#" data-toggle="modal" data-target="#register" onclick="clearRegisterInfo()"><h5>  <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> &nbsp新用户注册 </h5></a></li>
+              <li id="myphotobutton" ><a href="#" data-toggle="modal" data-target="#watchphoto" onclick="showPhotoList()" ><h5>   <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> &nbsp我的云相册 </h5></a></li>
+              <li id="cancelloginbutton"><a href="#"  data-toggle="modal" data-target="#cancellogin" onclick="cancellogin()" ><h5> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp注销登录 </h5></a></li>
              
             </ul>
           </li>
@@ -299,7 +299,7 @@
       
       <!-- 滚动条(换脸)-->
       <div id="convo" data-from="Sonu Joshi" class="chat-thread"  > 
-     
+       <div id="changefacetip" data-toggle="popover" data-placement="top" data-content="快用鼠标点我~"></div>
        <div id="supportedface" ></div>
       </div>
       </div>
@@ -549,7 +549,7 @@
         <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>保存与分享</h4>
       </div>
       <div class="modal-body">
-      <div> <h4>请输入文件名： <input type="text" id="filename" value=""> .png </h4></div>
+      <div> <h4>保存文件名：<input type="text" id="filename" value=""> .png </h4></div>
       <p></p>
       <div id="savestate"></div>
       <p></p>
@@ -576,6 +576,14 @@
         </div>
 
         <div class="modal-body">
+        <div id="waitphotolist">
+        数据更新中，请稍后...<p></p>
+        <div class="progress" >
+        <div  class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+         <span class="sr-only">waiting</span>
+         </div></div></div>
+
+
          <div id="convo5" data-from="Sonu Joshi" class="chat-thread2"  > 
          <p id="showPhotoList"></p>
          </div>

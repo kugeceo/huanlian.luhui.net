@@ -135,7 +135,7 @@ function addeye(srcstr){
  }
  
  function addsubtitle(x,y){  //在x，y位置添加字幕
- 	 beforeDo(5);
+ 	 beforeDo(6);
      var fontSize=document.getElementById("fontSize").value;
      var fontstyle=document.getElementById("fontstyle").value;
      var fontfamily=document.getElementById("fontfamily").value;

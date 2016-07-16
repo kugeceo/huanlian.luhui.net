@@ -25,6 +25,7 @@ var race_confidence=new Array();
 var smiling_value=new Array();
 var pitch_angle=new Array();
 
+var firstuse=0;
 function  getFaceInfo(urlstr){
  var api = new FacePP('abc3b4dd8808310720f3a521311f0bf0', 'vyvK77UjUxGdksdyojX0cWgGmM64PaLq');
  api.request('detection/detect', {
@@ -64,6 +65,12 @@ function  getFaceInfo(urlstr){
 	   get_analysedFace();  //面相分析先提取原图的脸部图片
 	   show_analysedFace();  // 面相分析初始脸 
 	   document.getElementById("pleasewait").innerHTML="<p class='text-success' >&nbsp;&nbsp;&nbsp;&nbsp;图片上传成功！</p>";
+	   if(firstuse==0){
+	     	firstuse=1;
+	     	$('#changefacetip').popover('show');
+	        setTimeout(" $('#changefacetip').popover('hide');",4000);
+	   }
+	  
   });
 }
 
