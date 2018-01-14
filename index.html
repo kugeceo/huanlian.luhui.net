@@ -1,225 +1,250 @@
-   <!DOCTYPE html>
-  <html lang="zh-CN">
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta property="qc:admins" content="5032512535472765426714052617" />
-      <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-      <title>e键换脸---最好用的在线换脸工具</title>
-      <!-- Bootstrap -->
-      <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
-      <link rel="stylesheet" href="css/scroll_style.css" media="screen" type="text/css" /> 
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="qc:admins" content="5032512535472765426714052617" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>e键换脸---最好用的在线换脸工具</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/scroll_style.css" media="screen" type="text/css" />
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-     
 
-      <!-- 加载js-->
-	  
-      <script type="text/javascript" src="js/jquery.js" ></script>
-      <script src="js/assembly.js" type="text/javascript" ></script>
-      <script type="text/javascript" src="js/init.js"> </script>
-	  <script src="js/bmob-min.js" type="text/javascript" ></script>
-	  <script src="js/face++.js" ></script>
-	  <script src="js/facepp-sdk.min.js" type="text/javascript" > </script>
-	  <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript" ></script>
-	  <script src="js/wuguanpinjie.js" type="text/javascript" > </script>
-      <script src="js/canvas.js"  type="text/javascript" ></script>
-      <script src="js/preshow_photo.js" type="text/javascript" ></script>
-      <script src="js/changeface.js" type="text/javascript" ></script>
-      <script src="js/switchFaceEachother.js" type="text/javascript" ></script>
-	  <script src="js/saveshare.js" type="text/javascript" ></script>
+
+    <!-- 加载js-->
+    <script type="text/javascript">
+        alert("face++接口更新，网站正在迁移中，一键换脸，五官拼接，颜值测试功能暂时无法使用！");
+    </script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/assembly.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/init.js">
+    </script>
+    <script src="js/bmob-min.js" type="text/javascript"></script>
+    <script src="js/face++.js"></script>
+    <script src="js/facepp-sdk.min.js" type="text/javascript">
+    </script>
+    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/wuguanpinjie.js" type="text/javascript">
+    </script>
+    <script src="js/canvas.js" type="text/javascript"></script>
+    <script src="js/preshow_photo.js" type="text/javascript"></script>
+    <script src="js/changeface.js" type="text/javascript"></script>
+    <script src="js/switchFaceEachother.js" type="text/javascript"></script>
+    <script src="js/saveshare.js" type="text/javascript"></script>
     <!--  <script src="http://www.webhek.com/wordpress/wp-content/uploads/js/canvas2image/base64.js"></script>
       <script src="http://www.webhek.com/wordpress/wp-content/uploads/js/canvas2image/canvas2image.js"></script>-->
-     <!-- <script src="js/prefixfree.min.js"></script>  -->
-      <script src="js/math.js"></script>
-      <script src="js/fabric.js"></script>
-      <script src="js/control.js"></script>
-      <script src="js/face_attribute.js"></script>
-      <script src="js/beauty.js"></script>
-      <script src="js/login.js"></script>
+    <!-- <script src="js/prefixfree.min.js"></script>  -->
+    <script src="js/math.js"></script>
+    <script src="js/fabric.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/face_attribute.js"></script>
+    <script src="js/beauty.js"></script>
+    <script src="js/login.js"></script>
 
-	  <!--设置预加载动画风格-->
-      <style>
-	#preloading{
-		background-color: #66bafa;
-		height: 100%;
-		width: 100%;
-		position: fixed;
-		z-index: 1;
-		margin-top: 0px;
-		top: 0px;
-	}
-	#preloading-center{
-		width: 100%;
-		height: 100%;
-		position: relative;
-		}
-	#preloading-center-absolute-one {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		height: 300px;
-		width: 50px;
-		margin-top: -150px;
-		margin-left: -25px;	
-	}
-	#preloading-center-absolute-two {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		height: 300px;
-		width: 50px;
-		margin-top: -150px;
-		margin-left: 50px;	
-	}
-	.object-one{
-		width: 18px;
-		height: 18px;
-		background-color: #FFF;
-		float: left;
-	    margin-top: 15px;
-		margin-right: 15px;
-		-ms-transform: rotate(45deg); 
-	   	-webkit-transform: rotate(45deg);
-	    transform: rotate(45deg);
-	    -webkit-animation: object-one 1s infinite;
-		animation: object-one 1s infinite;
-	}
-	.object-two{
-		width: 18px;
-		height: 18px;
-		background-color: #FFF;
-		float: left;
-	    margin-top: 15px;
-		margin-right: 15px;
-		-ms-transform: rotate(45deg); 
-	   	-webkit-transform: rotate(45deg);
-	    transform: rotate(45deg);
-		-webkit-animation: object-two 1s infinite;
-		animation: object-two 1s infinite;
-	}
-	.object-one:nth-child(6){
-		-webkit-animation-delay: 0.6s;
-	    animation-delay: 0.6s;
-		}
-	.object-one:nth-child(5){
-		-webkit-animation-delay: 0.5s;
-	    animation-delay: 0.5s;
-		}
-	.object-one:nth-child(4){
-		-webkit-animation-delay: 0.4s;
-	    animation-delay: 0.4s;
-		}
-	.object-one:nth-child(3){
-		-webkit-animation-delay: 0.3s;
-	    animation-delay: 0.3s;
-		}
-	.object-one:nth-child(2){
-		-webkit-animation-delay: 0.2s;
-	    animation-delay: 0.2s;
-		}
-			
-	.object-two:nth-child(9){
-		-webkit-animation-delay: 0.9s;
-	    animation-delay: 0.9s;
-		}
-	.object-two:nth-child(8){
-		-webkit-animation-delay: 0.8s;
-	    animation-delay: 0.8s;
-		}
-	.object-two:nth-child(7){
-		-webkit-animation-delay: 0.7s;
-	    animation-delay: 0.7s;
-		}	
-	.object-two:nth-child(6){
-		-webkit-animation-delay: 0.6s;
-	    animation-delay: 0.6s;
-		}
-	.object-two:nth-child(5){
-		-webkit-animation-delay: 0.5s;
-	    animation-delay: 0.5s;
-		}
-	.object-two:nth-child(4){
-		-webkit-animation-delay: 0.4s;
-	    animation-delay: 0.4s;
-		}
-	.object-two:nth-child(3){
-		-webkit-animation-delay: 0.3s;
-	    animation-delay: 0.3s;
-		}
-	.object-two:nth-child(2){
-		-webkit-animation-delay: 0.2s;
-	    animation-delay: 0.2s;
-		}
-											
-	@-webkit-keyframes object-one{
-	50% {
-	    -ms-transform: translate(100px,0); 
-	   	-webkit-transform: translate(100px,0);
-	    transform: translate(100px,0);
-		}
-	}		
-	@keyframes object-one{
-	50% {
-	    -ms-transform: translate(100px,0); 
-	   	-webkit-transform: translate(100px,0);
-	    transform: translate(100px,0);
-		}
-	}
+    <!--设置预加载动画风格-->
+    <style>
+        #preloading {
+            background-color: #66bafa;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            margin-top: 0px;
+            top: 0px;
+        }
+        
+        #preloading-center {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        #preloading-center-absolute-one {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 300px;
+            width: 50px;
+            margin-top: -150px;
+            margin-left: -25px;
+        }
+        
+        #preloading-center-absolute-two {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 300px;
+            width: 50px;
+            margin-top: -150px;
+            margin-left: 50px;
+        }
+        
+        .object-one {
+            width: 18px;
+            height: 18px;
+            background-color: #FFF;
+            float: left;
+            margin-top: 15px;
+            margin-right: 15px;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: object-one 1s infinite;
+            animation: object-one 1s infinite;
+        }
+        
+        .object-two {
+            width: 18px;
+            height: 18px;
+            background-color: #FFF;
+            float: left;
+            margin-top: 15px;
+            margin-right: 15px;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: object-two 1s infinite;
+            animation: object-two 1s infinite;
+        }
+        
+        .object-one:nth-child(6) {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+        }
+        
+        .object-one:nth-child(5) {
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+        
+        .object-one:nth-child(4) {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+        
+        .object-one:nth-child(3) {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+        
+        .object-one:nth-child(2) {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+        
+        .object-two:nth-child(9) {
+            -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+        }
+        
+        .object-two:nth-child(8) {
+            -webkit-animation-delay: 0.8s;
+            animation-delay: 0.8s;
+        }
+        
+        .object-two:nth-child(7) {
+            -webkit-animation-delay: 0.7s;
+            animation-delay: 0.7s;
+        }
+        
+        .object-two:nth-child(6) {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+        }
+        
+        .object-two:nth-child(5) {
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+        
+        .object-two:nth-child(4) {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+        
+        .object-two:nth-child(3) {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+        
+        .object-two:nth-child(2) {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+        
+        @-webkit-keyframes object-one {
+            50% {
+                -ms-transform: translate(100px, 0);
+                -webkit-transform: translate(100px, 0);
+                transform: translate(100px, 0);
+            }
+        }
+        
+        @keyframes object-one {
+            50% {
+                -ms-transform: translate(100px, 0);
+                -webkit-transform: translate(100px, 0);
+                transform: translate(100px, 0);
+            }
+        }
+        
+        @-webkit-keyframes object-two {
+            50% {
+                -ms-transform: translate(-100px, 0);
+                -webkit-transform: translate(-100px, 0);
+                transform: translate(-100px, 0);
+            }
+        }
+        
+        @keyframes object-two {
+            50% {
+                -ms-transform: translate(-100px, 0);
+                -webkit-transform: translate(-100px, 0);
+                transform: translate(-100px, 0);
+            }
+        }
+    </style>
 
 
-	@-webkit-keyframes object-two{
-	50% {
-	    -ms-transform: translate(-100px,0); 
-	   	-webkit-transform: translate(-100px,0);
-	    transform: translate(-100px,0);
-		}
-	}		
-	@keyframes object-two{
-	50% {
-	    -ms-transform: translate(-100px,0); 
-	   	-webkit-transform: translate(-100px,0);
-	    transform: translate(-100px,0);
-		}
-	}
-	</style>
+</head>
 
+<body>
 
-    </head>
-    <body>
-    
-	<!-- 页面预加载 -->
-	
+    <!-- 页面预加载 -->
+
     <div id="preloading">
-		<div id="preloading-center">
-			<div id="preloading-center-absolute-one">
-				<div class="object-one"></div>
-				<div class="object-one"></div>
-				<div class="object-one"></div>
-				<div class="object-one"></div>
-				<div class="object-one"></div>
-				<div class="object-one"></div>
-			</div>
-			<div id="preloading-center-absolute-two">
-				<div class="object-two"></div>
-				<div class="object-two"></div>
-				<div class="object-two"></div>
-				<div class="object-two"></div>
-				<div class="object-two"></div>
-				<div class="object-two"></div>
-			</div>
-		</div>
-	</div>
-    
-      <!--预加载图片资源-->
-	  <!--
+        <div id="preloading-center">
+            <div id="preloading-center-absolute-one">
+                <div class="object-one"></div>
+                <div class="object-one"></div>
+                <div class="object-one"></div>
+                <div class="object-one"></div>
+                <div class="object-one"></div>
+                <div class="object-one"></div>
+            </div>
+            <div id="preloading-center-absolute-two">
+                <div class="object-two"></div>
+                <div class="object-two"></div>
+                <div class="object-two"></div>
+                <div class="object-two"></div>
+                <div class="object-two"></div>
+                <div class="object-two"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--预加载图片资源-->
+    <!--
 	  <link rel="prefetch" href="photo/face_button1.png" /> 
 	  <link rel="prefetch" href="photo/face_button2.png" /> 
 	  <link rel="prefetch" href="photo/face_button3.png" /> 
@@ -239,441 +264,608 @@
 	  <link rel="prefetch" href="photo/mouth2.png" /> 
 	  <link rel="prefetch" href="photo/nose1.png" /> 
       -->
-   
+
     <!-- ui部分-->
-        <!--导航条 -->
+    <!--导航条 -->
     <nav class="navbar  navbar-default">
-    <div class="container-fluid" >
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"  data-toggle="popover" data-trigger="focus" data-content="我们是BetaGo小组!"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> e键换脸 v1.0</a>
-      </div>
+                <a class="navbar-brand" href="#" data-toggle="popover" data-trigger="focus" data-content="我们是BetaGo小组!"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> e键换脸 v1.0</a>
+            </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav" role="tablist">
-		  <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal"  onClick="beforeHandle()" > 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" role="tablist">
+                    <li><a href="#" id="choosePhoto" class="dropdown-toggle" data-toggle="modal" data-target="#myModal" onClick="beforeHandle()"> 
            打开图片  </a></li>
-          <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab" onClick="face_change_control()" >  一键换脸  <span class="sr-only">(current)</span></a></li>
-          <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab" onClick="features_combination_control()">  趣味贴图  </a></li>
-		  <li role="presentation" ><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()" >  颜值测试  </a></li>
-          <li role="presentation" ><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图像处理  </a></li>
-          <li role="presentation" ><a href="#" data-toggle="modal" data-target="#save_and_share" onclick="clearsavestate()">  保存与分享  </a></li>
-        </ul>
-        <!-- Tab panes -->
-       
-        
-          
-        <ul class="nav navbar-nav navbar-right">
-          
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <div id="loginState"></div></a>
-            <ul class="dropdown-menu">
-              <li id="loginbutton"><a href="#" data-toggle="modal" data-target="#login" onclick="clearLoginInfo()"><h5> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> &nbsp用户登录 </h5></a></li>
-              <li id="registerbutton"><a href="#" data-toggle="modal" data-target="#register" onclick="clearRegisterInfo()"><h5>  <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> &nbsp新用户注册 </h5></a></li>
-              <li id="myphotobutton" ><a href="#" data-toggle="modal" data-target="#watchphoto" onclick="showPhotoList()" ><h5>   <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> &nbsp我的云相册 </h5></a></li>
-              <li id="cancelloginbutton"><a href="#"  data-toggle="modal" data-target="#cancellogin" onclick="cancellogin()" ><h5> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp注销登录 </h5></a></li>
-             
-            </ul>
-          </li>
-          <li><a href="#" onClick="requestFullScreen()" class="dropdown-toggle" >
-          <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>全屏模式 </a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+                    <li role="presentation" class="active"><a href="#face_change" aria-controls="face_change" role="tab" data-toggle="tab" onClick="face_change_control()">  一键换脸  <span class="sr-only">(current)</span></a></li>
+                    <li role="presentation"><a href="#features_combination" aria-controls="features_combination" role="tab" data-toggle="tab" onClick="features_combination_control()">  趣味贴图  </a></li>
+                    <li role="presentation"><a href="#face_attribute" aria-controls="face_attribute" role="tab" data-toggle="tab" onClick="face_attribute_control()">  颜值测试  </a></li>
+                    <li role="presentation"><a href="#photo_beautify" aria-controls="photo_beautify" role="tab" data-toggle="tab" onClick="photo_beautify_control()">  图像处理  </a></li>
+                    <li role="presentation"><a href="#" data-toggle="modal" data-target="#save_and_share" onclick="clearsavestate()">  保存与分享  </a></li>
+                </ul>
+                <!-- Tab panes -->
 
 
-  <div id="fatherdiv" >
-    <!--  模块功能在此写 -->
-    <div class="tab-content"   id="maindiv" >
-      <!--模块1 -->
-      <div role="tabpanel" class="tab-pane active" id="face_change">
-      
-      <!-- 滚动条(换脸)-->
-      <div id="convo" data-from="Sonu Joshi" class="chat-thread"  > 
-       <div id="changefacetip" data-toggle="popover" data-placement="top" data-content="快用鼠标点我~"></div>
-       <div id="supportedface" ></div>
-      </div>
-      </div>
-      <!--模块2 -->
-      <div role="tabpanel" class="tab-pane" id="features_combination">
-        <!-- 滚动条(五官拼接)-->
-      <div id="convo2" data-from="Sonu Joshi" class="chat-thread" >  
-      <li><img  style="width:150px; height:80px" onClick="showSubtitle()" src="photo/chooseSubtitle.jpg" class="img-rounded"/>  </li> <li><p></p></li>
-      <form id="addSubtitle">
-      字号&nbsp
-      <select id="fontSize">
-      </select><p></p>
-      字体&nbsp
-      <select id="fontfamily">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <div id="loginState"></div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="loginbutton">
+                                <a href="#" data-toggle="modal" data-target="#login" onclick="clearLoginInfo()">
+                                    <h5> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> &nbsp用户登录 </h5>
+                                </a>
+                            </li>
+                            <li id="registerbutton">
+                                <a href="#" data-toggle="modal" data-target="#register" onclick="clearRegisterInfo()">
+                                    <h5> <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> &nbsp新用户注册 </h5>
+                                </a>
+                            </li>
+                            <li id="myphotobutton">
+                                <a href="#" data-toggle="modal" data-target="#watchphoto" onclick="showPhotoList()">
+                                    <h5> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> &nbsp我的云相册 </h5>
+                                </a>
+                            </li>
+                            <li id="cancelloginbutton">
+                                <a href="#" data-toggle="modal" data-target="#cancellogin" onclick="cancellogin()">
+                                    <h5> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> &nbsp注销登录 </h5>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" onClick="requestFullScreen()" class="dropdown-toggle">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>全屏模式 </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <div id="fatherdiv">
+        <!--  模块功能在此写 -->
+        <div class="tab-content" id="maindiv">
+            <!--模块1 -->
+            <div role="tabpanel" class="tab-pane active" id="face_change">
+
+                <!-- 滚动条(换脸)-->
+                <div id="convo" data-from="Sonu Joshi" class="chat-thread">
+                    <div id="changefacetip" data-toggle="popover" data-placement="top" data-content="快用鼠标点我~"></div>
+                    <div id="supportedface"></div>
+                </div>
+            </div>
+            <!--模块2 -->
+            <div role="tabpanel" class="tab-pane" id="features_combination">
+                <!-- 滚动条(五官拼接)-->
+                <div id="convo2" data-from="Sonu Joshi" class="chat-thread">
+                    <li><img style="width:150px; height:80px" onClick="showSubtitle()" src="photo/chooseSubtitle.jpg" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <form id="addSubtitle">
+                        字号&nbsp
+                        <select id="fontSize">
+      </select>
+                        <p></p>
+                        字体&nbsp
+                        <select id="fontfamily">
        <option value="黑体">黑体</option>
        <option value="Arial">Arial</option>
        <option value="宋体">宋体</option>
        <option value="楷体">楷体</option>
        <option value="仿宋">仿宋</option>
        <option value="隶书">隶书</option>
-      </select><p></p>
-      样式&nbsp
-      <select id="fontstyle">
+      </select>
+                        <p></p>
+                        样式&nbsp
+                        <select id="fontstyle">
        <option value="normal">正常</option>
        <option value="italic">斜体</option>
-      </select><p></p>
-      字体粗细&nbsp
-      <select id="fontweight">
+      </select>
+                        <p></p>
+                        字体粗细&nbsp
+                        <select id="fontweight">
        <option value="900">粗体</option>
        <option value="200">正常</option>
-      </select><p></p>
-      字体颜色&nbsp
-      <input type="color" id="fontcolor"/>
-      <p></p>
-      字体填充&nbsp
-      <select id="fontfill">
+      </select>
+                        <p></p>
+                        字体颜色&nbsp
+                        <input type="color" id="fontcolor" />
+                        <p></p>
+                        字体填充&nbsp
+                        <select id="fontfill">
        <option value="yes">填充</option>
        <option value="no">空心</option>
-      </select><p></p>
-      文本内容<p></p>
-      <input  class="form-control" id="subtitleValue" value="请输入内容" />
-      <p></p>
-      </form>
+      </select>
+                        <p></p>
+                        文本内容
+                        <p></p>
+                        <input class="form-control" id="subtitleValue" value="请输入内容" />
+                        <p></p>
+                    </form>
 
 
-      <li> <img  style="width:150px; height:80px" onClick="showeyeMenu()" src="photo/chooseEyes.jpg" class="img-rounded"/>   </li> <li><p></p></li>
-      <li><a class='thumbnail'  id="eyebutton1" style=" width:150px; height:70px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:60px" class='img-rounded'></a></li>
-      <li><a class='thumbnail'  id="eyebutton2" style=" width:150px; height:70px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:60px" class='img-rounded'></a></li>
-      <li><a class='thumbnail'  id="eyebutton3" style=" width:150px; height:70px"><img src="photo/eye3_button.png" onClick="addeye('photo/eye3')" style=" width:135px; height:60px" class='img-rounded'></a></li>
-      <li><a class='thumbnail'  id="eyebutton4" style=" width:150px; height:70px"><img src="photo/eye4_button.png" onClick="addeye('photo/eye4')" style=" width:135px; height:60px" class='img-rounded'></a></li>
+                    <li> <img style="width:150px; height:80px" onClick="showeyeMenu()" src="photo/chooseEyes.jpg" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="eyebutton1" style=" width:150px; height:70px"><img src="photo/eye1_button.png" onClick="addeye('photo/eye1')" style=" width:135px; height:60px" class='img-rounded'></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="eyebutton2" style=" width:150px; height:70px"><img src="photo/eye2_button.png" onClick="addeye('photo/eye2')" style=" width:135px; height:60px" class='img-rounded'></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="eyebutton3" style=" width:150px; height:70px"><img src="photo/eye3_button.png" onClick="addeye('photo/eye3')" style=" width:135px; height:60px" class='img-rounded'></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="eyebutton4" style=" width:150px; height:70px"><img src="photo/eye4_button.png" onClick="addeye('photo/eye4')" style=" width:135px; height:60px" class='img-rounded'></a>
+                    </li>
 
-      <li><img  style="width:150px; height:80px" onClick="showmouthMenu()" src="photo/chooseMouth.jpg" class="img-rounded"/> </li> <li><p></p></li>
-      <li><a class='thumbnail'  id="mouthbutton1" style=" width:150px; height:70px" ><img src="photo/mouth1.png" onClick="addmouth('photo/mouth1.png')" style=" width:135px; height:60px"></a></li></li>
-      <li><a class='thumbnail'  id="mouthbutton2" style=" width:150px; height:70px" ><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:60px"></a></li></li>
-      <li><a class='thumbnail'  id="mouthbutton3" style=" width:150px; height:70px" ><img src="photo/mouth3.png" onClick="addmouth('photo/mouth3.png')" style=" width:135px; height:60px"></a></li></li>
-      <li><a class='thumbnail'  id="mouthbutton4" style=" width:150px; height:70px" ><img src="photo/mouth4.png" onClick="addmouth('photo/mouth4.png')" style=" width:135px; height:60px"></a></li></li>
-      <!--
+                    <li><img style="width:150px; height:80px" onClick="showmouthMenu()" src="photo/chooseMouth.jpg" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="mouthbutton1" style=" width:150px; height:70px"><img src="photo/mouth1.png" onClick="addmouth('photo/mouth1.png')" style=" width:135px; height:60px"></a>
+                    </li>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="mouthbutton2" style=" width:150px; height:70px"><img src="photo/mouth2.png" onClick="addmouth('photo/mouth2.png')" style=" width:135px; height:60px"></a>
+                    </li>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="mouthbutton3" style=" width:150px; height:70px"><img src="photo/mouth3.png" onClick="addmouth('photo/mouth3.png')" style=" width:135px; height:60px"></a>
+                    </li>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="mouthbutton4" style=" width:150px; height:70px"><img src="photo/mouth4.png" onClick="addmouth('photo/mouth4.png')" style=" width:135px; height:60px"></a>
+                    </li>
+                    </li>
+                    <!--
 	  <li><img  style="width:150px; height:60px" onClick="shownoseMenu()" src="photo/chooseNose.jpg" class="img-rounded"/>  </li> <li><p></p></li>
       <li><button id="nosebutton1" style=" width:150px; height:75px"><img src="photo/nose1.png" onClick="addnose('photo/nose1.png')" style=" width:135px; height:70px"></button></li></li><li><p></p></li>
       -->
-      <li><img  style="width:150px; height:80px" onClick="showhatMenu()" src="photo/chooseHat.jpg" class="img-rounded"/>  </li> <li><p></p></li>
-      <li><a class='thumbnail' id="hatbutton1" style=" width:150px; height:70px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:60px"></a></li></li>
-      <li><a class='thumbnail'  id="hatbutton2" style=" width:150px; height:70px"><img src="photo/hat2.png" onClick="addhat('photo/hat2.png')" style=" width:135px; height:60px"></a></li></li>
-      
-     <li><img  style="width:150px; height:80px" onClick="" src="photo/choosePendant.jpg" class="img-rounded"/>  </li> <li><p></p></li>
+                    <li><img style="width:150px; height:80px" onClick="showhatMenu()" src="photo/chooseHat.jpg" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="hatbutton1" style=" width:150px; height:70px"><img src="photo/hat1.png" onClick="addhat('photo/hat1.png')" style=" width:135px; height:60px"></a>
+                    </li>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="hatbutton2" style=" width:150px; height:70px"><img src="photo/hat2.png" onClick="addhat('photo/hat2.png')" style=" width:135px; height:60px"></a>
+                    </li>
+                    </li>
 
-      </div>
-  
-     </div>      
-      <div role="tabpanel" class="tab-pane" id="face_attribute" >
-       <div id="face_attribute_div"  >
+                    <li><img style="width:150px; height:80px" onClick="" src="photo/choosePendant.jpg" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
 
-       <div>
-       	<canvas id="face_attribute_canvas" class="center-block" >
+                </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="face_attribute">
+                <div id="face_attribute_div">
+
+                    <div>
+                        <canvas id="face_attribute_canvas" class="center-block">
        	</canvas>
-       </div>
-       <p></p>
+                    </div>
+                    <p></p>
 
-       <div class="center-block" style="width:240px; ">
-       <div class="btn-group btn-group-lg" role="group"  > 
-       <button type="button" class="btn btn-primary" onClick="change_analysedFace()"> 切换脸部 </button>
-       <button type="button" class="btn btn-success" onClick="begin_analysedFace()"> 开始测试!</button>
-       </div>
-       </div>
-       <p><br/></p>
+                    <div class="center-block" style="width:240px; ">
+                        <div class="btn-group btn-group-lg" role="group">
+                            <button type="button" class="btn btn-primary" onClick="change_analysedFace()"> 切换脸部 </button>
+                            <button type="button" class="btn btn-success" onClick="begin_analysedFace()"> 开始测试!</button>
+                        </div>
+                    </div>
+                    <p><br/></p>
 
-       <div class="center-block" style="width:800px;" id="face_attribute_text">
-        <div class="panel panel-primary">
-          <div class="panel-heading">测试结果如下</div>
-          <div class="panel-body">
-            <ul class="list-group" >
-               <li class="list-group-item" id="appearance_text"></li>
-               <li class="list-group-item" id="age_text"></li>
-               <li class="list-group-item" id="gender_text"></li>
-               <li class="list-group-item" id="glass_text"></li>
-               <li class="list-group-item" id="race_text"></li>
-               <li class="list-group-item" id="smiling_text"></li>
-               <li class="list-group-item" id="character_text"></li>
-            </ul>
+                    <div class="center-block" style="width:800px;" id="face_attribute_text">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">测试结果如下</div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" id="appearance_text"></li>
+                                    <li class="list-group-item" id="age_text"></li>
+                                    <li class="list-group-item" id="gender_text"></li>
+                                    <li class="list-group-item" id="glass_text"></li>
+                                    <li class="list-group-item" id="race_text"></li>
+                                    <li class="list-group-item" id="smiling_text"></li>
+                                    <li class="list-group-item" id="character_text"></li>
+                                </ul>
 
-          </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="center-block" style="width:800px; " id="face_attribute_tip">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">提示</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p> 1、尽量上传清晰的正面彩色照片，做鬼脸（包括嘟嘴，咪眼等等）会影响检测结果</p>
+                                <p> 2、只能分析原图中的脸部面相</p>
+                                <p> 3、检测只对照片不对人，同一个人的不同照片可能会检测出不同的结果，为了得到最接近真实的结果，可以多检测几次 </p>
+                                <p> 4、检测算法依据主要有从海量数据中提取的亚洲人基本审美观，黄金分割比例等等，仍将不断调整完善</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--模块4 -->
+            <div role="tabpanel" class="tab-pane" id="photo_beautify">
+                <!-- 滚动条(图片美化)-->
+                <div id="convo3" data-from="Sonu Joshi" class="chat-thread">
+                    <li> <img style="width:150px; height:80px" onClick="showlvjingMenu()" src="photo/lvjing.png" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton1" style=" width:150px; height:70px"><img src="photo/lvjing_button1.png" onClick="lvjing_fanse()" style=" width:135px; height:60px"></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton2" style=" width:150px; height:70px"><img src="photo/lvjing_button2.png" onClick="lvjing_huise()" style=" width:135px; height:60px"></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton3" style=" width:150px; height:70px"><img src="photo/lvjing_button3.png" onClick="lvjing_mohu()" style=" width:135px; height:60px"></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton4" style=" width:150px; height:70px"><img src="photo/lvjing_button4.png" onClick="lvjing_fudiao()" style=" width:135px; height:60px"></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton5" style=" width:150px; height:70px"><img src="photo/lvjing_button5.png" onClick="lvjing_heibai()" style=" width:135px; height:60px"></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton6" style=" width:150px; height:70px"><img src="photo/lvjing_button6.png" onClick="lvjing_msk()" style=" width:135px; height:60px"></a>
+                    </li>
+                    <li>
+                        <a class='thumbnail' id="lvjingbutton7" style=" width:150px; height:70px"><img src="photo/lvjing_button7.png" onClick="lvjing_qinshi()" style=" width:135px; height:60px"></a>
+                    </li>
+
+                    <li> <img style="width:150px; height:80px" onClick="showcolorMenu()" src="photo/colorbutton.png" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="colorbutton1">
+                        <p class="text-muted">
+                            <h4>亮度调节</h4>
+                        </p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="colorbutton2"> <button style=" width:60px; height:40px" class="btn btn-primary" onClick="color_bright_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-primary"
+                            onClick="color_bright_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="colorbutton3">
+                        <p class="text-muted">
+                            <h4>透明度调节</h4>
+                        </p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="colorbutton4"> <button style=" width:60px; height:40px" class="btn btn-primary" onClick="color_alpha_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-primary"
+                            onClick="color_alpha_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="colorbutton5">
+                        <p class="text-muted">
+                            <h4>对比度调节</h4>
+                        </p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="colorbutton6"> <button style=" width:60px; height:40px" class="btn btn-primary" onClick="color_contrast_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-primary"
+                            onClick="color_contrast_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>
+                    <li>
+                        <p></p>
+                    </li>
+
+                    <li> <img style="width:150px; height:80px" onClick="showqudiMenu()" src="photo/qudi.png" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+
+                    <li id="qudibutton2">
+                        <h5 id="showrcz1">容差值：10</h5><input type="range" id="yjqdRCZ" value="10" />
+                        <p></p>
+                    </li>
+                    <li id="qudibutton3"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="yijianqudi()"><span class="glyphicon glyphicon-adjust" aria-hidden="true">一键去底</button></li>
+                    <li>
+                        <p></p>
+                    </li>
+
+                    <li id="qudibutton5">
+                        <h5 id="showrcz2">容差值：10</h5><input type="range" id="tcqdRCZ" value="10" />
+                        <p></p>
+                    </li>
+                    <li id="qudibutton6"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=1;"><span class="glyphicon glyphicon-tint" aria-hidden="true">使用填充笔</button></li>
+                    <li>
+                        <p></p>
+                    </li>
+
+                    <li id="qudibutton8">
+                        <h5 id="showrad1">橡皮半径：10</h5><input type="range" id="xpcradius" value="10" />
+                        <p></p>
+                    </li>
+                    <li id="qudibutton9"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=2;"><span class="glyphicon glyphicon-erase" aria-hidden="true">使用橡皮擦</button></li>
+                    <li>
+                        <p></p>
+                    </li>
+
+                    <li> <img style="width:150px; height:80px" onClick="showpenMenu()" src="photo/pen.png" class="img-rounded" /> </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="penbutton1">
+                        <h5 id="showrad2">画笔半径：10</h5><input type="range" id="penradius" value="10" />
+                        <p></p>
+                    </li>
+                    <li id="penbutton2">
+                        <h5>画笔颜色: <input type="color" id="pencolor" value="#00ff00" /></h5>
+                        <p></p>
+                    </li>
+                    <li id="penbutton3"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=3;"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>马赛克笔</button></li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="penbutton4"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=4;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>彩笔</button></li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li id="penbutton5"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=5;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>荧光笔</button></li>
+                    <li>
+                        <p></p>
+                    </li>
+
+                </div>
+
+            </div>
+
         </div>
-       </div>
 
-       <div class="center-block" style="width:800px; " id="face_attribute_tip">
-       <div class="panel panel-default" >
-         <div class="panel-heading">
-             <h3 class="panel-title">提示</h3>
-         </div>
-        <div class="panel-body">
-         <p> 1、尽量上传清晰的正面彩色照片，做鬼脸（包括嘟嘴，咪眼等等）会影响检测结果</p>
-         <p> 2、只能分析原图中的脸部面相</p>
-         <p> 3、检测只对照片不对人，同一个人的不同照片可能会检测出不同的结果，为了得到最接近真实的结果，可以多检测几次 </p>
-         <p> 4、检测算法依据主要有从海量数据中提取的亚洲人基本审美观，黄金分割比例等等，仍将不断调整完善</p>
-        </div>
-       </div>
-       </div>
 
-       </div>
-      </div>
-
-      <!--模块4 -->
-      <div role="tabpanel" class="tab-pane" id="photo_beautify">
-      <!-- 滚动条(图片美化)-->
-      <div id="convo3" data-from="Sonu Joshi" class="chat-thread" >  
-      <li> <img  style="width:150px; height:80px" onClick="showlvjingMenu()" src="photo/lvjing.png" class="img-rounded"/>   </li> <li><p></p></li>
-      <li><a class='thumbnail' id="lvjingbutton1" style=" width:150px; height:70px"><img src="photo/lvjing_button1.png" onClick="lvjing_fanse()" style=" width:135px; height:60px"></a></li>
-      <li><a class='thumbnail' id="lvjingbutton2" style=" width:150px; height:70px"><img src="photo/lvjing_button2.png" onClick="lvjing_huise()" style=" width:135px; height:60px"></a></li>
-      <li><a class='thumbnail' id="lvjingbutton3" style=" width:150px; height:70px"><img src="photo/lvjing_button3.png" onClick="lvjing_mohu()" style=" width:135px; height:60px"></a></li>
-      <li><a class='thumbnail' id="lvjingbutton4" style=" width:150px; height:70px"><img src="photo/lvjing_button4.png" onClick="lvjing_fudiao()" style=" width:135px; height:60px"></a></li>
-      <li><a class='thumbnail' id="lvjingbutton5" style=" width:150px; height:70px"><img src="photo/lvjing_button5.png" onClick="lvjing_heibai()" style=" width:135px; height:60px"></a></li>
-      <li><a class='thumbnail' id="lvjingbutton6" style=" width:150px; height:70px"><img src="photo/lvjing_button6.png" onClick="lvjing_msk()" style=" width:135px; height:60px"></a></li>
-      <li><a class='thumbnail' id="lvjingbutton7" style=" width:150px; height:70px"><img src="photo/lvjing_button7.png" onClick="lvjing_qinshi()" style=" width:135px; height:60px"></a></li>
-     
-      <li> <img  style="width:150px; height:80px" onClick="showcolorMenu()" src="photo/colorbutton.png" class="img-rounded"/>   </li> <li><p></p></li>
-      <li id="colorbutton1"><p class="text-muted"><h4>亮度调节</h4></p></li><li><p></p></li>
-      <li id="colorbutton2"> <button  style=" width:60px; height:40px" class="btn btn-primary" onClick="color_bright_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-primary"onClick="color_bright_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
-      <li id="colorbutton3"><p class="text-muted"><h4>透明度调节</h4></p></li><li><p></p></li>
-      <li id="colorbutton4"> <button  style=" width:60px; height:40px" class="btn btn-primary" onClick="color_alpha_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-primary" onClick="color_alpha_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
-      <li id="colorbutton5"><p class="text-muted"><h4>对比度调节</h4></p></li><li><p></p></li>
-      <li id="colorbutton6"> <button  style=" width:60px; height:40px" class="btn btn-primary" onClick="color_contrast_sub()"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> &nbsp&nbsp<button style=" width:60px; height:40px" class="btn btn-primary" onClick="color_contrast_add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> </li>    <li> <p></p></li>
-     
-      <li> <img  style="width:150px; height:80px" onClick="showqudiMenu()" src="photo/qudi.png" class="img-rounded"/>   </li> <li><p></p></li>
-      
-      <li id="qudibutton2"><h5 id="showrcz1">容差值：10</h5><input type="range" id="yjqdRCZ" value="10"/>  <p></p></li>
-      <li id="qudibutton3"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="yijianqudi()"><span class="glyphicon glyphicon-adjust" aria-hidden="true">一键去底</button></li><li><p></p></li>
-     
-      <li id="qudibutton5"><h5 id="showrcz2">容差值：10</h5><input type="range" id="tcqdRCZ" value="10"/><p></p></li>
-      <li id="qudibutton6"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=1;"><span class="glyphicon glyphicon-tint" aria-hidden="true">使用填充笔</button></li><li><p></p></li>
-     
-      <li id="qudibutton8"><h5 id="showrad1">橡皮半径：10</h5><input type="range" id="xpcradius" value="10"/><p></p></li>
-      <li id="qudibutton9"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=2;"><span class="glyphicon glyphicon-erase" aria-hidden="true">使用橡皮擦</button></li><li><p></p></li>
-
-      <li> <img  style="width:150px; height:80px" onClick="showpenMenu()" src="photo/pen.png" class="img-rounded"/>   </li> <li><p></p></li>
-      <li id="penbutton1"><h5 id="showrad2">画笔半径：10</h5><input type="range" id="penradius" value="10"/> <p></p></li>
-      <li id="penbutton2"><h5>画笔颜色: <input type="color" id="pencolor" value="#00ff00" /></h5><p></p></li>
-      <li id="penbutton3"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=3;"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>马赛克笔</button></li><li><p></p></li>
-      <li id="penbutton4"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=4;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>彩笔</button></li><li><p></p></li>
-      <li id="penbutton5"><button style=" width:140px; height:40px" class="btn btn-primary" onClick="mousetype=5;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>荧光笔</button></li><li><p></p></li>
-
-      </div>
-
-      </div>
-
-    </div>   
-      
-
-     <div class="btn-group" role="group" aria-label="..." id="control_button_group" style="margin-left:10px;" >
-       <div class="btn-group">
-           <button type="button" id="lianbuqiehuan" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-toggle="popover"  data-trigger="focus"  data-content="检测到多张脸,请选择您要处理的脸" data-placement="bottom"  onClick="if(facenum>1)$('#lianbuqiehuan').popover('destroy');" >
+        <div class="btn-group" role="group" aria-label="..." id="control_button_group" style="margin-left:10px;">
+            <div class="btn-group">
+                <button type="button" id="lianbuqiehuan" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-toggle="popover" data-trigger="focus" data-content="检测到多张脸,请选择您要处理的脸" data-placement="bottom" onClick="if(facenum>1)$('#lianbuqiehuan').popover('destroy');">
             <span class="glyphicon glyphicon-record" aria-hidden="true"></span>脸部切换<span class="caret"></span>
              </button>
-            <ul class="dropdown-menu" id="manyface">
-			<p>&nbsp&nbsp请先上传图片</p>
-            <!-- 切换脸部按钮，由js动态控制 -->
-           </ul> 
-       </div>
-      <button type="button" class="btn btn-default" onClick="doBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>撤销</button>
-      <button type="button" class="btn btn-default" onClick="doFront()"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>重做</button>
-      <button type="button" class="btn btn-default" onClick="firstCanvas()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>原图</button> 
-	  
-      <div> <p id="xycoordinates"   >坐标值:</p> </div>
+                <ul class="dropdown-menu" id="manyface">
+                    <p>&nbsp&nbsp请先上传图片</p>
+                    <!-- 切换脸部按钮，由js动态控制 -->
+                </ul>
+            </div>
+            <button type="button" class="btn btn-default" onClick="doBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>撤销</button>
+            <button type="button" class="btn btn-default" onClick="doFront()"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>重做</button>
+            <button type="button" class="btn btn-default" onClick="firstCanvas()"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>原图</button>
 
-       <input id="uploadmyface" class="btn btn-success" type="button" value="上传自定义人脸" onclick="NewFace.click()"/> 
-       <input type="file" id="NewFace" style="display:none" accept="image/*" onchange="uploadNewFace(this)"/>
-	   
-     </div>   
-       
-	   <div >
-	   
-       <button id="openPhoto" type="button" class="btn btn-default btn-lg center-block" style="width:500px;height:220px;margin-top:100px;"  data-toggle="modal" data-target="#myModal" ><h1><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 请先打开一张图片</h1></button>
+            <div>
+                <p id="xycoordinates">坐标值:</p>
+            </div>
 
-       <canvas id="myCanvas"  class="center-block"    onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()" onmouseup="cnvs_onmouseup(event)" onmousedown="cnvs_onmousedown(event)" width=0 height=0 >
-       抱歉，您的浏览器貌似不支持画布功能。</canvas>   
+            <input id="uploadmyface" class="btn btn-success" type="button" value="上传自定义人脸" onclick="NewFace.click()" />
+            <input type="file" id="NewFace" style="display:none" accept="image/*" onchange="uploadNewFace(this)" />
 
-       </div>
+        </div>
 
-	  <!-- <canvas id="fCanvas" class="center-block"    style="position: absolute; top: 0px; left: 0px; z-index: 1"  >
+        <div>
+
+            <button id="openPhoto" type="button" class="btn btn-default btn-lg center-block" style="width:500px;height:220px;margin-top:100px;" data-toggle="modal" data-target="#myModal"><h1><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 请先打开一张图片</h1></button>
+
+            <canvas id="myCanvas" class="center-block" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()" onmouseup="cnvs_onmouseup(event)" onmousedown="cnvs_onmousedown(event)" width=0 height=0>
+       抱歉，您的浏览器貌似不支持画布功能。</canvas>
+
+        </div>
+
+        <!-- <canvas id="fCanvas" class="center-block"    style="position: absolute; top: 0px; left: 0px; z-index: 1"  >
        抱歉，您的浏览器貌似不支持画布功能。</canvas>   -->
 
-       <canvas id="NewfaceCanvas"   width=5000 height=5000 >
-       抱歉，您的浏览器貌似不支持画布功能。</canvas>   
-   
+        <canvas id="NewfaceCanvas" width=5000 height=5000>
+       抱歉，您的浏览器貌似不支持画布功能。</canvas>
 
 
 
- </div>   <!--fatherdiv-->
+
+    </div>
+    <!--fatherdiv-->
 
     <!-- ui部分 over-->
-    
-  <!-- 图片选择框-->
-   
-   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" rel="popover" data-content="请先上传一张照片"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" ></span> 请选择一张图片</h4>
-        </div>
-        <div class="modal-body">
-         <!-- 图片input--> 
-        <input type="file" id="fileElem" accept="image/*"  onchange="handleFiles(this)"  >
-        </div>
-		<p id="pleasewait"> </p>
-  <div class="progress" id="loading"> 
-  <div  class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    <span class="sr-only">waiting</span>
-  </div>
-  </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" id="closebutton">确认</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- 图片选择框  over-->
-  
 
-<!-- 保存与分享模态框 -->
-<div class="modal fade" id="save_and_share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>保存与分享</h4>
-      </div>
-      <div class="modal-body">
-      <div> <h4>保存文件名：<input type="text" id="filename" value=""> .png </h4></div>
-      <p></p>
-      <div id="savestate"></div>
-      <p></p>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-success" onClick="saveAsLocalImage()"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> 保存图片至本地 </button> 
-      &nbsp&nbsp
-      <button type="button" class="btn btn-info" onClick="saveCanvasToBmob()"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> 保存图片至云相册 </button>
-      &nbsp&nbsp
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-      </div>
-    </div>
-  </div>
-</div>    
+    <!-- 图片选择框-->
 
-  
-  <!--浏览图片模态框-->
-  <div class="modal fade" id="watchphoto" tabindex="-1" role="dialog" aria-labelledby="watchphotoLabel" style="width:800">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-         我的图片
-        </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
-        <div class="modal-body">
-        <div id="waitphotolist">
-        数据更新中，请稍后...<p></p>
-        <div class="progress" >
-        <div  class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-         <span class="sr-only">waiting</span>
-         </div></div></div>
-
-
-         <div id="convo5" data-from="Sonu Joshi" class="chat-thread2"  > 
-         <p id="showPhotoList"></p>
-         </div>
-        </div>
-		
- 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" id="closebutton">关闭</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!--用户注册模态框-->
-  <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel" >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-         填写注册信息
-        </div>
-
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputUsername1">用户名</label>
-              <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel" rel="popover" data-content="请先上传一张照片"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 请选择一张图片</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- 图片input-->
+                    <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this)">
+                </div>
+                <p id="pleasewait"> </p>
+                <div class="progress" id="loading">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                        <span class="sr-only">waiting</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="closebutton">确认</button>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">密码</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">邮箱</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-            <p id="register_info"></p>
-           
-          </form>
-           <button  class="btn btn-success" onclick="register()" id="resgister_submit">提交</button>&nbsp&nbsp
-            <button  class="btn btn-default" data-dismiss="modal" >关闭</button>
         </div>
-		
-      </div>
     </div>
-  </div>
+    <!-- 图片选择框  over-->
 
 
-  <!--用户登录模态框-->
-  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-         用户登录
-        </div>
-
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputUsername2">用户名</label>
-              <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
+    <!-- 保存与分享模态框 -->
+    <div class="modal fade" id="save_and_share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>保存与分享</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <h4>保存文件名：<input type="text" id="filename" value=""> .png </h4>
+                    </div>
+                    <p></p>
+                    <div id="savestate"></div>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onClick="saveAsLocalImage()"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> 保存图片至本地 </button> &nbsp&nbsp
+                    <button type="button" class="btn btn-info" onClick="saveCanvasToBmob()"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> 保存图片至云相册 </button> &nbsp&nbsp
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword2">密码</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-            </div>
-            
-            <p id="login_info"></p>
-            
-          </form>
-           <button  class="btn btn-primary" onclick="login()" id="login_submit">登录</button>&nbsp&nbsp
-           <button  class="btn btn-default" data-dismiss="modal" >关闭</button>
         </div>
-		
-      </div>
     </div>
-  </div>
-   
-   <!-- 读取面部信息-->
 
- <!-- <button id="testt" onClick="addtest()"> 显示眼睛坐标 </button>  -->
- <!-- <img id="img1" src="photo/preshow.png"> -->
-  
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"> </script> -->             
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!--浏览图片模态框-->
+    <div class="modal fade" id="watchphoto" tabindex="-1" role="dialog" aria-labelledby="watchphotoLabel" style="width:800">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    我的图片
+                </div>
+
+                <div class="modal-body">
+                    <div id="waitphotolist">
+                        数据更新中，请稍后...
+                        <p></p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <span class="sr-only">waiting</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="convo5" data-from="Sonu Joshi" class="chat-thread2">
+                        <p id="showPhotoList"></p>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="closebutton">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--用户注册模态框-->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    填写注册信息
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">用户名</label>
+                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">密码</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">邮箱</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <p id="register_info"></p>
+
+                    </form>
+                    <button class="btn btn-success" onclick="register()" id="resgister_submit">提交</button>&nbsp&nbsp
+                    <button class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--用户登录模态框-->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    用户登录
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputUsername2">用户名</label>
+                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword2">密码</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        </div>
+
+                        <p id="login_info"></p>
+
+                    </form>
+                    <button class="btn btn-primary" onclick="login()" id="login_submit">登录</button>&nbsp&nbsp
+                    <button class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 读取面部信息-->
+
+    <!-- <button id="testt" onClick="addtest()"> 显示眼睛坐标 </button>  -->
+    <!-- <img id="img1" src="photo/preshow.png"> -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"> </script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!--该js放html末尾-->
-  <!--  <script src="js/waitingshow.js"></script> -->
+    <!--  <script src="js/waitingshow.js"></script> -->
 
-    </body>
-  </html>
+</body>
+
+</html>
