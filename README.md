@@ -1,6 +1,12 @@
-# # e键换脸
+# # 鲁虺e键在线换脸
 
-网站链接： http://qq547276542.github.io
+http://huanlian.luhui.net
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/89dedafa-9b61-4e94-a00d-34a5e8f9e342/deploy-status)](https://app.netlify.com/sites/huanlian/deploys)
+
+https://huanlian.netlify.app
+
+原作者网站链接： http://qq547276542.github.io
 
 项目文档：/doc 目录
 
